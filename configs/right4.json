@@ -1,0 +1,4332 @@
+{
+  "schema_version": "igris_c_nepes_tasks_v1",
+  "units": "meters",
+  "quaternion_order": "wxyz",
+  "calibration_status": "draft_unvalidated",
+  "gripper_variant": "filled_pad_v1",
+  "attachment_mode": "none",
+  "calibration_notes": [
+    "Single-arm CRS pickup and JIG placement with physical contact and HugWBC. This release exposes only the selected pickup/load task."
+  ],
+  "objects": {
+    "crs": "/World/Scene/Ring_02",
+    "jig": "/World/Scene/asset_jig_rev01",
+    "cleaner": "/World/Scene/Cleaner",
+    "cover": "/World/Scene/CleanerCover",
+    "cover_parking": "/World/NEPESTaskFixtures/CoverParking",
+    "source_cart_bottom_0031": "/World/Scene/Cart/Asset/assm_cart/assm_cart/main_cart/tn__1_xsy1im4pt4/Mesh"
+  },
+  "fixtures": [],
+  "door_clearance": {
+    "opening_half_extents_m": [
+      0.25,
+      0.25
+    ],
+    "cover_half_extents_m": [
+      0.2425,
+      0.2425,
+      0.04
+    ],
+    "margin_m": 0.025
+  },
+  "thresholds": {
+    "tcp_position_m": 0.003,
+    "tcp_rotation_rad": 0.05,
+    "object_position_m": 0.012,
+    "object_rotation_rad": 0.12,
+    "base_position_m": 0.07,
+    "base_yaw_rad": 0.15,
+    "capture_position_m": 0.025,
+    "capture_rotation_rad": 0.2,
+    "settle_linear_m_s": 0.015,
+    "settle_angular_rad_s": 0.12,
+    "settle_dwell_s": 0.6,
+    "contact_dwell_s": 0.15,
+    "reach_dwell_s": 0.1,
+    "max_observation_gap_s": 0.25,
+    "lost_grasp_grace_s": 0.1,
+    "object_waypoint_intermediate_dwell_s": 0.04
+  },
+  "tasks": {
+    "crs_load_jig": {
+      "title": "오른손으로 카트의 가까운 4번 슬롯 CRS를 집어 JIG의 가까운 4번 슬롯에 세워 적재",
+      "object": "crs",
+      "arm": "right",
+      "grasp_pose_object": [
+        -0.1162543,
+        0.2129325,
+        0.0077502,
+        0.030843479381557282,
+        0.03084401826685495,
+        -0.7064340612240421,
+        -0.7064334671144198
+      ],
+      "target": {
+        "frame": "jig",
+        "pose": [
+          3.0652982285772623e-07,
+          0.02299973714577233,
+          0.15939105934864306,
+          0.12278778891646448,
+          -0.1227878169947944,
+          -0.6963642366858078,
+          -0.6963642443115894
+        ]
+      },
+      "pregrasp_offset_w": [
+        0.0022,
+        0.005,
+        0.014367
+      ],
+      "lift_offset_w": [
+        0.0,
+        0.0,
+        0.18000000000000005
+      ],
+      "transfer_offset_w": [
+        0.0,
+        0.0,
+        0.02
+      ],
+      "retreat_offset_w": [
+        0.04,
+        0.0,
+        0.02
+      ],
+      "min_lift_m": 0.08,
+      "base_stations": {
+        "source": [
+          0.08699999999999997,
+          -0.6,
+          0.93784,
+          0.1986693307950611,
+          -0.0,
+          -0.0,
+          -0.9800665778412416
+        ],
+        "target": [
+          0.08699999999999997,
+          -0.6,
+          0.93784,
+          0.1986693307950611,
+          -0.0,
+          -0.0,
+          -0.9800665778412416
+        ]
+      },
+      "requires_completed": [],
+      "requires_events": [],
+      "requires_door_open": false,
+      "timeout_s": 1500.0,
+      "stage_timeouts_s": {
+        "prerequisites": 30.0,
+        "navigate_source": 30.0,
+        "reach_posture": 60.0,
+        "pregrasp": 90,
+        "approach": 45.0,
+        "close": 30.0,
+        "lift": 120.0,
+        "carry_posture": 90.0,
+        "navigate_target": 90.0,
+        "place_posture": 150.0,
+        "transfer": 420.0,
+        "place": 120.0,
+        "release": 90.0,
+        "retreat": 150.0,
+        "rest_posture": 90.0,
+        "settle": 30.0
+      },
+      "target_position_jitter_m": [
+        0,
+        0,
+        0
+      ],
+      "navigation_control": {
+        "max_speed_m_s": 0.12,
+        "max_yaw_rate_rad_s": 0.12,
+        "linear_acceleration_m_s2": 0.5,
+        "yaw_acceleration_rad_s2": 0.3,
+        "stabilize_carry": false,
+        "carry_tcp_speed_m_s": 0.2,
+        "carry_tcp_yaw_rate_rad_s": 0.15,
+        "position_gain_s_inv": 6.0,
+        "yaw_gain_s_inv": 6.0,
+        "settle_on_arrival": true,
+        "station_position_tolerance_m": 0.04,
+        "station_yaw_tolerance_rad": 0.08,
+        "arrival_linear_speed_m_s": 0.025,
+        "arrival_yaw_speed_rad_s": 0.08,
+        "arrival_dwell_s": 0.6,
+        "predictive_braking": true,
+        "predictive_braking_stages": [
+          "navigate_source",
+          "navigate_target"
+        ],
+        "command_frame": "pelvis",
+        "stationary_pelvis_hold": {
+          "maximum_position_drift_m": 0.12,
+          "maximum_yaw_drift_rad": 0.26
+        },
+        "target_position_tolerance_m": 0.08,
+        "target_yaw_tolerance_rad": 0.01,
+        "no_walk": {
+          "planned_pelvis_xy_yaw": [
+            0.040942047291998074,
+            -0.6194594585120631,
+            -2.7408078656458055
+          ]
+        }
+      },
+      "close_acquisition_frame": "object_relative",
+      "close_acquisition_position_m": 0.01,
+      "close_acquisition_rotation_rad": 0.05,
+      "object_pose_control": {
+        "linear_speed": 0.002,
+        "linear_acceleration": 0.004,
+        "angular_speed": 0.12,
+        "angular_acceleration": 0.3,
+        "position_lead": 0.012,
+        "rotation_lead": 0.02,
+        "reference_profile": "online",
+        "pause_slip_position": 0.02,
+        "pause_slip_rotation": 0.17,
+        "object_feedback": {
+          "position_limit": 0.02,
+          "rotation_limit": 0.15,
+          "linear_speed": 0.015,
+          "linear_acceleration": 0.06,
+          "angular_speed": 0.15,
+          "angular_acceleration": 0.5
+        }
+      },
+      "contact_servo_speed_scale": 1.0,
+      "maximum_pinch_angle_rad": 0.35,
+      "pinch_geometry_evidence": "planning/g55_center5_source_cad_v70.json, planning/run10_grasp_statistics.json and planning/run21_carry_complete_snapshot.json. Actual seated G55center5 includes fixed inner-pad Pin10 contact; no pure-rim support claim.",
+      "contact_detail_limit": 128,
+      "calibration_status": "offline_early_rotation_requires_native_lift_validation",
+      "motion_watchdog": {
+        "duration_s": 12.0,
+        "position_improvement_m": 0.002,
+        "rotation_improvement_rad": 0.01
+      },
+      "open_gripper_position_rad": -0.4,
+      "arm_nullspace_gain_s_inv": 0.0,
+      "measured_phase_grasp_reference": true,
+      "closed_gripper_position_rad": 0.0,
+      "calibration_notes": [],
+      "placement_support": {
+        "object": "jig",
+        "normal_w": [
+          0,
+          0,
+          1
+        ],
+        "minimum_load_fraction": 0.8,
+        "maximum_linear_m_s": 0.02,
+        "maximum_angular_rad_s": 0.1,
+        "dwell_s": 0.5,
+        "filter_s": 0.2,
+        "latch_dwell_s": 0.1
+      },
+      "stage_sequence": "upright_pickup_load_v1",
+      "upright_start": {
+        "robot_root_pose_w": [
+          0.08699999999999997,
+          -0.6,
+          0.98,
+          0.1986693307950611,
+          -0.0,
+          -0.0,
+          -0.9800665778412416
+        ],
+        "joint_overrides": {
+          "l_1_dof_gripper_moving": 0.0,
+          "r_1_dof_gripper_moving": -0.4,
+          "Joint_Neck_Yaw": 0.0,
+          "Joint_Neck_Pitch": 0.0
+        },
+        "head_gaze": false
+      },
+      "posture_paths": {
+        "reach_posture": {
+          "joint_names": [
+            "Joint_Waist_Yaw",
+            "Joint_Waist_Roll",
+            "Joint_Waist_Pitch",
+            "Joint_Shoulder_Pitch_Left",
+            "Joint_Shoulder_Roll_Left",
+            "Joint_Shoulder_Yaw_Left",
+            "Joint_Elbow_Pitch_Left",
+            "Joint_Shoulder_Pitch_Right",
+            "Joint_Shoulder_Roll_Right",
+            "Joint_Shoulder_Yaw_Right",
+            "Joint_Elbow_Pitch_Right",
+            "Joint_Wrist_Yaw_Left",
+            "Joint_Wrist_Roll_Left",
+            "Joint_Wrist_Pitch_Left",
+            "Joint_Wrist_Yaw_Right",
+            "Joint_Wrist_Roll_Right",
+            "Joint_Wrist_Pitch_Right",
+            "Joint_Neck_Yaw",
+            "Joint_Neck_Pitch"
+          ],
+          "waypoints": [
+            [
+              0.0012043602764606476,
+              0.0007974404143169522,
+              0.04990430548787117,
+              0.1260363608598709,
+              0.11601821333169937,
+              -0.0013404781930148602,
+              -0.2904176414012909,
+              1.0,
+              -0.12064153701066971,
+              0.0011523606954142451,
+              -0.2904757559299469,
+              -0.0004082180676050484,
+              -0.0006802391144447029,
+              0.0005395144107751548,
+              0.0003480128652881831,
+              0.0006012830999679863,
+              0.0005332407890819013,
+              -0.00012181969941593707,
+              0.007554491516202688
+            ],
+            [
+              0.0012043602764606476,
+              0.0007974404143169522,
+              0.04990430548787117,
+              0.1260363608598709,
+              0.11601821333169937,
+              -0.0013404781930148602,
+              -0.2904176414012909,
+              1.0,
+              -0.12064153701066971,
+              0.0011523606954142451,
+              -2.04,
+              -0.0004082180676050484,
+              -0.0006802391144447029,
+              0.0005395144107751548,
+              0.0003480128652881831,
+              0.0006012830999679863,
+              0.0005332407890819013,
+              -0.00012181969941593707,
+              0.007554491516202688
+            ],
+            [
+              -0.9927115294382662,
+              0.11901033124750443,
+              -0.11221550190830892,
+              0.1260363608598709,
+              0.11601821333169937,
+              -0.0013404781930148602,
+              -0.2904176414012909,
+              1.0,
+              -0.12064153701066971,
+              0.0011523606954142451,
+              -2.04,
+              -0.0004082180676050484,
+              -0.0006802391144447029,
+              0.0005395144107751548,
+              0.0003480128652881831,
+              0.0006012830999679863,
+              0.0005332407890819013,
+              -0.00012181969941593707,
+              0.007554491516202688
+            ],
+            [
+              -0.9927115294382662,
+              0.11901033124750443,
+              -0.11221550190830892,
+              0.1260363608598709,
+              0.11601821333169937,
+              -0.0013404781930148602,
+              -0.2904176414012909,
+              0.12,
+              -0.12064153701066971,
+              0.0011523606954142451,
+              -2.04,
+              -0.0004082180676050484,
+              -0.0006802391144447029,
+              0.0005395144107751548,
+              0.0003480128652881831,
+              0.0006012830999679863,
+              0.0005332407890819013,
+              -0.00012181969941593707,
+              0.007554491516202688
+            ],
+            [
+              -0.99785,
+              0.060751,
+              -0.141171,
+              0.125619,
+              0.115525,
+              -0.001345,
+              -0.290469,
+              -0.565008,
+              -2.218355,
+              0.709236,
+              -1.84673,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              0.239437,
+              1.050668,
+              -0.368998,
+              -0.000138,
+              0.007557
+            ]
+          ],
+          "segment_min_duration_s": [
+            0.2,
+            0.2,
+            0.2,
+            0.2,
+            0.2
+          ],
+          "max_speed_rad_s": 1.6,
+          "max_acceleration_rad_s2": 4.0,
+          "arrival_tolerance_rad": 0.15,
+          "settle_velocity_rad_s": 0.2,
+          "settle_dwell_s": 0.5,
+          "max_tracking_error_rad": 0.3,
+          "motion_limit_profile": "simulation_fast"
+        },
+        "carry_posture": {
+          "joint_names": [
+            "Joint_Waist_Yaw",
+            "Joint_Waist_Roll",
+            "Joint_Waist_Pitch",
+            "Joint_Shoulder_Pitch_Left",
+            "Joint_Shoulder_Roll_Left",
+            "Joint_Shoulder_Yaw_Left",
+            "Joint_Elbow_Pitch_Left",
+            "Joint_Shoulder_Pitch_Right",
+            "Joint_Shoulder_Roll_Right",
+            "Joint_Shoulder_Yaw_Right",
+            "Joint_Elbow_Pitch_Right",
+            "Joint_Wrist_Yaw_Left",
+            "Joint_Wrist_Roll_Left",
+            "Joint_Wrist_Pitch_Left",
+            "Joint_Wrist_Yaw_Right",
+            "Joint_Wrist_Roll_Right",
+            "Joint_Wrist_Pitch_Right",
+            "Joint_Neck_Yaw",
+            "Joint_Neck_Pitch"
+          ],
+          "waypoints": [
+            [
+              -0.824182,
+              -0.040478,
+              -0.129969,
+              0.164773,
+              0.281329,
+              -0.191731,
+              -0.550682,
+              -0.374327,
+              -2.762985,
+              0.150467,
+              -1.925766,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              0.022151,
+              1.124784,
+              -0.444064,
+              -0.000138,
+              0.007557
+            ],
+            [
+              -0.782331,
+              -0.005346,
+              -0.092597,
+              0.203676,
+              0.431135,
+              -0.384781,
+              -0.810201,
+              -0.446624,
+              -2.830006,
+              0.130579,
+              -1.933951,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              0.090113,
+              1.117272,
+              -0.440995,
+              -0.000138,
+              0.007557
+            ],
+            [
+              -0.722807,
+              -0.005304,
+              -0.096904,
+              0.204231,
+              0.430003,
+              -0.385245,
+              -0.81027,
+              -0.54334,
+              -2.945122,
+              0.050861,
+              -1.945159,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              0.183572,
+              1.112094,
+              -0.424228,
+              -0.000138,
+              0.007557
+            ],
+            [
+              -0.622386,
+              -0.004879,
+              -0.097475,
+              0.205008,
+              0.428054,
+              -0.38601,
+              -0.810453,
+              -0.592433,
+              -2.962541,
+              -0.000553,
+              -1.897271,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              0.329509,
+              1.047259,
+              -0.357713,
+              -0.000138,
+              0.007557
+            ],
+            [
+              -0.468578,
+              0.026782,
+              -0.081534,
+              0.205034,
+              0.421163,
+              -0.388217,
+              -0.812161,
+              -0.73473,
+              -2.947011,
+              0.162506,
+              -1.942652,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              0.394895,
+              0.772888,
+              -0.441475,
+              -0.000138,
+              0.007557
+            ],
+            [
+              -0.414985,
+              0.063913,
+              -0.014289,
+              0.197855,
+              0.413416,
+              -0.389373,
+              -0.816869,
+              -0.782045,
+              -2.923346,
+              0.601185,
+              -1.939841,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              0.534886,
+              0.374647,
+              -0.438371,
+              -0.000138,
+              0.007557
+            ],
+            [
+              -0.37429,
+              0.073096,
+              -0.031707,
+              0.199313,
+              0.412845,
+              -0.389823,
+              -0.81642,
+              -0.940503,
+              -2.90957,
+              0.893309,
+              -1.901475,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              0.739116,
+              0.09803,
+              -0.391465,
+              -0.000138,
+              0.007557
+            ],
+            [
+              -0.353773,
+              0.072296,
+              -0.057274,
+              0.201472,
+              0.413668,
+              -0.389956,
+              -0.815371,
+              -1.171956,
+              -2.902502,
+              1.085599,
+              -1.885,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              0.968188,
+              -0.06665,
+              -0.380161,
+              -0.000138,
+              0.007557
+            ]
+          ],
+          "segment_min_duration_s": [
+            0.5421,
+            0.5407,
+            0.3952,
+            0.56,
+            1.085,
+            1.2241,
+            1.2689,
+            0.9653
+          ],
+          "max_speed_rad_s": 0.8,
+          "max_acceleration_rad_s2": 2.0,
+          "arrival_tolerance_rad": 0.15,
+          "settle_velocity_rad_s": 0.2,
+          "settle_dwell_s": 0.5,
+          "max_tracking_error_rad": 0.3,
+          "settle_speed_source": "measured_positions",
+          "reference_profile": "bounded_c2",
+          "max_joint_deviation_rad": 0.02
+        },
+        "place_posture": {
+          "joint_names": [
+            "Joint_Waist_Yaw",
+            "Joint_Waist_Roll",
+            "Joint_Waist_Pitch",
+            "Joint_Shoulder_Pitch_Left",
+            "Joint_Shoulder_Roll_Left",
+            "Joint_Shoulder_Yaw_Left",
+            "Joint_Elbow_Pitch_Left",
+            "Joint_Shoulder_Pitch_Right",
+            "Joint_Shoulder_Roll_Right",
+            "Joint_Shoulder_Yaw_Right",
+            "Joint_Elbow_Pitch_Right",
+            "Joint_Wrist_Yaw_Left",
+            "Joint_Wrist_Roll_Left",
+            "Joint_Wrist_Pitch_Left",
+            "Joint_Wrist_Yaw_Right",
+            "Joint_Wrist_Roll_Right",
+            "Joint_Wrist_Pitch_Right",
+            "Joint_Neck_Yaw",
+            "Joint_Neck_Pitch"
+          ],
+          "waypoints": [
+            [
+              -0.216426,
+              0.068585,
+              -0.05344,
+              0.199509,
+              0.412211,
+              -0.390061,
+              -0.816484,
+              -1.568652,
+              -2.652265,
+              1.283286,
+              -1.842112,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              1.370578,
+              -0.145333,
+              -0.341465,
+              -0.000138,
+              0.007557
+            ],
+            [
+              -0.056632,
+              0.069499,
+              -0.047594,
+              0.1978,
+              0.410166,
+              -0.390401,
+              -0.817613,
+              -1.469722,
+              -2.451873,
+              1.251297,
+              -1.827444,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              1.321081,
+              -0.095257,
+              -0.264238,
+              -0.000138,
+              0.007557
+            ],
+            [
+              0.162194,
+              0.077523,
+              -0.0428,
+              0.195357,
+              0.407107,
+              -0.390928,
+              -0.819228,
+              -1.142594,
+              -2.230465,
+              0.97989,
+              -1.769396,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              1.17486,
+              -0.045027,
+              -0.241447,
+              -0.000138,
+              0.007557
+            ],
+            [
+              0.312103,
+              0.078224,
+              -0.045302,
+              0.194088,
+              0.405603,
+              -0.391175,
+              -0.820036,
+              -0.77392,
+              -2.183935,
+              0.63233,
+              -1.719748,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              1.046781,
+              -0.035418,
+              -0.238232,
+              -0.000138,
+              0.007557
+            ],
+            [
+              0.666338,
+              0.078091,
+              -0.039856,
+              0.188888,
+              0.404183,
+              -0.390673,
+              -0.822303,
+              0.225171,
+              -1.964167,
+              -0.469202,
+              -1.598733,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              1.13856,
+              0.049261,
+              -0.19482,
+              -0.000138,
+              0.007557
+            ],
+            [
+              0.866665,
+              0.076882,
+              -0.041588,
+              0.185682,
+              0.404325,
+              -0.390038,
+              -0.823459,
+              0.419788,
+              -2.059013,
+              -0.680381,
+              -1.623314,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              1.064736,
+              0.002247,
+              -0.241035,
+              -0.000138,
+              0.007557
+            ],
+            [
+              1.111391,
+              -0.025328,
+              -0.084391,
+              0.193476,
+              0.404834,
+              -0.391308,
+              -0.820429,
+              0.693023,
+              -2.08824,
+              -1.043704,
+              -1.738027,
+              -0.000415,
+              -0.000693,
+              0.000533,
+              1.150454,
+              0.018508,
+              -0.188596,
+              -0.000138,
+              0.007557
+            ]
+          ],
+          "segment_min_duration_s": [
+            0.8873,
+            0.2084,
+            0.3827,
+            0.5486,
+            0.6137,
+            0.5699,
+            0.4791
+          ],
+          "max_speed_rad_s": 0.8,
+          "max_acceleration_rad_s2": 2.0,
+          "arrival_tolerance_rad": 0.15,
+          "settle_velocity_rad_s": 0.2,
+          "settle_dwell_s": 0.5,
+          "max_tracking_error_rad": 0.3,
+          "settle_speed_source": "measured_positions",
+          "reference_profile": "bounded_c2",
+          "max_joint_deviation_rad": 0.02
+        },
+        "rest_posture": {
+          "reference_mode": "hold_last_applied",
+          "joint_names": [
+            "Joint_Waist_Yaw",
+            "Joint_Waist_Roll",
+            "Joint_Waist_Pitch",
+            "Joint_Shoulder_Pitch_Left",
+            "Joint_Shoulder_Roll_Left",
+            "Joint_Shoulder_Yaw_Left",
+            "Joint_Elbow_Pitch_Left",
+            "Joint_Shoulder_Pitch_Right",
+            "Joint_Shoulder_Roll_Right",
+            "Joint_Shoulder_Yaw_Right",
+            "Joint_Elbow_Pitch_Right",
+            "Joint_Wrist_Yaw_Left",
+            "Joint_Wrist_Roll_Left",
+            "Joint_Wrist_Pitch_Left",
+            "Joint_Wrist_Yaw_Right",
+            "Joint_Wrist_Roll_Right",
+            "Joint_Wrist_Pitch_Right",
+            "Joint_Neck_Yaw",
+            "Joint_Neck_Pitch"
+          ],
+          "arrival_tolerance_rad": 0.15,
+          "settle_velocity_rad_s": 0.2,
+          "settle_dwell_s": 0.1,
+          "max_tracking_error_rad": 0.3,
+          "settle_speed_source": "measured_positions"
+        }
+      },
+      "object_waypoint_offsets_w": {
+        "lift": [
+          [
+            0.0,
+            0.0,
+            0.03500000000000003
+          ],
+          [
+            0.0,
+            0.0,
+            0.18000000000000005
+          ]
+        ],
+        "transfer": [
+          [
+            0.14859536917655847,
+            0.011121881036922965,
+            0.41181367167020966
+          ],
+          [
+            0.14947181076041866,
+            0.0012320916410615834,
+            0.39958637490178517
+          ],
+          [
+            0.15035248039750515,
+            -0.008705407216254735,
+            0.3873000922722345
+          ],
+          [
+            0.15123686185665403,
+            -0.018684790369282223,
+            0.37496202575800264
+          ],
+          [
+            0.15212495191725872,
+            -0.02870602147661333,
+            0.36257222028999325
+          ],
+          [
+            0.1530156867216636,
+            -0.03875709594107357,
+            0.3501455178194717
+          ],
+          [
+            0.15390844583251168,
+            -0.04883101273155371,
+            0.33769057411064396
+          ],
+          [
+            0.15480451721633437,
+            -0.05894230529555261,
+            0.32518942065391654
+          ],
+          [
+            0.15570168388675426,
+            -0.06906595710171115,
+            0.3126729867786009
+          ],
+          [
+            0.15659608147108145,
+            -0.07915836246911145,
+            0.30019518461366457
+          ],
+          [
+            0.15748706363020898,
+            -0.08921222809062984,
+            0.28776503128040853
+          ],
+          [
+            0.15638463805603203,
+            -0.09500018241368618,
+            0.2753927978498232
+          ],
+          [
+            0.15257315330761262,
+            -0.09500018241368618,
+            0.26308487834971883
+          ],
+          [
+            0.1487836711011094,
+            -0.09500018241368618,
+            0.25084800872455215
+          ],
+          [
+            0.14501877289578596,
+            -0.09500018241368618,
+            0.23869052493652854
+          ],
+          [
+            0.14128054847617322,
+            -0.09500018241368618,
+            0.22661917524819586
+          ],
+          [
+            0.13757168432034322,
+            -0.09500018241368618,
+            0.2146426347449948
+          ],
+          [
+            0.13368113422403605,
+            -0.09500018241368618,
+            0.20279019852265945
+          ],
+          [
+            0.12198069508862974,
+            -0.09500018241368618,
+            0.19108975938725314
+          ],
+          [
+            0.11042859655919379,
+            -0.09500018241368618,
+            0.1795376608578172
+          ],
+          [
+            0.09903815530462468,
+            -0.09500018241368618,
+            0.16814721960324808
+          ],
+          [
+            0.08782637230952983,
+            -0.09500018241368618,
+            0.15693543660815323
+          ],
+          [
+            0.0743126713937508,
+            -0.09500018241368618,
+            0.14595103285479882
+          ],
+          [
+            0.02245156425327499,
+            -0.09500018241368618,
+            0.1352442236387006
+          ],
+          [
+            -2.9137628976272367e-09,
+            -0.09500018241368618,
+            0.12480007301539775
+          ],
+          [
+            -2.9137628976272367e-09,
+            -0.09500018241368618,
+            0.11465450625722595
+          ],
+          [
+            -2.9137628976272367e-09,
+            -0.08312518241368622,
+            0.11465450625722595
+          ],
+          [
+            -2.9137628976272367e-09,
+            -0.07125018241368619,
+            0.11465450625722595
+          ],
+          [
+            -2.9137628976272367e-09,
+            -0.05937518241368617,
+            0.11465450625722595
+          ],
+          [
+            -2.9137628976272367e-09,
+            -0.0475001824136862,
+            0.11465450625722595
+          ],
+          [
+            -2.9137628976272367e-09,
+            -0.03562518241368623,
+            0.11465450625722595
+          ],
+          [
+            -2.9137628976272367e-09,
+            -0.023750182413686205,
+            0.11465450625722595
+          ],
+          [
+            -2.9137628976272367e-09,
+            -0.01187518241368618,
+            0.11465450625722595
+          ],
+          [
+            -2.9137628976272367e-09,
+            -1.8241368621163545e-07,
+            0.11465450625722595
+          ],
+          [
+            -2.6223866411712038e-09,
+            -1.6417231757381856e-07,
+            0.10518905563150338
+          ],
+          [
+            -2.331010384715171e-09,
+            -1.4593094893600167e-07,
+            0.09572360500578081
+          ],
+          [
+            -2.0396340172368355e-09,
+            -1.2768958035369593e-07,
+            0.08625815438005802
+          ],
+          [
+            -1.7482577607808025e-09,
+            -1.0944821177139019e-07,
+            0.07679270375433556
+          ],
+          [
+            -1.4568815043247696e-09,
+            -9.12068431335733e-08,
+            0.06732725312861298
+          ],
+          [
+            -1.1655052478687367e-09,
+            -7.296547449575641e-08,
+            0.057861802502890414
+          ],
+          [
+            -8.741287693680988e-10,
+            -5.472410585793952e-08,
+            0.04839635187716773
+          ],
+          [
+            -5.827526239343683e-10,
+            -3.648273727563378e-08,
+            0.03893090125144527
+          ],
+          [
+            -2.9137625645603293e-10,
+            -1.824136863781689e-08,
+            0.02946545062572259
+          ],
+          [
+            0.0,
+            0.0,
+            0.02
+          ]
+        ]
+      },
+      "object_pose_control_overrides": {
+        "lift": [
+          {
+            "linear_speed": 0.025,
+            "linear_acceleration": 0.1
+          },
+          {
+            "linear_speed": 0.04,
+            "linear_acceleration": 0.16,
+            "cross_track_rotation": 0.05
+          }
+        ],
+        "transfer": [
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.01,
+            "linear_acceleration": 0.04,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.03,
+            "linear_acceleration": 0.12,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.01,
+            "linear_acceleration": 0.04,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.01,
+            "linear_acceleration": 0.04,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.01,
+            "linear_acceleration": 0.04,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.01,
+            "linear_acceleration": 0.04,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          },
+          {
+            "linear_speed": 0.01,
+            "linear_acceleration": 0.04,
+            "angular_speed": 0.2,
+            "angular_acceleration": 0.4
+          }
+        ],
+        "place": {
+          "linear_speed": 0.003,
+          "linear_acceleration": 0.02,
+          "fast_linear_speed": 0.012,
+          "slow_zone_height_m": 0.006
+        }
+      },
+      "retreat_waypoints_w": [
+        [
+          0.04,
+          0.0,
+          0.02
+        ]
+      ],
+      "release_clearance_offset_w": [
+        0.0,
+        0.004,
+        0.0025
+      ],
+      "retreat_pose_control": {
+        "linear_speed": 0.03,
+        "linear_acceleration": 0.1,
+        "angular_speed": 0.12,
+        "angular_acceleration": 0.3,
+        "position_lead": 0.006,
+        "rotation_lead": 0.02,
+        "cross_track_position": 0.015,
+        "cross_track_rotation": 0.05
+      },
+      "upper_body_ik": {
+        "stages": [
+          "pregrasp",
+          "approach",
+          "lift",
+          "transfer",
+          "place"
+        ],
+        "waist_command_limits_rad": {
+          "Joint_Waist_Yaw": [
+            -1.47,
+            1.47
+          ],
+          "Joint_Waist_Roll": [
+            -0.15,
+            0.15
+          ],
+          "Joint_Waist_Pitch": [
+            -0.4,
+            0.15
+          ]
+        },
+        "max_waist_speed_rad_s": 0.25,
+        "arm_command_margin_rad": 0.03,
+        "target_motion_feedforward_stages": [
+          "lift",
+          "transfer"
+        ],
+        "arm_command_limits_rad": {
+          "Joint_Wrist_Pitch_Right": [
+            -0.45,
+            0.618131701
+          ]
+        },
+        "stage_command_limits_rad": {
+          "lift": {
+            "Joint_Waist_Yaw": [
+              -1.2,
+              1.2
+            ]
+          },
+          "transfer": {
+            "Joint_Waist_Yaw": [
+              -1.47,
+              1.47
+            ],
+            "Joint_Elbow_Pitch_Right": [
+              -2.014395102,
+              -0.03
+            ],
+            "Joint_Wrist_Roll_Right": [
+              -0.25,
+              1.191730476
+            ],
+            "Joint_Wrist_Pitch_Right": [
+              -0.45,
+              0.45
+            ]
+          },
+          "place": {
+            "Joint_Elbow_Pitch_Right": [
+              -2.014395102,
+              -0.03
+            ],
+            "Joint_Wrist_Roll_Right": [
+              -0.25,
+              1.191730476
+            ],
+            "Joint_Wrist_Pitch_Right": [
+              -0.45,
+              0.45
+            ]
+          }
+        },
+        "waist_speed_profile": "simulation_fast",
+        "stage_waist_hold": [
+          "pregrasp",
+          "approach",
+          "place"
+        ],
+        "transfer_early_command_limits": {
+          "until_waypoint": 21,
+          "limits": {
+            "Joint_Waist_Roll": [
+              -0.025337999144792556,
+              -0.025317999144792557
+            ],
+            "Joint_Waist_Pitch": [
+              -0.08440099788665771,
+              -0.08438099788665772
+            ]
+          }
+        },
+        "transfer_secondary_arm_schedule": {
+          "from_waypoint": 0,
+          "to_waypoint": 6,
+          "joint_positions": {
+            "Joint_Shoulder_Pitch_Left": 0.0,
+            "Joint_Shoulder_Roll_Left": 0.4,
+            "Joint_Shoulder_Yaw_Left": -0.4,
+            "Joint_Elbow_Pitch_Left": -1.9
+          },
+          "max_speed_rad_s": 0.2
+        }
+      },
+      "transport_constraints": {
+        "schema_version": "igris_c_payload_transport_constraints_v1",
+        "coordinate_frame": "world",
+        "geometry": {
+          "kind": "cylinder",
+          "center_object_m": [
+            0,
+            0,
+            0.003
+          ],
+          "axis_object": [
+            0,
+            0,
+            1
+          ],
+          "radius_m": 0.127,
+          "thickness_m": 0.006
+        },
+        "stage_rules": {
+          "carry_posture": {
+            "minimum_world_z_m": 0.5,
+            "orientation": {
+              "axis_object": [
+                0,
+                0,
+                1
+              ],
+              "maximum_abs_vertical_component": 0.1392
+            },
+            "forbidden_aabbs": [
+              {
+                "id": "cleaner_body_and_cover",
+                "minimum_w_m": [
+                  -0.32,
+                  0.05,
+                  0
+                ],
+                "maximum_w_m": [
+                  0.32,
+                  0.65,
+                  0.992
+                ],
+                "margin_m": 0.01
+              }
+            ]
+          },
+          "navigate_target": {
+            "minimum_world_z_m": 0.5,
+            "orientation": {
+              "axis_object": [
+                0,
+                0,
+                1
+              ],
+              "maximum_abs_vertical_component": 0.1392
+            },
+            "forbidden_aabbs": [
+              {
+                "id": "cleaner_body_and_cover",
+                "minimum_w_m": [
+                  -0.32,
+                  0.05,
+                  0
+                ],
+                "maximum_w_m": [
+                  0.32,
+                  0.65,
+                  0.992
+                ],
+                "margin_m": 0.01
+              }
+            ]
+          },
+          "place_posture": {
+            "minimum_world_z_m": 0.5,
+            "orientation": {
+              "axis_object": [
+                0,
+                0,
+                1
+              ],
+              "maximum_abs_vertical_component": 0.1392
+            },
+            "forbidden_aabbs": [
+              {
+                "id": "cleaner_body_and_cover",
+                "minimum_w_m": [
+                  -0.32,
+                  0.05,
+                  0
+                ],
+                "maximum_w_m": [
+                  0.32,
+                  0.65,
+                  0.992
+                ],
+                "margin_m": 0.01
+              }
+            ]
+          },
+          "transfer": {
+            "minimum_world_z_m": 0.5,
+            "orientation": {
+              "axis_object": [
+                0,
+                0,
+                1
+              ],
+              "maximum_abs_vertical_component": 0.1392
+            },
+            "forbidden_aabbs": [
+              {
+                "id": "cleaner_body_and_cover",
+                "minimum_w_m": [
+                  -0.32,
+                  0.05,
+                  0
+                ],
+                "maximum_w_m": [
+                  0.32,
+                  0.65,
+                  0.992
+                ],
+                "margin_m": 0.01
+              }
+            ]
+          }
+        }
+      },
+      "upper_body_posture_guidance": {
+        "gain_s_inv": 2.0,
+        "stages": {
+          "lift": {
+            "entry_joint_positions": {
+              "Joint_Waist_Yaw": -0.9919756432544556,
+              "Joint_Waist_Roll": 0.06817820298139844,
+              "Joint_Waist_Pitch": -0.18880421209323792,
+              "Joint_Shoulder_Pitch_Right": -0.42928043852292547,
+              "Joint_Shoulder_Roll_Right": -1.8722215140865794,
+              "Joint_Shoulder_Yaw_Right": 0.7837550074359496,
+              "Joint_Elbow_Pitch_Right": -1.6980457575534555,
+              "Joint_Wrist_Yaw_Right": 0.2701939078388006,
+              "Joint_Wrist_Roll_Right": 0.988579022415757,
+              "Joint_Wrist_Pitch_Right": -0.20564373122246585
+            },
+            "waypoint_joint_positions": [
+              {
+                "Joint_Waist_Yaw": -0.9660255100206564,
+                "Joint_Waist_Roll": 0.06566791076015764,
+                "Joint_Waist_Pitch": -0.18763064639297208,
+                "Joint_Shoulder_Pitch_Right": -0.4854367424951662,
+                "Joint_Shoulder_Roll_Right": -1.9088137116858435,
+                "Joint_Shoulder_Yaw_Right": 0.7275858057283745,
+                "Joint_Elbow_Pitch_Right": -1.7481269977518135,
+                "Joint_Wrist_Yaw_Right": 0.31793980057761284,
+                "Joint_Wrist_Roll_Right": 1.0830662773087232,
+                "Joint_Wrist_Pitch_Right": -0.28719975022179345
+              },
+              {
+                "Joint_Waist_Yaw": -0.8346,
+                "Joint_Waist_Roll": 0.0078,
+                "Joint_Waist_Pitch": -0.0224,
+                "Joint_Shoulder_Pitch_Right": -0.2526,
+                "Joint_Shoulder_Roll_Right": -2.2636,
+                "Joint_Shoulder_Yaw_Right": 0.3203,
+                "Joint_Elbow_Pitch_Right": -1.9276,
+                "Joint_Wrist_Yaw_Right": 0.1229,
+                "Joint_Wrist_Roll_Right": 1.1371,
+                "Joint_Wrist_Pitch_Right": -0.33
+              }
+            ]
+          },
+          "pregrasp": {
+            "from_entry": true
+          },
+          "approach": {
+            "from_entry": true
+          },
+          "transfer": {
+            "entry_joint_positions": {
+              "Joint_Waist_Yaw": 1.0956491231918335,
+              "Joint_Waist_Roll": -0.041651561856269836,
+              "Joint_Waist_Pitch": -0.0950101912021637,
+              "Joint_Shoulder_Pitch_Right": 0.7689776420593262,
+              "Joint_Shoulder_Roll_Right": -2.075941324234009,
+              "Joint_Shoulder_Yaw_Right": -0.9934311509132385,
+              "Joint_Elbow_Pitch_Right": -1.7560194730758667,
+              "Joint_Wrist_Yaw_Right": 1.1492453813552856,
+              "Joint_Wrist_Roll_Right": 0.014016899280250072,
+              "Joint_Wrist_Pitch_Right": -0.1972409188747406
+            },
+            "waypoint_joint_positions": [
+              {
+                "Joint_Waist_Yaw": 1.1025475765384611,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.7665106788956548,
+                "Joint_Shoulder_Roll_Right": -2.094172553253736,
+                "Joint_Shoulder_Yaw_Right": -0.9785064938718167,
+                "Joint_Elbow_Pitch_Right": -1.7781342455645344,
+                "Joint_Wrist_Yaw_Right": 1.1279628538310928,
+                "Joint_Wrist_Roll_Right": 0.023816762757837333,
+                "Joint_Wrist_Pitch_Right": -0.19211686044165183
+              },
+              {
+                "Joint_Waist_Yaw": 1.1081520313154958,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.7630050364362314,
+                "Joint_Shoulder_Roll_Right": -2.1101755915051403,
+                "Joint_Shoulder_Yaw_Right": -0.9635811105184396,
+                "Joint_Elbow_Pitch_Right": -1.8019852706881123,
+                "Joint_Wrist_Yaw_Right": 1.1078815960323456,
+                "Joint_Wrist_Roll_Right": 0.034696166672109445,
+                "Joint_Wrist_Pitch_Right": -0.18720858189514106
+              },
+              {
+                "Joint_Waist_Yaw": 1.119517630585584,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.7642117087809621,
+                "Joint_Shoulder_Roll_Right": -2.1395472082389064,
+                "Joint_Shoulder_Yaw_Right": -0.9500998591465102,
+                "Joint_Elbow_Pitch_Right": -1.8159739844893337,
+                "Joint_Wrist_Yaw_Right": 1.0825132526257366,
+                "Joint_Wrist_Roll_Right": 0.03974127551648038,
+                "Joint_Wrist_Pitch_Right": -0.17708115073164568
+              },
+              {
+                "Joint_Waist_Yaw": 1.1365394923485552,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.7713487190856283,
+                "Joint_Shoulder_Roll_Right": -2.174292394562148,
+                "Joint_Shoulder_Yaw_Right": -0.9475887470569517,
+                "Joint_Elbow_Pitch_Right": -1.8326064520618963,
+                "Joint_Wrist_Yaw_Right": 1.0576631995717654,
+                "Joint_Wrist_Roll_Right": 0.04986296540381151,
+                "Joint_Wrist_Pitch_Right": -0.16829001520723527
+              },
+              {
+                "Joint_Waist_Yaw": 1.152218252583909,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.7767962392434772,
+                "Joint_Shoulder_Roll_Right": -2.2081601002665336,
+                "Joint_Shoulder_Yaw_Right": -0.944404203305138,
+                "Joint_Elbow_Pitch_Right": -1.849551626735301,
+                "Joint_Wrist_Yaw_Right": 1.0331982981846701,
+                "Joint_Wrist_Roll_Right": 0.060542093287788104,
+                "Joint_Wrist_Pitch_Right": -0.15944402601832824
+              },
+              {
+                "Joint_Waist_Yaw": 1.1700063843027848,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.7848483291270361,
+                "Joint_Shoulder_Roll_Right": -2.247576384736835,
+                "Joint_Shoulder_Yaw_Right": -0.944289137571587,
+                "Joint_Elbow_Pitch_Right": -1.8624218949425757,
+                "Joint_Wrist_Yaw_Right": 1.007616532938192,
+                "Joint_Wrist_Roll_Right": 0.07010413703704521,
+                "Joint_Wrist_Pitch_Right": -0.14975292744107216
+              },
+              {
+                "Joint_Waist_Yaw": 1.1848462024442774,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.7925333105800527,
+                "Joint_Shoulder_Roll_Right": -2.2839903340695513,
+                "Joint_Shoulder_Yaw_Right": -0.9450205005535999,
+                "Joint_Elbow_Pitch_Right": -1.8759516541170695,
+                "Joint_Wrist_Yaw_Right": 0.983999708813481,
+                "Joint_Wrist_Roll_Right": 0.08156344307075741,
+                "Joint_Wrist_Pitch_Right": -0.14142314945271756
+              },
+              {
+                "Joint_Waist_Yaw": 1.1982379559495575,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.8007346891155307,
+                "Joint_Shoulder_Roll_Right": -2.320040337871933,
+                "Joint_Shoulder_Yaw_Right": -0.9471241279503013,
+                "Joint_Elbow_Pitch_Right": -1.8887250462858793,
+                "Joint_Wrist_Yaw_Right": 0.9612711142043102,
+                "Joint_Wrist_Roll_Right": 0.09429074442250546,
+                "Joint_Wrist_Pitch_Right": -0.1337731809324985
+              },
+              {
+                "Joint_Waist_Yaw": 1.1760720299074436,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.8269018588178912,
+                "Joint_Shoulder_Roll_Right": -2.294757043750199,
+                "Joint_Shoulder_Yaw_Right": -0.9333014448809831,
+                "Joint_Elbow_Pitch_Right": -1.8775982606956443,
+                "Joint_Wrist_Yaw_Right": 0.976446985482059,
+                "Joint_Wrist_Roll_Right": 0.06870121749661814,
+                "Joint_Wrist_Pitch_Right": -0.13705153655966051
+              },
+              {
+                "Joint_Waist_Yaw": 1.1842330652792772,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.8315043068121197,
+                "Joint_Shoulder_Roll_Right": -2.3270982563587097,
+                "Joint_Shoulder_Yaw_Right": -0.9319054321387565,
+                "Joint_Elbow_Pitch_Right": -1.892239496808295,
+                "Joint_Wrist_Yaw_Right": 0.9548221233671191,
+                "Joint_Wrist_Roll_Right": 0.08483772230513015,
+                "Joint_Wrist_Pitch_Right": -0.1299843107592366
+              },
+              {
+                "Joint_Waist_Yaw": 1.191068544550151,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.8373441525232925,
+                "Joint_Shoulder_Roll_Right": -2.3593159683616447,
+                "Joint_Shoulder_Yaw_Right": -0.9323762335124495,
+                "Joint_Elbow_Pitch_Right": -1.905585506627165,
+                "Joint_Wrist_Yaw_Right": 0.9337992822787781,
+                "Joint_Wrist_Roll_Right": 0.10211163403143471,
+                "Joint_Wrist_Pitch_Right": -0.1234754383062376
+              },
+              {
+                "Joint_Waist_Yaw": 1.180185578566727,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.8384708129346701,
+                "Joint_Shoulder_Roll_Right": -2.372444893203996,
+                "Joint_Shoulder_Yaw_Right": -0.9204653763349591,
+                "Joint_Elbow_Pitch_Right": -1.9135694600279223,
+                "Joint_Wrist_Yaw_Right": 0.9208541006354511,
+                "Joint_Wrist_Roll_Right": 0.11478552585713718,
+                "Joint_Wrist_Pitch_Right": -0.12229733154431842
+              },
+              {
+                "Joint_Waist_Yaw": 1.1491950550286765,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.8354660955420464,
+                "Joint_Shoulder_Roll_Right": -2.3627895918035633,
+                "Joint_Shoulder_Yaw_Right": -0.893437433075656,
+                "Joint_Elbow_Pitch_Right": -1.912585087948783,
+                "Joint_Wrist_Yaw_Right": 0.9189308408111521,
+                "Joint_Wrist_Roll_Right": 0.11926558493436704,
+                "Joint_Wrist_Pitch_Right": -0.1284970511881303
+              },
+              {
+                "Joint_Waist_Yaw": 1.118542329854031,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.8334094152919469,
+                "Joint_Shoulder_Roll_Right": -2.353646475662194,
+                "Joint_Shoulder_Yaw_Right": -0.8674360280661771,
+                "Joint_Elbow_Pitch_Right": -1.9103936966700243,
+                "Joint_Wrist_Yaw_Right": 0.9173222538590315,
+                "Joint_Wrist_Roll_Right": 0.12389692983030594,
+                "Joint_Wrist_Pitch_Right": -0.13508833668791945
+              },
+              {
+                "Joint_Waist_Yaw": 1.0864606383940525,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.8300379928991386,
+                "Joint_Shoulder_Roll_Right": -2.342920846999292,
+                "Joint_Shoulder_Yaw_Right": -0.8401845679827628,
+                "Joint_Elbow_Pitch_Right": -1.908677998198282,
+                "Joint_Wrist_Yaw_Right": 0.9158394729414845,
+                "Joint_Wrist_Roll_Right": 0.12923382405673214,
+                "Joint_Wrist_Pitch_Right": -0.1417628322612882
+              },
+              {
+                "Joint_Waist_Yaw": 1.057059480009307,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.8291427587018942,
+                "Joint_Shoulder_Roll_Right": -2.336315116682051,
+                "Joint_Shoulder_Yaw_Right": -0.8154686010371565,
+                "Joint_Elbow_Pitch_Right": -1.9036543149190284,
+                "Joint_Wrist_Yaw_Right": 0.9134796073004489,
+                "Joint_Wrist_Roll_Right": 0.13342692226108785,
+                "Joint_Wrist_Pitch_Right": -0.14833928530705162
+              },
+              {
+                "Joint_Waist_Yaw": 1.027155936202604,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.8277152355865814,
+                "Joint_Shoulder_Roll_Right": -2.32949045179882,
+                "Joint_Shoulder_Yaw_Right": -0.7903007477186474,
+                "Joint_Elbow_Pitch_Right": -1.898370509608225,
+                "Joint_Wrist_Yaw_Right": 0.9107397835693815,
+                "Joint_Wrist_Roll_Right": 0.1379725253071212,
+                "Joint_Wrist_Pitch_Right": -0.1547997061302647
+              },
+              {
+                "Joint_Waist_Yaw": 0.9960018814222938,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.8263189733605788,
+                "Joint_Shoulder_Roll_Right": -2.3216718318505283,
+                "Joint_Shoulder_Yaw_Right": -0.7652718481135853,
+                "Joint_Elbow_Pitch_Right": -1.8924870760924997,
+                "Joint_Wrist_Yaw_Right": 0.9081693483518295,
+                "Joint_Wrist_Roll_Right": 0.14331797899467658,
+                "Joint_Wrist_Pitch_Right": -0.16163800850740864
+              },
+              {
+                "Joint_Waist_Yaw": 0.9419441749157847,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.8252432396283139,
+                "Joint_Shoulder_Roll_Right": -2.3139829950593254,
+                "Joint_Shoulder_Yaw_Right": -0.7368774095993998,
+                "Joint_Elbow_Pitch_Right": -1.866303465616266,
+                "Joint_Wrist_Yaw_Right": 0.8994769098966789,
+                "Joint_Wrist_Roll_Right": 0.15209657671123863,
+                "Joint_Wrist_Pitch_Right": -0.17227969960427147
+              },
+              {
+                "Joint_Waist_Yaw": 0.9429889226803804,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.8021047282279279,
+                "Joint_Shoulder_Roll_Right": -2.3684459987520974,
+                "Joint_Shoulder_Yaw_Right": -0.7127823037347558,
+                "Joint_Elbow_Pitch_Right": -1.8622942303914032,
+                "Joint_Wrist_Yaw_Right": 0.8492369291853877,
+                "Joint_Wrist_Roll_Right": 0.15753289075819632,
+                "Joint_Wrist_Pitch_Right": -0.15760712537895158
+              },
+              {
+                "Joint_Waist_Yaw": 0.9042962358423264,
+                "Joint_Waist_Roll": -0.041651561856269836,
+                "Joint_Waist_Pitch": -0.0950101912021637,
+                "Joint_Shoulder_Pitch_Right": 0.7883417301924495,
+                "Joint_Shoulder_Roll_Right": -2.3853288624106423,
+                "Joint_Shoulder_Yaw_Right": -0.6718337178371042,
+                "Joint_Elbow_Pitch_Right": -1.8363796087863151,
+                "Joint_Wrist_Yaw_Right": 0.821380757230542,
+                "Joint_Wrist_Roll_Right": 0.15168687586122176,
+                "Joint_Wrist_Pitch_Right": -0.15732596855301287
+              },
+              {
+                "Joint_Waist_Yaw": 0.860970148362055,
+                "Joint_Waist_Roll": -0.03893280267958117,
+                "Joint_Waist_Pitch": -0.10464229248031204,
+                "Joint_Shoulder_Pitch_Right": 0.7758344433391671,
+                "Joint_Shoulder_Roll_Right": -2.3860542443622563,
+                "Joint_Shoulder_Yaw_Right": -0.6335694330268314,
+                "Joint_Elbow_Pitch_Right": -1.8180924717308544,
+                "Joint_Wrist_Yaw_Right": 0.8008975319245019,
+                "Joint_Wrist_Roll_Right": 0.14845623077524542,
+                "Joint_Wrist_Pitch_Right": -0.15672367731305345
+              },
+              {
+                "Joint_Waist_Yaw": 0.8124914502582632,
+                "Joint_Waist_Roll": -0.03621404350289251,
+                "Joint_Waist_Pitch": -0.11427439375846035,
+                "Joint_Shoulder_Pitch_Right": 0.7621064814855822,
+                "Joint_Shoulder_Roll_Right": -2.38367607633021,
+                "Joint_Shoulder_Yaw_Right": -0.5932638196909555,
+                "Joint_Elbow_Pitch_Right": -1.7962408153502478,
+                "Joint_Wrist_Yaw_Right": 0.780983383211032,
+                "Joint_Wrist_Roll_Right": 0.14480380367146156,
+                "Joint_Wrist_Pitch_Right": -0.15887697160430922
+              },
+              {
+                "Joint_Waist_Yaw": 0.6724325437209635,
+                "Joint_Waist_Roll": -0.03349528432620384,
+                "Joint_Waist_Pitch": -0.1239064950366087,
+                "Joint_Shoulder_Pitch_Right": 0.7158588220432135,
+                "Joint_Shoulder_Roll_Right": -2.301761785437505,
+                "Joint_Shoulder_Yaw_Right": -0.5242463457193068,
+                "Joint_Elbow_Pitch_Right": -1.7437544981752753,
+                "Joint_Wrist_Yaw_Right": 0.7928577893314671,
+                "Joint_Wrist_Roll_Right": 0.16333099827287956,
+                "Joint_Wrist_Pitch_Right": -0.1989618266510504
+              },
+              {
+                "Joint_Waist_Yaw": 0.6055925573830682,
+                "Joint_Waist_Roll": -0.030776525149515177,
+                "Joint_Waist_Pitch": -0.133538596314757,
+                "Joint_Shoulder_Pitch_Right": 0.6880048942743522,
+                "Joint_Shoulder_Roll_Right": -2.280758005969042,
+                "Joint_Shoulder_Yaw_Right": -0.46661873777955976,
+                "Joint_Elbow_Pitch_Right": -1.7050720208461472,
+                "Joint_Wrist_Yaw_Right": 0.7831892477680247,
+                "Joint_Wrist_Roll_Right": 0.14997175418554162,
+                "Joint_Wrist_Pitch_Right": -0.21590436364965399
+              },
+              {
+                "Joint_Waist_Yaw": 0.5885594766489584,
+                "Joint_Waist_Roll": -0.028057765972826516,
+                "Joint_Waist_Pitch": -0.14317069759290535,
+                "Joint_Shoulder_Pitch_Right": 0.6818913601145494,
+                "Joint_Shoulder_Roll_Right": -2.2743999405810684,
+                "Joint_Shoulder_Yaw_Right": -0.4429826472078756,
+                "Joint_Elbow_Pitch_Right": -1.7062805661855296,
+                "Joint_Wrist_Yaw_Right": 0.7793372391358336,
+                "Joint_Wrist_Roll_Right": 0.1474735274440755,
+                "Joint_Wrist_Pitch_Right": -0.2179910223485734
+              },
+              {
+                "Joint_Waist_Yaw": 0.5006915455108442,
+                "Joint_Waist_Roll": 0.006065350647450546,
+                "Joint_Waist_Pitch": -0.043513942264204186,
+                "Joint_Shoulder_Pitch_Right": 0.49924977562682094,
+                "Joint_Shoulder_Roll_Right": -2.217049334777093,
+                "Joint_Shoulder_Yaw_Right": -0.13599280521129783,
+                "Joint_Elbow_Pitch_Right": -1.7831306079967872,
+                "Joint_Wrist_Yaw_Right": 0.7817088665303462,
+                "Joint_Wrist_Roll_Right": 0.09671588210462716,
+                "Joint_Wrist_Pitch_Right": -0.206068459336365
+              },
+              {
+                "Joint_Waist_Yaw": 0.5126591942525672,
+                "Joint_Waist_Roll": -0.0054694986911718625,
+                "Joint_Waist_Pitch": -0.04956993054116815,
+                "Joint_Shoulder_Pitch_Right": 0.48197154406585996,
+                "Joint_Shoulder_Roll_Right": -2.2065683999865917,
+                "Joint_Shoulder_Yaw_Right": -0.12007237702287858,
+                "Joint_Elbow_Pitch_Right": -1.7665752119049587,
+                "Joint_Wrist_Yaw_Right": 0.8057846752963173,
+                "Joint_Wrist_Roll_Right": 0.0682080765393076,
+                "Joint_Wrist_Pitch_Right": -0.22072189755690355
+              },
+              {
+                "Joint_Waist_Yaw": 0.5238840751695252,
+                "Joint_Waist_Roll": -0.017623340285517,
+                "Joint_Waist_Pitch": -0.05524116051336033,
+                "Joint_Shoulder_Pitch_Right": 0.4635521358972056,
+                "Joint_Shoulder_Roll_Right": -2.196174796933906,
+                "Joint_Shoulder_Yaw_Right": -0.10415508367784959,
+                "Joint_Elbow_Pitch_Right": -1.7494439913989834,
+                "Joint_Wrist_Yaw_Right": 0.8291750479658929,
+                "Joint_Wrist_Roll_Right": 0.039725757448026616,
+                "Joint_Wrist_Pitch_Right": -0.23539194405473013
+              },
+              {
+                "Joint_Waist_Yaw": 0.5344389685236262,
+                "Joint_Waist_Roll": -0.03089426500744552,
+                "Joint_Waist_Pitch": -0.060584729686687565,
+                "Joint_Shoulder_Pitch_Right": 0.4440741221046641,
+                "Joint_Shoulder_Roll_Right": -2.1864653719988767,
+                "Joint_Shoulder_Yaw_Right": -0.08828970749411592,
+                "Joint_Elbow_Pitch_Right": -1.7310633137424163,
+                "Joint_Wrist_Yaw_Right": 0.8517151757345655,
+                "Joint_Wrist_Roll_Right": 0.010538197232467055,
+                "Joint_Wrist_Pitch_Right": -0.2503562002992979
+              },
+              {
+                "Joint_Waist_Yaw": 0.543981615112957,
+                "Joint_Waist_Roll": -0.04538045321645498,
+                "Joint_Waist_Pitch": -0.06570572751790592,
+                "Joint_Shoulder_Pitch_Right": 0.4234284653083994,
+                "Joint_Shoulder_Roll_Right": -2.177375165217786,
+                "Joint_Shoulder_Yaw_Right": -0.07260547933638173,
+                "Joint_Elbow_Pitch_Right": -1.7113599105066346,
+                "Joint_Wrist_Yaw_Right": 0.8734303900753358,
+                "Joint_Wrist_Roll_Right": -0.019302911490330886,
+                "Joint_Wrist_Pitch_Right": -0.26573510220641317
+              },
+              {
+                "Joint_Waist_Yaw": 0.5528761709474799,
+                "Joint_Waist_Roll": -0.060719548857442296,
+                "Joint_Waist_Pitch": -0.0701392252840299,
+                "Joint_Shoulder_Pitch_Right": 0.4020936254896625,
+                "Joint_Shoulder_Roll_Right": -2.169451836505391,
+                "Joint_Shoulder_Yaw_Right": -0.05747307561611551,
+                "Joint_Elbow_Pitch_Right": -1.6910201570610988,
+                "Joint_Wrist_Yaw_Right": 0.8935536087880417,
+                "Joint_Wrist_Roll_Right": -0.04904224482143595,
+                "Joint_Wrist_Pitch_Right": -0.280866374008504
+              },
+              {
+                "Joint_Waist_Yaw": 0.5611763809567671,
+                "Joint_Waist_Roll": -0.0761101274103137,
+                "Joint_Waist_Pitch": -0.07387006853671822,
+                "Joint_Shoulder_Pitch_Right": 0.3798932342758018,
+                "Joint_Shoulder_Roll_Right": -2.1614652670052714,
+                "Joint_Shoulder_Yaw_Right": -0.0425019926964542,
+                "Joint_Elbow_Pitch_Right": -1.6707747391702938,
+                "Joint_Wrist_Yaw_Right": 0.912480249333322,
+                "Joint_Wrist_Roll_Right": -0.07816728043743087,
+                "Joint_Wrist_Pitch_Right": -0.29527024590844786
+              },
+              {
+                "Joint_Waist_Yaw": 0.5674370966992353,
+                "Joint_Waist_Roll": -0.09162360602294914,
+                "Joint_Waist_Pitch": -0.07883460782343941,
+                "Joint_Shoulder_Pitch_Right": 0.356355977726565,
+                "Joint_Shoulder_Roll_Right": -2.1536966486805014,
+                "Joint_Shoulder_Yaw_Right": -0.027748734383331822,
+                "Joint_Elbow_Pitch_Right": -1.6503041269076375,
+                "Joint_Wrist_Yaw_Right": 0.9297305027159586,
+                "Joint_Wrist_Roll_Right": -0.10631240221942556,
+                "Joint_Wrist_Pitch_Right": -0.30886124983258206
+              },
+              {
+                "Joint_Waist_Yaw": 0.5598521026785166,
+                "Joint_Waist_Roll": -0.0915824270836942,
+                "Joint_Waist_Pitch": -0.0841100350574742,
+                "Joint_Shoulder_Pitch_Right": 0.36591678797948485,
+                "Joint_Shoulder_Roll_Right": -2.1645236654181823,
+                "Joint_Shoulder_Yaw_Right": -0.02243665946688551,
+                "Joint_Elbow_Pitch_Right": -1.6463481645235158,
+                "Joint_Wrist_Yaw_Right": 0.9215951891218753,
+                "Joint_Wrist_Roll_Right": -0.09791885881208612,
+                "Joint_Wrist_Pitch_Right": -0.31629104872660235
+              },
+              {
+                "Joint_Waist_Yaw": 0.5512162049503609,
+                "Joint_Waist_Roll": -0.09175551424792674,
+                "Joint_Waist_Pitch": -0.08780941227981957,
+                "Joint_Shoulder_Pitch_Right": 0.37558784151634333,
+                "Joint_Shoulder_Roll_Right": -2.176225090092768,
+                "Joint_Shoulder_Yaw_Right": -0.016229282555043988,
+                "Joint_Elbow_Pitch_Right": -1.6422475667686733,
+                "Joint_Wrist_Yaw_Right": 0.9127996591585482,
+                "Joint_Wrist_Roll_Right": -0.08908836781957291,
+                "Joint_Wrist_Pitch_Right": -0.32427692343230496
+              },
+              {
+                "Joint_Waist_Yaw": 0.5420260541067609,
+                "Joint_Waist_Roll": -0.09207823239116843,
+                "Joint_Waist_Pitch": -0.09203191739601016,
+                "Joint_Shoulder_Pitch_Right": 0.3847590347438177,
+                "Joint_Shoulder_Roll_Right": -2.1860809881140857,
+                "Joint_Shoulder_Yaw_Right": -0.010376522801801609,
+                "Joint_Elbow_Pitch_Right": -1.6378245095642596,
+                "Joint_Wrist_Yaw_Right": 0.9050620292942977,
+                "Joint_Wrist_Roll_Right": -0.07999037809716437,
+                "Joint_Wrist_Pitch_Right": -0.3329516615463899
+              },
+              {
+                "Joint_Waist_Yaw": 0.5319758898205413,
+                "Joint_Waist_Roll": -0.09259894860394602,
+                "Joint_Waist_Pitch": -0.09579007329813018,
+                "Joint_Shoulder_Pitch_Right": 0.39370553099972005,
+                "Joint_Shoulder_Roll_Right": -2.195530077717323,
+                "Joint_Shoulder_Yaw_Right": -0.004104328979976133,
+                "Joint_Elbow_Pitch_Right": -1.6330293202839528,
+                "Joint_Wrist_Yaw_Right": 0.8973564241619318,
+                "Joint_Wrist_Roll_Right": -0.07064246146521744,
+                "Joint_Wrist_Pitch_Right": -0.3421486351298249
+              },
+              {
+                "Joint_Waist_Yaw": 0.5210518263177717,
+                "Joint_Waist_Roll": -0.09331893695460139,
+                "Joint_Waist_Pitch": -0.09946033070417039,
+                "Joint_Shoulder_Pitch_Right": 0.402327919594712,
+                "Joint_Shoulder_Roll_Right": -2.2039534043352966,
+                "Joint_Shoulder_Yaw_Right": 0.00221975656628523,
+                "Joint_Elbow_Pitch_Right": -1.6278704460308755,
+                "Joint_Wrist_Yaw_Right": 0.8902056033844351,
+                "Joint_Wrist_Roll_Right": -0.060914670220108526,
+                "Joint_Wrist_Pitch_Right": -0.3520564420998487
+              },
+              {
+                "Joint_Waist_Yaw": 0.5097144636371719,
+                "Joint_Waist_Roll": -0.09418867334953286,
+                "Joint_Waist_Pitch": -0.10375873066920875,
+                "Joint_Shoulder_Pitch_Right": 0.41054727270928215,
+                "Joint_Shoulder_Roll_Right": -2.2106274245690583,
+                "Joint_Shoulder_Yaw_Right": 0.008042614637216653,
+                "Joint_Elbow_Pitch_Right": -1.622474236287195,
+                "Joint_Wrist_Yaw_Right": 0.8842274521783141,
+                "Joint_Wrist_Roll_Right": -0.050979941685419694,
+                "Joint_Wrist_Pitch_Right": -0.36257729921735704
+              },
+              {
+                "Joint_Waist_Yaw": 0.49794634306510754,
+                "Joint_Waist_Roll": -0.09519734782883138,
+                "Joint_Waist_Pitch": -0.10807406943729472,
+                "Joint_Shoulder_Pitch_Right": 0.41854961516434047,
+                "Joint_Shoulder_Roll_Right": -2.216400008312217,
+                "Joint_Shoulder_Yaw_Right": 0.013927073401217975,
+                "Joint_Elbow_Pitch_Right": -1.6167823505513004,
+                "Joint_Wrist_Yaw_Right": 0.8787409624124184,
+                "Joint_Wrist_Roll_Right": -0.04104446774037586,
+                "Joint_Wrist_Pitch_Right": -0.3734664283686714
+              },
+              {
+                "Joint_Waist_Yaw": 0.4852509745219654,
+                "Joint_Waist_Roll": -0.09640907650514983,
+                "Joint_Waist_Pitch": -0.11171221584900803,
+                "Joint_Shoulder_Pitch_Right": 0.4264204274269112,
+                "Joint_Shoulder_Roll_Right": -2.2219697686961517,
+                "Joint_Shoulder_Yaw_Right": 0.020509316079943864,
+                "Joint_Elbow_Pitch_Right": -1.6105839867553968,
+                "Joint_Wrist_Yaw_Right": 0.8731499043594302,
+                "Joint_Wrist_Roll_Right": -0.031049237223715172,
+                "Joint_Wrist_Pitch_Right": -0.38479759237037375
+              },
+              {
+                "Joint_Waist_Yaw": 0.4717748064004082,
+                "Joint_Waist_Roll": -0.09786199346530797,
+                "Joint_Waist_Pitch": -0.1153918244595204,
+                "Joint_Shoulder_Pitch_Right": 0.4340070207163513,
+                "Joint_Shoulder_Roll_Right": -2.2266493624588697,
+                "Joint_Shoulder_Yaw_Right": 0.02710734135370071,
+                "Joint_Elbow_Pitch_Right": -1.604076734894301,
+                "Joint_Wrist_Yaw_Right": 0.8680790786126037,
+                "Joint_Wrist_Roll_Right": -0.02065829243519611,
+                "Joint_Wrist_Pitch_Right": -0.3967164677424604
+              },
+              {
+                "Joint_Waist_Yaw": 0.45831894722673916,
+                "Joint_Waist_Roll": -0.09982586432994883,
+                "Joint_Waist_Pitch": -0.11986089695159109,
+                "Joint_Shoulder_Pitch_Right": 0.44081152246765276,
+                "Joint_Shoulder_Roll_Right": -2.230341717178908,
+                "Joint_Shoulder_Yaw_Right": 0.03266374378302816,
+                "Joint_Elbow_Pitch_Right": -1.5981094070672637,
+                "Joint_Wrist_Yaw_Right": 0.8641761463923718,
+                "Joint_Wrist_Roll_Right": -0.009343855410244198,
+                "Joint_Wrist_Pitch_Right": -0.40928021453753116
+              }
+            ]
+          },
+          "place": {
+            "entry_joint_positions": {
+              "Joint_Waist_Yaw": 0.45831894722673916,
+              "Joint_Waist_Roll": -0.09982586432994883,
+              "Joint_Waist_Pitch": -0.11986089695159109,
+              "Joint_Shoulder_Pitch_Right": 0.44081152246765276,
+              "Joint_Shoulder_Roll_Right": -2.230341717178908,
+              "Joint_Shoulder_Yaw_Right": 0.03266374378302816,
+              "Joint_Elbow_Pitch_Right": -1.5981094070672637,
+              "Joint_Wrist_Yaw_Right": 0.8641761463923718,
+              "Joint_Wrist_Roll_Right": -0.009343855410244198,
+              "Joint_Wrist_Pitch_Right": -0.40928021453753116
+            },
+            "waypoint_joint_positions": [
+              {
+                "Joint_Waist_Yaw": 0.45831894722673916,
+                "Joint_Waist_Roll": -0.09982586432994883,
+                "Joint_Waist_Pitch": -0.11986089695159109,
+                "Joint_Shoulder_Pitch_Right": 0.5251794392053393,
+                "Joint_Shoulder_Roll_Right": -2.2133229308363114,
+                "Joint_Shoulder_Yaw_Right": -0.00044068273501507394,
+                "Joint_Elbow_Pitch_Right": -1.578805107166703,
+                "Joint_Wrist_Yaw_Right": 0.8789055461844189,
+                "Joint_Wrist_Roll_Right": -0.0048882939014292,
+                "Joint_Wrist_Pitch_Right": -0.3588353747095047
+              }
+            ]
+          }
+        }
+      },
+      "supported_grip_relief": {
+        "preload_rad": 0.005,
+        "max_target_speed_rad_s": 0.06,
+        "activation_dwell_s": 0.1,
+        "support_dropout_grace_s": 0.1,
+        "jump_start_rad": 0.029,
+        "relief_profile": "fast",
+        "activation_minimum_load_fraction": 0.5
+      },
+      "retreat_pose_control_overrides": {
+        "retreat": {
+          "linear_speed": 0.05,
+          "linear_acceleration": 0.1,
+          "reference_profile": "online",
+          "position_lead": 0.006
+        },
+        "release_separating": {
+          "linear_speed": 0.03,
+          "linear_acceleration": 0.1,
+          "position_lead": 0.006,
+          "reference_profile": "online"
+        }
+      },
+      "retreat_motion_feedforward": true,
+      "lift_rotation_w": [
+        0.9965057466984639,
+        -3.960543969046847e-06,
+        0.08352422869331619,
+        1.5613752806434131e-06
+      ],
+      "object_waypoint_rotations_w": {
+        "lift": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.9965057466984639,
+            -3.960543969046847e-06,
+            0.08352422869331619,
+            1.5613752806434131e-06
+          ]
+        ],
+        "transfer": [
+          [
+            0.9114822950484726,
+            0.0034561800139805868,
+            0.41122329261437207,
+            0.009136971285647284
+          ],
+          [
+            0.9163037724212283,
+            -0.003056907657615989,
+            0.4003406572994931,
+            0.010266940888516776
+          ],
+          [
+            0.9209697821617927,
+            -0.00925145489536191,
+            0.3893613884227805,
+            0.011259668408254046
+          ],
+          [
+            0.9254897899620816,
+            -0.015115574043805926,
+            0.378275243417046,
+            0.01216586680195528
+          ],
+          [
+            0.9298727638329535,
+            -0.02063623171671092,
+            0.36707147129234224,
+            0.013012455013317976
+          ],
+          [
+            0.9341195178551677,
+            -0.025814618514062256,
+            0.3557580541638342,
+            0.013803576730871233
+          ],
+          [
+            0.9382337431993129,
+            -0.030649096503049335,
+            0.3443351560493257,
+            0.014538786546310759
+          ],
+          [
+            0.942228123502777,
+            -0.03510866502012161,
+            0.3327798681866701,
+            0.015202113359767138
+          ],
+          [
+            0.9460964606811814,
+            -0.03918586051612077,
+            0.32111812236179205,
+            0.01578312114221846
+          ],
+          [
+            0.9498258692032107,
+            -0.04288124039961431,
+            0.3093977016142554,
+            0.016281266841745617
+          ],
+          [
+            0.9534171969012114,
+            -0.04619600483570613,
+            0.29762712679981124,
+            0.016723372361619124
+          ],
+          [
+            0.9568709192145953,
+            -0.04912855187475922,
+            0.2858167203428253,
+            0.01712401017798484
+          ],
+          [
+            0.9601872347297203,
+            -0.051681952296030384,
+            0.273977718130321,
+            0.01748313579042022
+          ],
+          [
+            0.9633650599367396,
+            -0.053865005205318804,
+            0.26212518138577723,
+            0.017796398253201774
+          ],
+          [
+            0.9664027630914891,
+            -0.05568809414315751,
+            0.250276844628575,
+            0.0180564864412281
+          ],
+          [
+            0.9692993915611515,
+            -0.05716177436868805,
+            0.23844927065487662,
+            0.018252846198936714
+          ],
+          [
+            0.9720536855424032,
+            -0.05829753664597769,
+            0.22666385599665562,
+            0.018344645790227536
+          ],
+          [
+            0.9746615665783145,
+            -0.05910937355800137,
+            0.21495286816775158,
+            0.018335131827825323
+          ],
+          [
+            0.9771202480297236,
+            -0.059612080787303685,
+            0.2033473630708873,
+            0.01822829247779343
+          ],
+          [
+            0.979436121969706,
+            -0.0598020094930737,
+            0.19184258016201938,
+            0.01802850737893981
+          ],
+          [
+            0.9816108789757129,
+            -0.05968465037880582,
+            0.1804524545089008,
+            0.017740813042282144
+          ],
+          [
+            0.9836457809120608,
+            -0.059266456871168806,
+            0.1691938557259485,
+            0.017375383979261784
+          ],
+          [
+            0.9855375715657966,
+            -0.05855790794590953,
+            0.15811267935685816,
+            0.01694246368702337
+          ],
+          [
+            0.987286016868531,
+            -0.05755855987087306,
+            0.14724938888407804,
+            0.0164605757714428
+          ],
+          [
+            0.9889038558776397,
+            -0.056236916641547174,
+            0.13657188678248616,
+            0.015959097018935494
+          ],
+          [
+            0.990398462013162,
+            -0.05454033023960034,
+            0.12608796490453472,
+            0.015429320320462635
+          ],
+          [
+            0.9903984620131621,
+            -0.05454033023960061,
+            0.1260879649045346,
+            0.015429320320462575
+          ],
+          [
+            0.9903984620131621,
+            -0.05454033023960061,
+            0.1260879649045346,
+            0.015429320320462575
+          ],
+          [
+            0.9903984620131621,
+            -0.05454033023960061,
+            0.1260879649045346,
+            0.015429320320462575
+          ],
+          [
+            0.9903984620131621,
+            -0.05454033023960061,
+            0.1260879649045346,
+            0.015429320320462575
+          ],
+          [
+            0.9903984620131621,
+            -0.05454033023960061,
+            0.1260879649045346,
+            0.015429320320462575
+          ],
+          [
+            0.9903984620131621,
+            -0.05454033023960061,
+            0.1260879649045346,
+            0.015429320320462575
+          ],
+          [
+            0.9903984620131621,
+            -0.05454033023960061,
+            0.1260879649045346,
+            0.015429320320462575
+          ],
+          [
+            0.9903984620131621,
+            -0.054540330239600684,
+            0.12608796490453472,
+            0.01542932032046259
+          ],
+          [
+            0.992220384727102,
+            -0.04911623823436991,
+            0.11354838695570303,
+            0.013894858526250749
+          ],
+          [
+            0.993851467974704,
+            -0.043682699419904714,
+            0.10098696959104841,
+            0.01235772425380037
+          ],
+          [
+            0.9952913980403247,
+            -0.03824075886004729,
+            0.0884061288203838,
+            0.010818213149007078
+          ],
+          [
+            0.9965398979739141,
+            -0.032791463234596,
+            0.07580828438933819,
+            0.009276621314916283
+          ],
+          [
+            0.9975967276442826,
+            -0.02733586063799133,
+            0.06319585931395229,
+            0.007733245254772055
+          ],
+          [
+            0.9984616837852878,
+            -0.021875000377730214,
+            0.050571279414646494,
+            0.006188381814989004
+          ],
+          [
+            0.9991346000349287,
+            -0.01640993277254606,
+            0.0379369728496481,
+            0.004642328128058009
+          ],
+          [
+            0.9996153469673441,
+            -0.010941708950395326,
+            0.02529536964797046,
+            0.003095381555397007
+          ],
+          [
+            0.9999038321177052,
+            -0.005471380646287549,
+            0.012648901242031059,
+            0.0015478396301578533
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "placement_alignment": {
+        "normal_position_m": 0.002,
+        "height_m": 0.004,
+        "rotation_rad": 0.02,
+        "target_frame": "measured_jig_at_place_entry",
+        "command_height_offset_m": -0.0005,
+        "support_hold_dropout_grace_s": 0.1,
+        "allow_press_in": true
+      },
+      "place_aligned_descent": {
+        "transfer_exit_lateral_m": 0.0012,
+        "transfer_exit_rotation_rad": 0.02,
+        "transfer_exit_dwell_s": 0.3,
+        "descent_pause_lateral_m": 0.0015,
+        "descent_resume_lateral_m": 0.001,
+        "descent_pause_grace_s": 0.2,
+        "descent_pause_minimum_height_m": 0.003,
+        "descent_hold_maximum_s": 6.0
+      },
+      "approach_axis_alignment": {
+        "axis_object": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "position_m": 0.0005,
+        "point_tcp_m": [
+          0.0,
+          -0.0039,
+          -0.1565
+        ],
+        "pregrasp_position_m": 0.001
+      },
+      "pregrasp_pose_control": {
+        "linear_speed": 0.03,
+        "linear_acceleration": 0.06,
+        "angular_speed": 0.12,
+        "angular_acceleration": 0.3,
+        "position_lead": 0.008,
+        "rotation_lead": 0.02,
+        "cross_track_position": 0.01,
+        "cross_track_rotation": 0.05,
+        "reference_profile": "online"
+      },
+      "pregrasp_waypoints": [
+        {
+          "frame": "target",
+          "pose": [
+            -0.001245,
+            0.002,
+            0.014948,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "guarded_approach": {
+        "max_speed_m_s": 0.008,
+        "max_target_lead_m": 0.004,
+        "lateral_tolerance_m": 0.0012,
+        "rotation_tolerance_rad": 0.06,
+        "expected_contact_zone_m": 0.008,
+        "unexpected_contact_force_n": 12.0,
+        "max_acceleration_m_s2": 0.02,
+        "guard_point_tcp_m": [
+          0.0,
+          -0.0039,
+          -0.1565
+        ],
+        "pressed_key_completion": {
+          "finger_axis_tcp": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "max_axis_error_m": 0.0012,
+          "max_lateral_error_m": 0.0015,
+          "dwell_s": 0.3,
+          "min_mean_tip_force_n": 0.8,
+          "tip_normal_axis_tcp": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "max_normal_angle_rad": 0.61
+        }
+      },
+      "transfer_reference_continuity": {
+        "mode": "blended_pass_through",
+        "max_corner_deg": 60.0,
+        "corridor_position_m": 0.003,
+        "corridor_rotation_rad": 0.02,
+        "pass_position_m": 0.006,
+        "pass_rotation_rad": 0.06,
+        "final_waypoints": 2
+      }
+    },
+    "open_cleaner_cover": {
+      "title": "Remove cleaner lid and park on support",
+      "object": "cover",
+      "arm": "left",
+      "grasp_pose_object": [
+        -0.135,
+        4.0726205043063735e-05,
+        0.052143540284130596,
+        0.49999999999999994,
+        0.4999999999999999,
+        -0.5000000000000001,
+        -0.5
+      ],
+      "target": {
+        "frame": "cover_parking",
+        "pose": [
+          0,
+          0,
+          0.391,
+          0.7071067811865476,
+          0,
+          0,
+          0.7071067811865476
+        ]
+      },
+      "pregrasp_offset_w": [
+        0.0,
+        -0.08,
+        4.898587196589413e-18
+      ],
+      "lift_offset_w": [
+        0,
+        0,
+        0.16
+      ],
+      "transfer_offset_w": [
+        0,
+        0,
+        0.2
+      ],
+      "retreat_offset_w": [
+        0,
+        0,
+        0.16
+      ],
+      "min_lift_m": 0.08,
+      "base_stations": {
+        "source": [
+          0.35,
+          -0.18,
+          0.9396403431892395,
+          0.6967067093471654,
+          0.0,
+          0.0,
+          0.7173560908995228
+        ],
+        "target": [
+          -0.18,
+          -0.2,
+          0.98,
+          0.34529741550160725,
+          0,
+          0,
+          0.9384933110299244
+        ]
+      },
+      "requires_completed": [],
+      "requires_events": [],
+      "requires_door_open": false,
+      "timeout_s": 600,
+      "stage_timeouts_s": {
+        "prerequisites": 180,
+        "navigate_source": 120,
+        "pregrasp": 45,
+        "approach": 45,
+        "close": 45,
+        "lift": 45,
+        "navigate_target": 120,
+        "transfer": 45,
+        "place": 45,
+        "release": 45,
+        "retreat": 45,
+        "settle": 20
+      },
+      "target_position_jitter_m": [
+        0,
+        0,
+        0
+      ],
+      "mechanism": "free_removable_lid",
+      "required_object_relations": [],
+      "motion_watchdog": {
+        "duration_s": 12.0,
+        "position_improvement_m": 0.002,
+        "rotation_improvement_rad": 0.01
+      },
+      "initial_arm_joint_positions": {
+        "Joint_Shoulder_Pitch_Left": -0.21637596040677554,
+        "Joint_Shoulder_Roll_Left": 0.790703668994299,
+        "Joint_Shoulder_Yaw_Left": -0.40789819915042763,
+        "Joint_Elbow_Pitch_Left": -1.264106407419374,
+        "Joint_Wrist_Yaw_Left": -0.7165029354325558,
+        "Joint_Wrist_Roll_Left": 0.2970115983260606,
+        "Joint_Wrist_Pitch_Left": 0.023902046051583373
+      },
+      "maximum_pinch_angle_rad": 0.2,
+      "pinch_geometry_evidence": "{\"candidate\": \"front_horizontal_fixed_below\", \"first_contact_angle_rad\": 0.16304674559905838, \"requires_bilateral_same_handle_contact\": true, \"source\": \"outputs/nepes/calibration_candidates/task2_handle_geometry_audit.json\", \"threshold_margin_rad\": 0.03695325440094163}",
+      "initial_upper_joint_positions": {
+        "Joint_Waist_Roll": 0.0,
+        "Joint_Waist_Pitch": 0.0
+      },
+      "calibration_notes": [],
+      "navigation_control": {
+        "settle_on_arrival": true
+      },
+      "guarded_approach": {},
+      "contact_detail_limit": 32,
+      "calibration_status": "draft_unvalidated",
+      "required_fixture_paths": [
+        "/World/NEPESTaskFixtures/CoverParking"
+      ],
+      "object_pose_control": {
+        "linear_speed": 0.03,
+        "linear_acceleration": 0.06,
+        "angular_speed": 0.12,
+        "angular_acceleration": 0.3,
+        "position_lead": 0.012,
+        "rotation_lead": 0.02,
+        "cross_track_rotation": 0.05,
+        "pause_slip_position": 0.022,
+        "pause_slip_rotation": 0.18,
+        "reference_profile": "online"
+      }
+    },
+    "jig_insert_cleaner": {
+      "title": "Grasp loaded JIG and insert into cleaner",
+      "object": "jig",
+      "arm": "left",
+      "grasp_pose_object": [
+        0.093095454429505,
+        0.0,
+        0.5236812408671319,
+        0.6532814824381884,
+        0.27059805007309856,
+        0.27059805007309856,
+        0.6532814824381883
+      ],
+      "target": {
+        "frame": "cleaner",
+        "pose": [
+          0.04,
+          0.015,
+          0.03,
+          0.7071067811865476,
+          0,
+          0,
+          -0.7071067811865476
+        ]
+      },
+      "pregrasp_offset_w": [
+        0.06,
+        0,
+        0.06
+      ],
+      "lift_offset_w": [
+        0,
+        0,
+        0.22
+      ],
+      "transfer_offset_w": [
+        0,
+        0,
+        0.6
+      ],
+      "retreat_offset_w": [
+        0,
+        -0.06,
+        0.06
+      ],
+      "min_lift_m": 0.08,
+      "base_stations": {
+        "source": [
+          -0.4,
+          -0.42,
+          0.9381624460220337,
+          6.123233995736766e-17,
+          0,
+          0,
+          1.0
+        ],
+        "target": [
+          0.27,
+          -0.17,
+          0.94,
+          0.7581022795370164,
+          0,
+          0,
+          0.6521356712838055
+        ]
+      },
+      "requires_completed": [
+        "crs_load_jig",
+        "open_cleaner_cover"
+      ],
+      "requires_events": [],
+      "requires_door_open": true,
+      "timeout_s": 360.0,
+      "stage_timeouts_s": {
+        "prerequisites": 180,
+        "navigate_source": 120,
+        "pregrasp": 45,
+        "approach": 45,
+        "close": 45,
+        "lift": 120.0,
+        "navigate_target": 120.0,
+        "transfer": 120.0,
+        "place": 120.0,
+        "release": 45,
+        "retreat": 45,
+        "settle": 20
+      },
+      "target_position_jitter_m": [
+        0,
+        0,
+        0
+      ],
+      "required_object_relations": [
+        {
+          "object": "crs",
+          "reference": "jig",
+          "pose": [
+            0.0,
+            -0.112,
+            0.15939084050027252,
+            0.681231,
+            0.681231,
+            -0.189537,
+            0.189537
+          ],
+          "position_tolerance_m": 0.025,
+          "rotation_tolerance_rad": 0.2
+        }
+      ],
+      "initial_arm_joint_positions": {
+        "Joint_Shoulder_Pitch_Left": -0.40010826737935523,
+        "Joint_Shoulder_Roll_Left": 2.597158036499374,
+        "Joint_Shoulder_Yaw_Left": -0.07267192855845186,
+        "Joint_Elbow_Pitch_Left": -2.012380100075499,
+        "Joint_Wrist_Yaw_Left": 1.2035744187407316,
+        "Joint_Wrist_Roll_Left": -0.7551700670443536,
+        "Joint_Wrist_Pitch_Left": 0.22886590357924477
+      },
+      "contact_servo_speed_scale": 1.0,
+      "navigation_control": {
+        "max_speed_m_s": 0.12,
+        "max_yaw_rate_rad_s": 0.12,
+        "linear_acceleration_m_s2": 0.05,
+        "yaw_acceleration_rad_s2": 0.08,
+        "stabilize_carry": true,
+        "carry_tcp_speed_m_s": 0.2,
+        "carry_tcp_yaw_rate_rad_s": 0.15,
+        "position_gain_s_inv": 1.8,
+        "yaw_gain_s_inv": 1.8,
+        "settle_on_arrival": true
+      },
+      "object_pose_control": {
+        "linear_speed": 0.03,
+        "linear_acceleration": 0.06,
+        "angular_speed": 0.12,
+        "angular_acceleration": 0.3,
+        "position_lead": 0.012,
+        "rotation_lead": 0.02,
+        "cross_track_rotation": 0.05,
+        "pause_slip_position": 0.022,
+        "pause_slip_rotation": 0.18,
+        "reference_profile": "online"
+      },
+      "arm_tracking_error_limits_rad": {
+        "Joint_Shoulder_Pitch_Left": 0.22
+      },
+      "base_routes": {
+        "target": [
+          [
+            -0.05,
+            -0.7,
+            0.94,
+            6.123233995736766e-17,
+            0,
+            0,
+            1.0
+          ],
+          [
+            -0.05,
+            -0.7,
+            0.94,
+            0.7581022795370164,
+            0,
+            0,
+            0.6521356712838055
+          ]
+        ]
+      },
+      "stage_postures": {
+        "transfer": {
+          "joint_positions": {
+            "Joint_Waist_Pitch": -0.25
+          },
+          "duration_s": 6.0,
+          "tolerance_rad": 0.15
+        }
+      },
+      "calibration_notes": [],
+      "motion_watchdog": {
+        "duration_s": 12.0,
+        "position_improvement_m": 0.002,
+        "rotation_improvement_rad": 0.01
+      },
+      "calibration_status": "draft_unvalidated"
+    },
+    "jig_extract_cleaner": {
+      "title": "Extract washed JIG and place on staging table",
+      "object": "jig",
+      "arm": "left",
+      "grasp_pose_object": [
+        0.093095454429505,
+        0.0,
+        0.5236812408671319,
+        0.6532814824381884,
+        0.27059805007309856,
+        0.27059805007309856,
+        0.6532814824381883
+      ],
+      "target": {
+        "frame": "world",
+        "pose": [
+          -0.8,
+          -0.65,
+          0.7610949277877808,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "pregrasp_offset_w": [
+        0,
+        -0.06,
+        0.06
+      ],
+      "lift_offset_w": [
+        0,
+        0,
+        0.6
+      ],
+      "transfer_offset_w": [
+        0,
+        0,
+        0.22
+      ],
+      "retreat_offset_w": [
+        0.06,
+        0,
+        0.06
+      ],
+      "min_lift_m": 0.58,
+      "base_stations": {
+        "source": [
+          0.2551317193098756,
+          -0.221883026950457,
+          0.9428950204656621,
+          0.8319678160583803,
+          -0.052644328334355506,
+          0.1728834684936479,
+          0.5245659482456706
+        ],
+        "target": [
+          -0.3,
+          -0.42,
+          0.94,
+          6.123233995736766e-17,
+          0,
+          0,
+          1.0
+        ]
+      },
+      "requires_completed": [
+        "jig_insert_cleaner"
+      ],
+      "requires_events": [
+        "wash_complete"
+      ],
+      "requires_door_open": true,
+      "timeout_s": 360.0,
+      "stage_timeouts_s": {
+        "prerequisites": 180,
+        "navigate_source": 120,
+        "pregrasp": 40.0,
+        "approach": 40.0,
+        "close": 20.0,
+        "lift": 120.0,
+        "navigate_target": 120.0,
+        "transfer": 120.0,
+        "place": 120.0,
+        "release": 45,
+        "retreat": 45,
+        "settle": 20
+      },
+      "target_position_jitter_m": [
+        0,
+        0,
+        0
+      ],
+      "required_object_relations": [
+        {
+          "object": "crs",
+          "reference": "jig",
+          "pose": [
+            0.0,
+            -0.112,
+            0.15939084050027252,
+            0.681231,
+            0.681231,
+            -0.189537,
+            0.189537
+          ],
+          "position_tolerance_m": 0.025,
+          "rotation_tolerance_rad": 0.2
+        }
+      ],
+      "initial_arm_joint_positions": {
+        "Joint_Shoulder_Pitch_Left": 0.2652318695784963,
+        "Joint_Shoulder_Roll_Left": 1.3121272190267645,
+        "Joint_Shoulder_Yaw_Left": -0.11263041860347016,
+        "Joint_Elbow_Pitch_Left": -1.5073025093933605,
+        "Joint_Wrist_Yaw_Left": 0.13307351455466226,
+        "Joint_Wrist_Roll_Left": -0.02083614811949935,
+        "Joint_Wrist_Pitch_Left": 0.2415586913176944
+      },
+      "contact_servo_speed_scale": 1.0,
+      "navigation_control": {
+        "max_speed_m_s": 0.12,
+        "max_yaw_rate_rad_s": 0.12,
+        "linear_acceleration_m_s2": 0.05,
+        "yaw_acceleration_rad_s2": 0.08,
+        "stabilize_carry": true,
+        "carry_tcp_speed_m_s": 0.2,
+        "carry_tcp_yaw_rate_rad_s": 0.15,
+        "position_gain_s_inv": 6.0,
+        "yaw_gain_s_inv": 6.0,
+        "settle_on_arrival": true,
+        "station_position_tolerance_m": 0.025,
+        "station_yaw_tolerance_rad": 0.05
+      },
+      "object_pose_control": {
+        "linear_speed": 0.03,
+        "linear_acceleration": 0.06,
+        "angular_speed": 0.12,
+        "angular_acceleration": 0.3,
+        "position_lead": 0.012,
+        "rotation_lead": 0.02,
+        "pause_slip_position": 0.022,
+        "pause_slip_rotation": 0.18,
+        "cross_track_rotation": 0.05,
+        "reference_profile": "online"
+      },
+      "initial_upper_joint_positions": {
+        "Joint_Waist_Pitch": -0.2241423573549714,
+        "Joint_Waist_Yaw": 0.19033779345973847,
+        "Joint_Waist_Roll": -0.16363068421286567
+      },
+      "arm_tracking_error_limits_rad": {
+        "Joint_Shoulder_Pitch_Left": 0.22
+      },
+      "base_routes": {
+        "target": [
+          [
+            0.27,
+            -0.7,
+            0.94,
+            0.7581022795370164,
+            0,
+            0,
+            0.6521356712838055
+          ],
+          [
+            0.27,
+            -0.7,
+            0.94,
+            6.123233995736766e-17,
+            0,
+            0,
+            1.0
+          ]
+        ]
+      },
+      "stage_postures": {
+        "navigate_target": {
+          "joint_positions": {
+            "Joint_Waist_Pitch": 0.0
+          },
+          "duration_s": 6.0,
+          "tolerance_rad": 0.04,
+          "feedback": true
+        }
+      },
+      "motion_watchdog": {
+        "duration_s": 12.0,
+        "position_improvement_m": 0.002,
+        "rotation_improvement_rad": 0.01
+      },
+      "initial_robot_pose_w": [
+        0.28093377424797134,
+        -0.21517681335350186,
+        0.9297451485421764,
+        0.7765585349199872,
+        0.01662714300870572,
+        -0.0010368907769363412,
+        0.6298248207365347
+      ],
+      "contact_detail_limit": 32,
+      "arm_nullspace_gain_s_inv": 0.0,
+      "arm_posture_guidance": {
+        "gain_s_inv": 0.5,
+        "stages": {
+          "lift": [
+            {
+              "progress": 0.0,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.48191807346772614,
+                "Joint_Shoulder_Roll_Left": 0.8203466567580241,
+                "Joint_Shoulder_Yaw_Left": -0.4150275863347805,
+                "Joint_Elbow_Pitch_Left": -0.84291687176351,
+                "Joint_Wrist_Yaw_Left": -0.3551742302998745,
+                "Joint_Wrist_Roll_Left": -0.19946103165222595,
+                "Joint_Wrist_Pitch_Left": 0.03918905529154421
+              }
+            },
+            {
+              "progress": 0.01666666666666672,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.4433298029890506,
+                "Joint_Shoulder_Roll_Left": 0.8616810501181095,
+                "Joint_Shoulder_Yaw_Left": -0.3996193386672104,
+                "Joint_Elbow_Pitch_Left": -0.912194345610414,
+                "Joint_Wrist_Yaw_Left": -0.31998453452311,
+                "Joint_Wrist_Roll_Left": -0.2161982814502102,
+                "Joint_Wrist_Pitch_Left": 0.06489376106614461
+              }
+            },
+            {
+              "progress": 0.033333333333333326,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.4075571416017192,
+                "Joint_Shoulder_Roll_Left": 0.9024242959670982,
+                "Joint_Shoulder_Yaw_Left": -0.3843069466167035,
+                "Joint_Elbow_Pitch_Left": -0.9749186239330245,
+                "Joint_Wrist_Yaw_Left": -0.28411177408821175,
+                "Joint_Wrist_Roll_Left": -0.23068872778711644,
+                "Joint_Wrist_Pitch_Left": 0.08834496887634583
+              }
+            },
+            {
+              "progress": 0.050000000000000044,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.3737482703480991,
+                "Joint_Shoulder_Roll_Left": 0.9430514669451104,
+                "Joint_Shoulder_Yaw_Left": -0.36889717758217594,
+                "Joint_Elbow_Pitch_Left": -1.0323333705785742,
+                "Joint_Wrist_Yaw_Left": -0.2473164747133748,
+                "Joint_Wrist_Roll_Left": -0.2431499904153057,
+                "Joint_Wrist_Pitch_Left": 0.1099005669059225
+              }
+            },
+            {
+              "progress": 0.06666666666666665,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.34146530711974354,
+                "Joint_Shoulder_Roll_Left": 0.9842663735878522,
+                "Joint_Shoulder_Yaw_Left": -0.3538650613966162,
+                "Joint_Elbow_Pitch_Left": -1.0852809876671452,
+                "Joint_Wrist_Yaw_Left": -0.2088646826805413,
+                "Joint_Wrist_Roll_Left": -0.2534652497025722,
+                "Joint_Wrist_Pitch_Left": 0.1298208953809346
+              }
+            },
+            {
+              "progress": 0.08333333333333337,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.31018469951672223,
+                "Joint_Shoulder_Roll_Left": 1.0264714559191834,
+                "Joint_Shoulder_Yaw_Left": -0.3391013903754067,
+                "Joint_Elbow_Pitch_Left": -1.1343713946810297,
+                "Joint_Wrist_Yaw_Left": -0.16854741348940824,
+                "Joint_Wrist_Roll_Left": -0.26163169490173166,
+                "Joint_Wrist_Pitch_Left": 0.14819950607150667
+              }
+            },
+            {
+              "progress": 0.09999999999999998,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.2794538324023026,
+                "Joint_Shoulder_Roll_Left": 1.0701203041738259,
+                "Joint_Shoulder_Yaw_Left": -0.32460229625539533,
+                "Joint_Elbow_Pitch_Left": -1.180054020961412,
+                "Joint_Wrist_Yaw_Left": -0.12605422161155472,
+                "Joint_Wrist_Roll_Left": -0.2675450841082846,
+                "Joint_Wrist_Pitch_Left": 0.1650508380604334
+              }
+            },
+            {
+              "progress": 0.1166666666666667,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.24884509950015712,
+                "Joint_Shoulder_Roll_Left": 1.1157525405680198,
+                "Joint_Shoulder_Yaw_Left": -0.3104460203182081,
+                "Joint_Elbow_Pitch_Left": -1.2226673530758574,
+                "Joint_Wrist_Yaw_Left": -0.08096683990276034,
+                "Joint_Wrist_Roll_Left": -0.2709985681440234,
+                "Joint_Wrist_Pitch_Left": 0.18030972561364655
+              }
+            },
+            {
+              "progress": 0.1333333333333333,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.21773721172737337,
+                "Joint_Shoulder_Roll_Left": 1.1638222924024952,
+                "Joint_Shoulder_Yaw_Left": -0.29638674793576547,
+                "Joint_Elbow_Pitch_Left": -1.2624751249351815,
+                "Joint_Wrist_Yaw_Left": -0.03302193390588448,
+                "Joint_Wrist_Roll_Left": -0.2718249445718602,
+                "Joint_Wrist_Pitch_Left": 0.1938137186575927
+              }
+            },
+            {
+              "progress": 0.15000000000000002,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.18615230584066894,
+                "Joint_Shoulder_Roll_Left": 1.2158325208977216,
+                "Joint_Shoulder_Yaw_Left": -0.2838439617585695,
+                "Joint_Elbow_Pitch_Left": -1.2996597045307068,
+                "Joint_Wrist_Yaw_Left": 0.019374812797709477,
+                "Joint_Wrist_Roll_Left": -0.26909291079637937,
+                "Joint_Wrist_Pitch_Left": 0.20529515579648114
+              }
+            },
+            {
+              "progress": 0.16666666666666663,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.1532476247609919,
+                "Joint_Shoulder_Roll_Left": 1.2726090682685174,
+                "Joint_Shoulder_Yaw_Left": -0.27257556679172995,
+                "Joint_Elbow_Pitch_Left": -1.334380678148398,
+                "Joint_Wrist_Yaw_Left": 0.07675965230946324,
+                "Joint_Wrist_Roll_Left": -0.26237997267276325,
+                "Joint_Wrist_Pitch_Left": 0.21426632265029902
+              }
+            },
+            {
+              "progress": 0.18333333333333335,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.11955906090017955,
+                "Joint_Shoulder_Roll_Left": 1.3367938105517765,
+                "Joint_Shoulder_Yaw_Left": -0.2653793143957559,
+                "Joint_Elbow_Pitch_Left": -1.3667273919651144,
+                "Joint_Wrist_Yaw_Left": 0.1417873865440977,
+                "Joint_Wrist_Roll_Left": -0.2500160296781275,
+                "Joint_Wrist_Pitch_Left": 0.2198708641539072
+              }
+            },
+            {
+              "progress": 0.19999999999999996,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.08458265493496045,
+                "Joint_Shoulder_Roll_Left": 1.4100977765895777,
+                "Joint_Shoulder_Yaw_Left": -0.26302598010363964,
+                "Joint_Elbow_Pitch_Left": -1.396791801525149,
+                "Joint_Wrist_Yaw_Left": 0.21575633441859302,
+                "Joint_Wrist_Roll_Left": -0.23112698817416483,
+                "Joint_Wrist_Pitch_Left": 0.22084207836358496
+              }
+            },
+            {
+              "progress": 0.21666666666666667,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.04800959349346042,
+                "Joint_Shoulder_Roll_Left": 1.4944939351348945,
+                "Joint_Shoulder_Yaw_Left": -0.2667650345159596,
+                "Joint_Elbow_Pitch_Left": -1.4246461030659234,
+                "Joint_Wrist_Yaw_Left": 0.30025434988348343,
+                "Joint_Wrist_Roll_Left": -0.2048703900632162,
+                "Joint_Wrist_Pitch_Left": 0.21540590651645264
+              }
+            },
+            {
+              "progress": 0.2333333333333334,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.01803991801242543,
+                "Joint_Shoulder_Roll_Left": 1.591056727408236,
+                "Joint_Shoulder_Yaw_Left": -0.28574095012210304,
+                "Joint_Elbow_Pitch_Left": -1.4503704262920722,
+                "Joint_Wrist_Yaw_Left": 0.39600651724798863,
+                "Joint_Wrist_Roll_Left": -0.1713664347861741,
+                "Joint_Wrist_Pitch_Left": 0.20146540757336423
+              }
+            },
+            {
+              "progress": 0.25,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.0017820448948002974,
+                "Joint_Shoulder_Roll_Left": 1.6900580573537731,
+                "Joint_Shoulder_Yaw_Left": -0.3191340205098283,
+                "Joint_Elbow_Pitch_Left": -1.47422491526565,
+                "Joint_Wrist_Yaw_Left": 0.4924209854647715,
+                "Joint_Wrist_Roll_Left": -0.1381060825886913,
+                "Joint_Wrist_Pitch_Left": 0.1803194310942007
+              }
+            },
+            {
+              "progress": 0.2666666666666667,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.008322175989909059,
+                "Joint_Shoulder_Roll_Left": 1.7759062063527022,
+                "Joint_Shoulder_Yaw_Left": -0.36330693577570744,
+                "Joint_Elbow_Pitch_Left": -1.4965186509417592,
+                "Joint_Wrist_Yaw_Left": 0.5730933224727459,
+                "Joint_Wrist_Roll_Left": -0.11546692752960909,
+                "Joint_Wrist_Pitch_Left": 0.15815233456563688
+              }
+            },
+            {
+              "progress": 0.2833333333333333,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.025068357930178878,
+                "Joint_Shoulder_Roll_Left": 1.847687200393451,
+                "Joint_Shoulder_Yaw_Left": -0.4051598580858722,
+                "Joint_Elbow_Pitch_Left": -1.5172675489405896,
+                "Joint_Wrist_Yaw_Left": 0.6374138534753518,
+                "Joint_Wrist_Roll_Left": -0.10351852005696084,
+                "Joint_Wrist_Pitch_Left": 0.1377606944081039
+              }
+            },
+            {
+              "progress": 0.30000000000000004,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.0453039608857762,
+                "Joint_Shoulder_Roll_Left": 1.9096717782723225,
+                "Joint_Shoulder_Yaw_Left": -0.4417491197012324,
+                "Joint_Elbow_Pitch_Left": -1.5364015526415096,
+                "Joint_Wrist_Yaw_Left": 0.6902200189706778,
+                "Joint_Wrist_Roll_Left": -0.09913422662790888,
+                "Joint_Wrist_Pitch_Left": 0.11908857380854154
+              }
+            },
+            {
+              "progress": 0.31666666666666665,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.06337378009039715,
+                "Joint_Shoulder_Roll_Left": 1.9671702422689885,
+                "Joint_Shoulder_Yaw_Left": -0.47219224244752317,
+                "Joint_Elbow_Pitch_Left": -1.5538426764172286,
+                "Joint_Wrist_Yaw_Left": 0.7374498762899612,
+                "Joint_Wrist_Roll_Left": -0.09883626249347618,
+                "Joint_Wrist_Pitch_Left": 0.10053611313780318
+              }
+            },
+            {
+              "progress": 0.33333333333333337,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.08161077191810123,
+                "Joint_Shoulder_Roll_Left": 2.019821490981646,
+                "Joint_Shoulder_Yaw_Left": -0.49859423776115835,
+                "Joint_Elbow_Pitch_Left": -1.5696019586634218,
+                "Joint_Wrist_Yaw_Left": 0.7788304048650097,
+                "Joint_Wrist_Roll_Left": -0.10263784921675165,
+                "Joint_Wrist_Pitch_Left": 0.08280441482193628
+              }
+            },
+            {
+              "progress": 0.35,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.1014863654188343,
+                "Joint_Shoulder_Roll_Left": 2.0671393769813626,
+                "Joint_Shoulder_Yaw_Left": -0.5220057104561596,
+                "Joint_Elbow_Pitch_Left": -1.5836878690496632,
+                "Joint_Wrist_Yaw_Left": 0.813944080950618,
+                "Joint_Wrist_Roll_Left": -0.11059201839573918,
+                "Joint_Wrist_Pitch_Left": 0.06664426134726723
+              }
+            },
+            {
+              "progress": 0.3666666666666667,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.12030987911068558,
+                "Joint_Shoulder_Roll_Left": 2.111727060782088,
+                "Joint_Shoulder_Yaw_Left": -0.5421897930265883,
+                "Joint_Elbow_Pitch_Left": -1.5960650710005186,
+                "Joint_Wrist_Yaw_Left": 0.8457324230055588,
+                "Joint_Wrist_Roll_Left": -0.12106400538820958,
+                "Joint_Wrist_Pitch_Left": 0.05089657212703557
+              }
+            },
+            {
+              "progress": 0.3833333333333333,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.13862425056187946,
+                "Joint_Shoulder_Roll_Left": 2.153560518478409,
+                "Joint_Shoulder_Yaw_Left": -0.5597399206645883,
+                "Joint_Elbow_Pitch_Left": -1.606734546658802,
+                "Joint_Wrist_Yaw_Left": 0.8742649772750641,
+                "Joint_Wrist_Roll_Left": -0.1339306662102449,
+                "Joint_Wrist_Pitch_Left": 0.03576406484763219
+              }
+            },
+            {
+              "progress": 0.4,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.15604213326359379,
+                "Joint_Shoulder_Roll_Left": 2.1932629698003816,
+                "Joint_Shoulder_Yaw_Left": -0.5749405902487196,
+                "Joint_Elbow_Pitch_Left": -1.6156878551090703,
+                "Joint_Wrist_Yaw_Left": 0.9003040424181179,
+                "Joint_Wrist_Roll_Left": -0.14873315869372963,
+                "Joint_Wrist_Pitch_Left": 0.021000181035683404
+              }
+            },
+            {
+              "progress": 0.41666666666666663,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.17305170413980267,
+                "Joint_Shoulder_Roll_Left": 2.2306226033767005,
+                "Joint_Shoulder_Yaw_Left": -0.5881428561491131,
+                "Joint_Elbow_Pitch_Left": -1.6229262939208862,
+                "Joint_Wrist_Yaw_Left": 0.9237098567616917,
+                "Joint_Wrist_Roll_Left": -0.16546251038298268,
+                "Joint_Wrist_Pitch_Left": 0.00684882340432838
+              }
+            },
+            {
+              "progress": 0.43333333333333335,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.18965784260540927,
+                "Joint_Shoulder_Roll_Left": 2.265774340871813,
+                "Joint_Shoulder_Yaw_Left": -0.5995451846967537,
+                "Joint_Elbow_Pitch_Left": -1.6284461945904136,
+                "Joint_Wrist_Yaw_Left": 0.9447154754121031,
+                "Joint_Wrist_Roll_Left": -0.1839304142702116,
+                "Joint_Wrist_Pitch_Left": -0.006688211866312432
+              }
+            },
+            {
+              "progress": 0.44999999999999996,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.20854138271175407,
+                "Joint_Shoulder_Roll_Left": 2.2963175676913976,
+                "Joint_Shoulder_Yaw_Left": -0.609375379929804,
+                "Joint_Elbow_Pitch_Left": -1.632270947957699,
+                "Joint_Wrist_Yaw_Left": 0.9609284107719417,
+                "Joint_Wrist_Roll_Left": -0.20518857699559687,
+                "Joint_Wrist_Pitch_Left": -0.017836548214975947
+              }
+            },
+            {
+              "progress": 0.4666666666666667,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.22427887046831474,
+                "Joint_Shoulder_Roll_Left": 2.3273327979986833,
+                "Joint_Shoulder_Yaw_Left": -0.6175249964372379,
+                "Joint_Elbow_Pitch_Left": -1.6343427528584786,
+                "Joint_Wrist_Yaw_Left": 0.9777218075991315,
+                "Joint_Wrist_Roll_Left": -0.22663909782881259,
+                "Joint_Wrist_Pitch_Left": -0.03010958091647793
+              }
+            },
+            {
+              "progress": 0.4833333333333334,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.24009933633325556,
+                "Joint_Shoulder_Roll_Left": 2.355884869536732,
+                "Joint_Shoulder_Yaw_Left": -0.6242409987800516,
+                "Joint_Elbow_Pitch_Left": -1.634691590763562,
+                "Joint_Wrist_Yaw_Left": 0.9921266853433056,
+                "Joint_Wrist_Roll_Left": -0.24962356235111455,
+                "Joint_Wrist_Pitch_Left": -0.0414155347103229
+              }
+            },
+            {
+              "progress": 0.5,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.2554853003234191,
+                "Joint_Shoulder_Roll_Left": 2.3824819144339835,
+                "Joint_Shoulder_Yaw_Left": -0.6295888314397983,
+                "Joint_Elbow_Pitch_Left": -1.633310031066353,
+                "Joint_Wrist_Yaw_Left": 1.0047498758386604,
+                "Joint_Wrist_Roll_Left": -0.27380115884509815,
+                "Joint_Wrist_Pitch_Left": -0.05208963166685639
+              }
+            },
+            {
+              "progress": 0.5166666666666666,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.26933344160106987,
+                "Joint_Shoulder_Roll_Left": 2.4082291551957,
+                "Joint_Shoulder_Yaw_Left": -0.6337520729453078,
+                "Joint_Elbow_Pitch_Left": -1.6301859427164325,
+                "Joint_Wrist_Yaw_Left": 1.0167482633522213,
+                "Joint_Wrist_Roll_Left": -0.2985807716951243,
+                "Joint_Wrist_Pitch_Left": -0.06295914592462096
+              }
+            },
+            {
+              "progress": 0.5333333333333333,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.2825425609420452,
+                "Joint_Shoulder_Roll_Left": 2.4322705651581615,
+                "Joint_Shoulder_Yaw_Left": -0.6367605138297664,
+                "Joint_Elbow_Pitch_Left": -1.6253262902922798,
+                "Joint_Wrist_Yaw_Left": 1.0273222486570388,
+                "Joint_Wrist_Roll_Left": -0.32428620807893466,
+                "Joint_Wrist_Pitch_Left": -0.07338733886123827
+              }
+            },
+            {
+              "progress": 0.55,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.29566657182255046,
+                "Joint_Shoulder_Roll_Left": 2.454038830759471,
+                "Joint_Shoulder_Yaw_Left": -0.6385614095981637,
+                "Joint_Elbow_Pitch_Left": -1.6187343254891875,
+                "Joint_Wrist_Yaw_Left": 1.0359943407418706,
+                "Joint_Wrist_Roll_Left": -0.35109534594595665,
+                "Joint_Wrist_Pitch_Left": -0.08292553130336244
+              }
+            },
+            {
+              "progress": 0.5666666666666667,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.30780170949705543,
+                "Joint_Shoulder_Roll_Left": 2.4744373555731625,
+                "Joint_Shoulder_Yaw_Left": -0.6393312901154466,
+                "Joint_Elbow_Pitch_Left": -1.6103999436041296,
+                "Joint_Wrist_Yaw_Left": 1.0436811679008848,
+                "Joint_Wrist_Roll_Left": -0.37853791541995435,
+                "Joint_Wrist_Pitch_Left": -0.09228025047882742
+              }
+            },
+            {
+              "progress": 0.5833333333333333,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.31884566152177424,
+                "Joint_Shoulder_Roll_Left": 2.493574870896332,
+                "Joint_Shoulder_Yaw_Left": -0.6391597796448099,
+                "Joint_Elbow_Pitch_Left": -1.6003198823314073,
+                "Joint_Wrist_Yaw_Left": 1.0505100298595405,
+                "Joint_Wrist_Roll_Left": -0.406513031487929,
+                "Joint_Wrist_Pitch_Left": -0.10155704155929084
+              }
+            },
+            {
+              "progress": 0.6,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.3288021960639189,
+                "Joint_Shoulder_Roll_Left": 2.5114485229986094,
+                "Joint_Shoulder_Yaw_Left": -0.6381093485577845,
+                "Joint_Elbow_Pitch_Left": -1.5884908069722057,
+                "Joint_Wrist_Yaw_Left": 1.056494390822658,
+                "Joint_Wrist_Roll_Left": -0.4349753376642167,
+                "Joint_Wrist_Pitch_Left": -0.11077625339254361
+              }
+            },
+            {
+              "progress": 0.6166666666666667,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.337677937406714,
+                "Joint_Shoulder_Roll_Left": 2.5280481557901076,
+                "Joint_Shoulder_Yaw_Left": -0.6362301294563482,
+                "Joint_Elbow_Pitch_Left": -1.574907888371728,
+                "Joint_Wrist_Yaw_Left": 1.0616344295053726,
+                "Joint_Wrist_Roll_Left": -0.46388824746971047,
+                "Joint_Wrist_Pitch_Left": -0.11995378165992436
+              }
+            },
+            {
+              "progress": 0.6333333333333333,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.3455488407864407,
+                "Joint_Shoulder_Roll_Left": 2.5432827546597627,
+                "Joint_Shoulder_Yaw_Left": -0.6335322770004999,
+                "Joint_Elbow_Pitch_Left": -1.559564784797245,
+                "Joint_Wrist_Yaw_Left": 1.0658545554539702,
+                "Joint_Wrist_Roll_Left": -0.4932545657267877,
+                "Joint_Wrist_Pitch_Left": -0.12903834733346708
+              }
+            },
+            {
+              "progress": 0.65,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.352339956193198,
+                "Joint_Shoulder_Roll_Left": 2.5572213461723945,
+                "Joint_Shoulder_Yaw_Left": -0.6300669264703079,
+                "Joint_Elbow_Pitch_Left": -1.5424511390985969,
+                "Joint_Wrist_Yaw_Left": 1.0692120221086072,
+                "Joint_Wrist_Roll_Left": -0.5230154909896441,
+                "Joint_Wrist_Pitch_Left": -0.13811451046255266
+              }
+            },
+            {
+              "progress": 0.6666666666666667,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.3582171719411725,
+                "Joint_Shoulder_Roll_Left": 2.5696585832549053,
+                "Joint_Shoulder_Yaw_Left": -0.6257661119303604,
+                "Joint_Elbow_Pitch_Left": -1.5235550726579798,
+                "Joint_Wrist_Yaw_Left": 1.0715256866606406,
+                "Joint_Wrist_Roll_Left": -0.5532318136261708,
+                "Joint_Wrist_Pitch_Left": -0.1470329909572777
+              }
+            },
+            {
+              "progress": 0.6833333333333333,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.36253525863630376,
+                "Joint_Shoulder_Roll_Left": 2.5813142298370098,
+                "Joint_Shoulder_Yaw_Left": -0.6209603754160586,
+                "Joint_Elbow_Pitch_Left": -1.502853660166711,
+                "Joint_Wrist_Yaw_Left": 1.0733651549614025,
+                "Joint_Wrist_Roll_Left": -0.5835914619407429,
+                "Joint_Wrist_Pitch_Left": -0.15646010445250338
+              }
+            },
+            {
+              "progress": 0.7,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.3655768200596408,
+                "Joint_Shoulder_Roll_Left": 2.591855733836578,
+                "Joint_Shoulder_Yaw_Left": -0.6155414456730781,
+                "Joint_Elbow_Pitch_Left": -1.4803261372136989,
+                "Joint_Wrist_Yaw_Left": 1.0744129938589222,
+                "Joint_Wrist_Roll_Left": -0.6142218093794862,
+                "Joint_Wrist_Pitch_Left": -0.16615671368340573
+              }
+            },
+            {
+              "progress": 0.7166666666666667,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.3675158025483105,
+                "Joint_Shoulder_Roll_Left": 2.601051057398604,
+                "Joint_Shoulder_Yaw_Left": -0.6093947124069459,
+                "Joint_Elbow_Pitch_Left": -1.4559441258928603,
+                "Joint_Wrist_Yaw_Left": 1.0744403122148523,
+                "Joint_Wrist_Roll_Left": -0.6452116119690315,
+                "Joint_Wrist_Pitch_Left": -0.17596440783593295
+              }
+            },
+            {
+              "progress": 0.7333333333333334,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.36805723911579985,
+                "Joint_Shoulder_Roll_Left": 2.609219518553922,
+                "Joint_Shoulder_Yaw_Left": -0.6026877834557388,
+                "Joint_Elbow_Pitch_Left": -1.4296672779586375,
+                "Joint_Wrist_Yaw_Left": 1.0736405611279303,
+                "Joint_Wrist_Roll_Left": -0.6764328010095088,
+                "Joint_Wrist_Pitch_Left": -0.18623567691428825
+              }
+            },
+            {
+              "progress": 0.75,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.36695022616910367,
+                "Joint_Shoulder_Roll_Left": 2.6166405082373476,
+                "Joint_Shoulder_Yaw_Left": -0.5956081477614299,
+                "Joint_Elbow_Pitch_Left": -1.401445646497375,
+                "Joint_Wrist_Yaw_Left": 1.0721465886303831,
+                "Joint_Wrist_Roll_Left": -0.7077809092833021,
+                "Joint_Wrist_Pitch_Left": -0.19731870757398895
+              }
+            },
+            {
+              "progress": 0.7666666666666666,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.36432891290446323,
+                "Joint_Shoulder_Roll_Left": 2.623111264451173,
+                "Joint_Shoulder_Yaw_Left": -0.5880517753103031,
+                "Joint_Elbow_Pitch_Left": -1.37122030583143,
+                "Joint_Wrist_Yaw_Left": 1.0697054232837242,
+                "Joint_Wrist_Roll_Left": -0.7393497545379123,
+                "Joint_Wrist_Pitch_Left": -0.20913020702326862
+              }
+            },
+            {
+              "progress": 0.7833333333333333,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.3600728094388935,
+                "Joint_Shoulder_Roll_Left": 2.6287298771369514,
+                "Joint_Shoulder_Yaw_Left": -0.5800931161796316,
+                "Joint_Elbow_Pitch_Left": -1.3389154042974851,
+                "Joint_Wrist_Yaw_Left": 1.0662745972094243,
+                "Joint_Wrist_Roll_Left": -0.7711175301004726,
+                "Joint_Wrist_Pitch_Left": -0.22189387544612038
+              }
+            },
+            {
+              "progress": 0.8,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.35411756286008017,
+                "Joint_Shoulder_Roll_Left": 2.6335088218321157,
+                "Joint_Shoulder_Yaw_Left": -0.5717511155650006,
+                "Joint_Elbow_Pitch_Left": -1.3044372546298448,
+                "Joint_Wrist_Yaw_Left": 1.061722331621051,
+                "Joint_Wrist_Roll_Left": -0.8031014771725024,
+                "Joint_Wrist_Pitch_Left": -0.23578469621353845
+              }
+            },
+            {
+              "progress": 0.8166666666666667,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.3463790914226828,
+                "Joint_Shoulder_Roll_Left": 2.63746428446513,
+                "Joint_Shoulder_Yaw_Left": -0.5630451304349702,
+                "Joint_Elbow_Pitch_Left": -1.2676692290991505,
+                "Joint_Wrist_Yaw_Left": 1.0558891031729252,
+                "Joint_Wrist_Roll_Left": -0.8353220411132479,
+                "Joint_Wrist_Pitch_Left": -0.25102282287692634
+              }
+            },
+            {
+              "progress": 0.8333333333333334,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.3366971264344459,
+                "Joint_Shoulder_Roll_Left": 2.6406885256855697,
+                "Joint_Shoulder_Yaw_Left": -0.5540648583800514,
+                "Joint_Elbow_Pitch_Left": -1.2284652939579654,
+                "Joint_Wrist_Yaw_Left": 1.048630852024721,
+                "Joint_Wrist_Roll_Left": -0.8677735476291805,
+                "Joint_Wrist_Pitch_Left": -0.2679650832549548
+              }
+            },
+            {
+              "progress": 0.85,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.3250314068546208,
+                "Joint_Shoulder_Roll_Left": 2.6430707516974983,
+                "Joint_Shoulder_Yaw_Left": -0.5447215215617908,
+                "Joint_Elbow_Pitch_Left": -1.1866437155864258,
+                "Joint_Wrist_Yaw_Left": 1.0396046717527878,
+                "Joint_Wrist_Roll_Left": -0.9005363109832919,
+                "Joint_Wrist_Pitch_Left": -0.28682789008416043
+              }
+            },
+            {
+              "progress": 0.8666666666666667,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.31088987161307385,
+                "Joint_Shoulder_Roll_Left": 2.6450911368064705,
+                "Joint_Shoulder_Yaw_Left": -0.5355327386250404,
+                "Joint_Elbow_Pitch_Left": -1.141970337233416,
+                "Joint_Wrist_Yaw_Left": 1.0288301630822465,
+                "Joint_Wrist_Roll_Left": -0.9334531461198954,
+                "Joint_Wrist_Pitch_Left": -0.30858421551734827
+              }
+            },
+            {
+              "progress": 0.8833333333333333,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.2941219504451109,
+                "Joint_Shoulder_Roll_Left": 2.6466912447983586,
+                "Joint_Shoulder_Yaw_Left": -0.5265645944976588,
+                "Joint_Elbow_Pitch_Left": -1.0941497283078483,
+                "Joint_Wrist_Yaw_Left": 1.0158533768301918,
+                "Joint_Wrist_Roll_Left": -0.9665841474972984,
+                "Joint_Wrist_Pitch_Left": -0.3337845618509855
+              }
+            },
+            {
+              "progress": 0.9,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.27470008050614375,
+                "Joint_Shoulder_Roll_Left": 2.6475163710464362,
+                "Joint_Shoulder_Yaw_Left": -0.5175365658067671,
+                "Joint_Elbow_Pitch_Left": -1.0427997217443443,
+                "Joint_Wrist_Yaw_Left": 0.9998719637123595,
+                "Joint_Wrist_Roll_Left": -1.0001151995257704,
+                "Joint_Wrist_Pitch_Left": -0.3628207578558883
+              }
+            },
+            {
+              "progress": 0.9166666666666666,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.2525310495204673,
+                "Joint_Shoulder_Roll_Left": 2.647131901570557,
+                "Joint_Shoulder_Yaw_Left": -0.5079737877906777,
+                "Joint_Elbow_Pitch_Left": -0.9874130065063775,
+                "Joint_Wrist_Yaw_Left": 0.9798039328397998,
+                "Joint_Wrist_Roll_Left": -1.0342754791670694,
+                "Joint_Wrist_Pitch_Left": -0.3962272993522862
+              }
+            },
+            {
+              "progress": 0.9333333333333333,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.22658194226960002,
+                "Joint_Shoulder_Roll_Left": 2.646313500722383,
+                "Joint_Shoulder_Yaw_Left": -0.499098077710686,
+                "Joint_Elbow_Pitch_Left": -0.9272850907554667,
+                "Joint_Wrist_Yaw_Left": 0.9552564982049423,
+                "Joint_Wrist_Roll_Left": -1.0687648219306498,
+                "Joint_Wrist_Pitch_Left": -0.4364861264754209
+              }
+            },
+            {
+              "progress": 0.95,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.196522981705235,
+                "Joint_Shoulder_Roll_Left": 2.6444063303079854,
+                "Joint_Shoulder_Yaw_Left": -0.4903531621723631,
+                "Joint_Elbow_Pitch_Left": -0.8614305187233798,
+                "Joint_Wrist_Yaw_Left": 0.9242662924348575,
+                "Joint_Wrist_Roll_Left": -1.1038852129545018,
+                "Joint_Wrist_Pitch_Left": -0.4850182964823718
+              }
+            },
+            {
+              "progress": 0.9666666666666667,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.16027754070193964,
+                "Joint_Shoulder_Roll_Left": 2.6428981473630233,
+                "Joint_Shoulder_Yaw_Left": -0.48518332506267914,
+                "Joint_Elbow_Pitch_Left": -0.7883483002493753,
+                "Joint_Wrist_Yaw_Left": 0.886338054473169,
+                "Joint_Wrist_Roll_Left": -1.1388917022993954,
+                "Joint_Wrist_Pitch_Left": -0.547350398215068
+              }
+            },
+            {
+              "progress": 0.9833333333333333,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.11503438819120841,
+                "Joint_Shoulder_Roll_Left": 2.6432564939728262,
+                "Joint_Shoulder_Yaw_Left": -0.4895995683484524,
+                "Joint_Elbow_Pitch_Left": -0.7056078463296229,
+                "Joint_Wrist_Yaw_Left": 0.8412443634865848,
+                "Joint_Wrist_Roll_Left": -1.172779718117757,
+                "Joint_Wrist_Pitch_Left": -0.6315502372003999
+              }
+            },
+            {
+              "progress": 1.0,
+              "joint_positions": {
+                "Joint_Shoulder_Pitch_Left": -0.08130704853795906,
+                "Joint_Shoulder_Roll_Left": 2.6357968359676462,
+                "Joint_Shoulder_Yaw_Left": -0.477378505999669,
+                "Joint_Elbow_Pitch_Left": -0.632743045999247,
+                "Joint_Wrist_Yaw_Left": 0.8146981593022977,
+                "Joint_Wrist_Roll_Left": -1.1917304759999998,
+                "Joint_Wrist_Pitch_Left": -0.6681317009999999
+              }
+            }
+          ]
+        }
+      },
+      "calibration_status": "draft_unvalidated"
+    },
+    "crs_final_place": {
+      "title": "Grasp cleaned CRS and place in final cart slot",
+      "object": "crs",
+      "arm": "right",
+      "grasp_pose_object": [
+        0.1384278833324016,
+        0.23528123361219952,
+        -0.0012000000149009985,
+        0.6532814824381884,
+        -0.6532814824381883,
+        0.2705980500730985,
+        -0.2705980500730985
+      ],
+      "target": {
+        "frame": "world",
+        "pose": [
+          0.8001482302759542,
+          -0.41198653876781466,
+          0.8045001306533813,
+          0,
+          0,
+          0.7071067811865476,
+          0.7071067811865476
+        ]
+      },
+      "pregrasp_offset_w": [
+        0,
+        0.04,
+        0
+      ],
+      "lift_offset_w": [
+        0,
+        0,
+        0.14060915949972747
+      ],
+      "transfer_offset_w": [
+        0,
+        0,
+        0.25659577846527104
+      ],
+      "retreat_offset_w": [
+        -0.06,
+        0,
+        0.06
+      ],
+      "min_lift_m": 0.08,
+      "base_stations": {
+        "source": [
+          -0.3,
+          -0.95,
+          0.944,
+          0,
+          0,
+          0,
+          1
+        ],
+        "target": [
+          0.3,
+          -0.2,
+          0.938,
+          0.9987502603949663,
+          0,
+          0,
+          0.04997916927067833
+        ]
+      },
+      "requires_completed": [
+        "jig_extract_cleaner"
+      ],
+      "requires_events": [],
+      "requires_door_open": false,
+      "timeout_s": 360.0,
+      "stage_timeouts_s": {
+        "prerequisites": 180,
+        "navigate_source": 120,
+        "pregrasp": 45,
+        "approach": 45,
+        "close": 45,
+        "lift": 120.0,
+        "navigate_target": 120.0,
+        "transfer": 120.0,
+        "place": 120.0,
+        "release": 45,
+        "retreat": 45,
+        "settle": 20
+      },
+      "target_position_jitter_m": [
+        0,
+        0,
+        0
+      ],
+      "required_object_relations": [
+        {
+          "object": "crs",
+          "reference": "jig",
+          "pose": [
+            0.0,
+            -0.112,
+            0.15939084050027252,
+            0.681231,
+            0.681231,
+            -0.189537,
+            0.189537
+          ],
+          "position_tolerance_m": 0.025,
+          "rotation_tolerance_rad": 0.2,
+          "check_until_stage": "close"
+        }
+      ],
+      "navigation_control": {
+        "max_speed_m_s": 0.12,
+        "max_yaw_rate_rad_s": 0.12,
+        "linear_acceleration_m_s2": 0.05,
+        "yaw_acceleration_rad_s2": 0.08,
+        "stabilize_carry": true,
+        "carry_tcp_speed_m_s": 0.2,
+        "carry_tcp_yaw_rate_rad_s": 0.15,
+        "position_gain_s_inv": 6.0,
+        "yaw_gain_s_inv": 6.0,
+        "settle_on_arrival": true
+      },
+      "object_pose_control": {
+        "linear_speed": 0.03,
+        "linear_acceleration": 0.06,
+        "angular_speed": 0.12,
+        "angular_acceleration": 0.3,
+        "position_lead": 0.004,
+        "rotation_lead": 0.02,
+        "reference_profile": "online"
+      },
+      "contact_servo_speed_scale": 1.0,
+      "motion_watchdog": {
+        "duration_s": 12.0,
+        "position_improvement_m": 0.002,
+        "rotation_improvement_rad": 0.01
+      },
+      "close_acquisition_frame": "object_relative",
+      "close_acquisition_position_m": 0.01,
+      "close_acquisition_rotation_rad": 0.05,
+      "initial_arm_joint_positions": {
+        "Joint_Shoulder_Pitch_Right": 0.7255183610195192,
+        "Joint_Shoulder_Roll_Right": -2.092331486048863,
+        "Joint_Shoulder_Yaw_Right": -0.43920001948503445,
+        "Joint_Elbow_Pitch_Right": -1.5815080446265386,
+        "Joint_Wrist_Yaw_Right": 1.0901265547872847,
+        "Joint_Wrist_Roll_Right": 0.22296553836647307,
+        "Joint_Wrist_Pitch_Right": -0.44163486331155066
+      },
+      "initial_arm_ramp_seconds": 0.0,
+      "contact_detail_limit": 32,
+      "open_gripper_position_rad": -0.4,
+      "pinch_geometry_evidence": "Raw authored jaw triangle/CRS sector clipping: crs_flat_pinch_depth_search.json, 82.5deg upper-face grasp, finger depth .175m, first moving contact -0.03360rad; expected physical contact near [-.08,-.01]rad (diagnostic only, not acceptance rule). Same face grasp in task1 physically acquired near -.04565rad then slipped; task5 grasp stability remains unverified. task5_jaw_aperture_audit.json: open -.4rad permits sampled normal approach without intersections in raw JIG frame, original guide and full robot meshes. Source raw frame provenance original_jig_frame_raw.json; original slots original_jig_slot_guides.json. No geometry/material/torque/closed gate change. task5_deep82_close_cad.json: q=-.4 to 0 closure sweep has no non-target intersections; first sampled intended CRS intersection at -.034rad.",
+      "initial_upper_joint_positions": {
+        "Joint_Waist_Yaw": 0.0,
+        "Joint_Waist_Roll": 0.0,
+        "Joint_Waist_Pitch": 0.0,
+        "Joint_Shoulder_Pitch_Left": 0.12999999523162842,
+        "Joint_Shoulder_Roll_Left": 0.12999999523162842,
+        "Joint_Shoulder_Yaw_Left": 0.0,
+        "Joint_Elbow_Pitch_Left": -0.30000001192092896,
+        "Joint_Wrist_Yaw_Left": 0.0,
+        "Joint_Wrist_Roll_Left": 0.0,
+        "Joint_Wrist_Pitch_Left": 0.0
+      },
+      "calibration_status": "draft_unvalidated"
+    }
+  },
+  "jig_slots": {
+    "restore_missing_guide_collisions": true,
+    "source": "original_asset_jig_rev01_visible_guide_meshes",
+    "guide_mesh_relative_paths": [
+      "assm_jig/assm_jig/jig/tn__6_X1kxm3zm9kx3lyK/Mesh",
+      "assm_jig/assm_jig/jig_1/tn__6_X1kxm3zm9kx3lyK/Mesh"
+    ],
+    "slot_centers_y_m": [
+      -0.115,
+      -0.07,
+      -0.025,
+      0.025,
+      0.07,
+      0.115
+    ],
+    "slot_clear_width_m": 0.01,
+    "crs_thickness_envelope_m": 0.006,
+    "slot_index": 3,
+    "crs_normal_jig": "positive_y",
+    "initial_pose_jig": [
+      0.0,
+      -0.017,
+      0.175,
+      0.681231,
+      0.681231,
+      -0.189537,
+      0.189537
+    ],
+    "settled_pose_jig_estimate": [
+      0.0,
+      -0.017,
+      0.15939084050027252,
+      0.681231,
+      0.681231,
+      -0.189537,
+      0.189537
+    ],
+    "support_estimate_geometry_m": {
+      "ring_outer_radius": 0.127,
+      "guide_inner_lower_corner_x": 0.067724,
+      "guide_inner_lower_corner_z": 0.051955
+    },
+    "calibration_status": "geometry_derived_physics_unvalidated",
+    "physical_support_verified": false,
+    "note": "The 10 mm guide slots are real authored meshes whose collision schemas were absent. Session collision restoration and actual PhysX settling are required; the settled pose is a geometric estimate, not a measured success.",
+    "collision_profile": "exact_prisms_v3"
+  },
+  "floor_support_profile": "original_floor_outside_workcell_box",
+  "support_contact_diagnostics": true,
+  "allowed_collection_scopes": [
+    "stationary_task"
+  ],
+  "allowed_task_ids": [
+    "crs_load_jig"
+  ],
+  "stationary_task": {
+    "schema_version": "igris_c_nepes_stationary_task_v2",
+    "number": 1,
+    "id": "crs_pickup_load_jig",
+    "legacy_task_id": "crs_load_jig",
+    "goal": "pickup_load_jig",
+    "require_hugwbc": true,
+    "independent_scene": true,
+    "preparation_dwell_s": 0.5,
+    "settle_dwell_s": 1.0,
+    "max_object_linear_m_s": 0.02,
+    "max_object_angular_rad_s": 0.12,
+    "max_base_linear_m_s": 0.03,
+    "max_base_yaw_rad_s": 0.12,
+    "slot_position_tolerance_m": 0.008,
+    "slot_normal_position_tolerance_m": 0.004,
+    "slot_rotation_tolerance_rad": 0.05,
+    "maximum_jig_position_drift_m": 0.005,
+    "maximum_jig_rotation_drift_rad": 0.05,
+    "release_separation_m": 0.01,
+    "minimum_retreat_m": 0.04,
+    "minimum_lift_m": 0.17,
+    "upright_joint_tolerance_rad": 0.15,
+    "maximum_pelvis_tilt_rad": 0.15
+  },
+  "third_person_orientation_wxyz": [
+    -0.6467951051640585,
+    -0.28575530080090294,
+    -0.28575530080090294,
+    0.6467951051640585
+  ],
+  "recording_boundary": {
+    "kind": "after_measured_upright_stance",
+    "readiness_dwell_s": 0.5
+  },
+  "support_contact_awake_object": "crs",
+  "camera_layout": "head_both_wrists",
+  "third_person_translation": [
+    0.0,
+    0.95,
+    2.45
+  ],
+  "third_person_focal_length_usd_tenths": 11.5,
+  "wrist_camera_overrides": {
+    "left": {
+      "translation": [
+        0.007730487950092856,
+        -0.021748387519126635,
+        0.020013795948148103
+      ],
+      "orientation_wxyz": [
+        0.9651345420842494,
+        0.10436556768910532,
+        0.18238184155327505,
+        -0.15607692919965133
+      ],
+      "focal_length_usd_tenths": 12.0
+    },
+    "right": {
+      "translation": [
+        0.007774196328209949,
+        0.021628664415705382,
+        0.020032411069572542
+      ],
+      "orientation_wxyz": [
+        0.9653599113434168,
+        -0.10417198846746079,
+        0.1811851595014566,
+        0.15620619823232818
+      ],
+      "focal_length_usd_tenths": 12.0
+    }
+  },
+  "head_camera_calibration": {
+    "attachment_body": "Link_Neck_Pitch",
+    "translation": [
+      0.111295551,
+      0.034652642,
+      0.16535568
+    ],
+    "orientation_wxyz": [
+      0.8889753328938542,
+      0.01226475999853558,
+      0.4575310919453697,
+      0.015418594998158982
+    ],
+    "intrinsics": [
+      [
+        1204.4979298913597,
+        0.0,
+        639.1073041945203
+      ],
+      [
+        0.0,
+        1203.119038987881,
+        354.4998648502802
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "distortion": [
+      0.10335624665662596,
+      -0.08003090389475187,
+      0.0005443642820743403,
+      0.0011010907306839444,
+      -0.44996319866742235
+    ],
+    "clipping_range_m": [
+      0.06,
+      4.0
+    ],
+    "source": {
+      "path": "source/robros_lab/robros_lab/tasks/motion_tracking/robot_cfg.py",
+      "sha256": "42ecafdfa3e9fd543ae0fc6b3829e82964e9a720541292b38fd68ce954bafd6d",
+      "profile": "IGRIS_C_HEAD_CAMERA_CFG / repository D435 RGB calibration",
+      "input_resolution": [
+        640,
+        480
+      ],
+      "resize_crop": {
+        "scale": [
+          2,
+          2
+        ],
+        "crop_xywh": [
+          0,
+          120,
+          1280,
+          720
+        ]
+      },
+      "input_intrinsics": [
+        [
+          602.2489649456799,
+          0.0,
+          319.55365209726017
+        ],
+        [
+          0.0,
+          601.5595194939405,
+          237.2499324251401
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "input_distortion": [
+        0.10335624665662596,
+        -0.08003090389475187,
+        0.0005443642820743403,
+        0.0011010907306839444,
+        -0.44996319866742235
+      ],
+      "input_pose_ros_xyz_wxyz": [
+        0.111295551,
+        0.034652642,
+        0.16535568,
+        0.229563798,
+        -0.67483013,
+        0.671676295,
+        -0.201880443
+      ],
+      "axis_conversion": "ROS +Z forward,+Y down -> Isaac +X forward,+Z up",
+      "calibration_scope": "Existing repository calibration; physical device serial and calibration capture provenance are unavailable.",
+      "clipping_rationale": "Existing D435 profile uses a 60mm near plane to clear the embedded head render mesh; no optical-center remount.",
+      "output_scope": "Uniform resize plus center crop of the repository 640x480 calibration, not a separately measured 1280x720 hardware stream."
+    }
+  },
+  "actuator_delay_profile": {
+    "mode": "fixed",
+    "startup_group_physics_ticks": {
+      "X12-150": 1,
+      "X8-120": 2,
+      "X6-60": 0,
+      "PLA": 2
+    },
+    "group_physics_ticks": {
+      "X12-150": 1,
+      "X8-120": 1,
+      "X6-60": 1,
+      "PLA": 2
+    }
+  },
+  "single_arm_layout": {
+    "scene_usd": "assets/workcell/layout.usda",
+    "scene_sha256": "73fcb2e3e6a2a89941aac40a4ea4bbba17aff9c20f8e47b33f53753e71415531",
+    "source_slot_number": 2,
+    "target_slot_number": 4,
+    "occupied_cart_slots": [
+      2,
+      4
+    ],
+    "allowed_jig_slots": [
+      2,
+      4
+    ]
+  },
+  "user_slot_pair": {
+    "number": 4,
+    "definition": "near_cart_to_near_jig",
+    "view": "washer_side_fixed_third_person",
+    "source_prim": "/World/Scene/Ring_02",
+    "source_authored_slot_number": 2,
+    "target_authored_slot_number": 4
+  }
+}

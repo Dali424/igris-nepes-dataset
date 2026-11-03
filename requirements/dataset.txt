@@ -1,0 +1,14 @@
+# Install into the dedicated dataset env; share Torch from the simulation env.
+# lerobot==0.4.4 is installed separately with --no-deps by setup.sh.
+numpy==1.26.0
+datasets==4.4.1
+pyarrow==22.0.0
+av==15.1.0
+draccus==0.10.0
+deepdiff==8.6.1
+jsonlines==4.0.0
+huggingface-hub==0.35.3
+packaging==25.0
+accelerate==1.10.1
+termcolor==3.1.0
+einops==0.8.1

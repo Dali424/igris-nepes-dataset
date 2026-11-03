@@ -1,0 +1,1975 @@
+{
+  "schema": "igris_nepes_portable_release_v1",
+  "release": "2026-11-03",
+  "profiles": {
+    "left2": {
+      "pair": "2 -> 2",
+      "arm": "left",
+      "config": "configs/left2.json"
+    },
+    "right4": {
+      "pair": "4 -> 4",
+      "arm": "right",
+      "config": "configs/right4.json"
+    }
+  },
+  "capabilities": [
+    "seeded_collection",
+    "parallel_collection",
+    "video_augmentation",
+    "native_render_augmentation",
+    "state_replay",
+    "quota_campaign",
+    "pink_ik_backend"
+  ],
+  "ik_backend": {
+    "default": "pink",
+    "choices": [
+      "pink",
+      "native"
+    ],
+    "selection_environment": "NEPES_IK_BACKEND",
+    "worker_python_environment": "NEPES_IK_PYTHON",
+    "worker": "ik/pink/worker.py",
+    "requirements": "requirements/ik_pink.txt",
+    "client": "runtime/{profile}/source/robros_motion_planning/robros_motion_planning/upper_body_ik_backend.py",
+    "transport": "persistent_stdio_jsonl_one_worker_per_isaac_process",
+    "failure_policy": "fail_attempt_no_fallback",
+    "run_report_key": "upper_body_ik_backend",
+    "batch_plan_key": "upper_body_ik",
+    "batch_backends": [
+      "pink"
+    ],
+    "attempt_verification": "declared_backend_closed_cleanly"
+  },
+  "files": {
+    ".gitattributes": {
+      "bytes": 526,
+      "sha256": "9909edce2d8aa837a04842e04b57208154833739b212821474ac7fa727fd51fc"
+    },
+    ".gitignore": {
+      "bytes": 180,
+      "sha256": "7f615dba3b98d51b408e9f30e0e8ff5732287135e7c571f7496853f0624d5264"
+    },
+    "LICENSE": {
+      "bytes": 11343,
+      "sha256": "6c902f2125ac13341ec3bd7a8e2a06550926b58a056a7a223172e6501370b70b"
+    },
+    "README.md": {
+      "bytes": 28586,
+      "sha256": "4cd2a0470cf7e3a58b2a27ed1ce08799f9329471a1ca06b97889cb1866f89fd8"
+    },
+    "THIRD_PARTY_NOTICES.txt": {
+      "bytes": 1488,
+      "sha256": "2f2f2594cbe49ac255c40c70d676f15a6799ee9ecc6a3ecfba3041fd3a7220b9"
+    },
+    "assets/policies/hugwbc.pt": {
+      "bytes": 11542235,
+      "sha256": "df21fbf0be8665bd74184805d7db24f552a84269b782beb674e5d33ef293c50a"
+    },
+    "assets/robot/meshes/igris_c_end_effector/1_dof_gripper/l_1_dof_gripper_fixed.stl": {
+      "bytes": 42484,
+      "sha256": "c97070632f30de97469ec38d0372c1750157b37a700a2f90647e9a24427c6373"
+    },
+    "assets/robot/meshes/igris_c_end_effector/1_dof_gripper/l_1_dof_gripper_moving.stl": {
+      "bytes": 16984,
+      "sha256": "773d0576eedbd019ce89c3f53f434b56b328750afaf452ddaa8878d7c60fd882"
+    },
+    "assets/robot/meshes/igris_c_end_effector/1_dof_gripper/r_1_dof_gripper_fixed.stl": {
+      "bytes": 22184,
+      "sha256": "8c69ffeea48205b27bedd4777965b6ae564add935608a52140d33a1d6732b291"
+    },
+    "assets/robot/meshes/igris_c_end_effector/1_dof_gripper/r_1_dof_gripper_moving.stl": {
+      "bytes": 16984,
+      "sha256": "0b913573ef1de8b4cda9153568d69045aa4cacbe6ecaf8bfbbbb9e5fef08e3c8"
+    },
+    "assets/robot/meshes/igris_c_v2/head.stl": {
+      "bytes": 51684,
+      "sha256": "42b02b0a210a517c6b664d2472b895c8633be6322691f6f22dd76e24488500dc"
+    },
+    "assets/robot/meshes/igris_c_v2/l_ankle_frame.stl": {
+      "bytes": 11984,
+      "sha256": "eaac0e0d594d6e1384627c2e1be05d88880e20b1f8d9c045fc8e8d91666d9f83"
+    },
+    "assets/robot/meshes/igris_c_v2/l_elbow_bracket.stl": {
+      "bytes": 30184,
+      "sha256": "4709a4db552f27ff5342fb96855029730629c0d0716026e199d9a52b770199cc"
+    },
+    "assets/robot/meshes/igris_c_v2/l_foot_original.stl": {
+      "bytes": 24084,
+      "sha256": "002e5d88a71b49ed3426d4e4f3bc328c8419e57efc7230039fa7b079afbb5d12"
+    },
+    "assets/robot/meshes/igris_c_v2/l_forearm.stl": {
+      "bytes": 45684,
+      "sha256": "7e20c18b7d5ca1944523693746718bf0c2dccece89cdbb6cc19fd60f90f67ce9"
+    },
+    "assets/robot/meshes/igris_c_v2/l_hip_bracket.stl": {
+      "bytes": 45784,
+      "sha256": "7261c3621cec586b51fe3d2726fe41acbc4f1aef368cec6c6783ada21d87a1c5"
+    },
+    "assets/robot/meshes/igris_c_v2/l_hip_frame.stl": {
+      "bytes": 13784,
+      "sha256": "f96cd0753ec885a4f00a8b87f0fe45dbeed2df87d1704e07230b1a6e9e1b9ed2"
+    },
+    "assets/robot/meshes/igris_c_v2/l_lower_leg.stl": {
+      "bytes": 11284,
+      "sha256": "bbd309fe354d61551e0b50f90a5c9592053175474265446fcb3bd7068dffa816"
+    },
+    "assets/robot/meshes/igris_c_v2/l_shoulder_bracket.stl": {
+      "bytes": 43284,
+      "sha256": "e95bd335d40e937fc0e7e415a407c2f520bb600f54b7af668bdda91fd96f58a6"
+    },
+    "assets/robot/meshes/igris_c_v2/l_shoulder_frame.stl": {
+      "bytes": 12184,
+      "sha256": "66812f18c33146e9b80ba6b03ed0d78e709b5c43c7aa654dc9ff4a783c2b4e06"
+    },
+    "assets/robot/meshes/igris_c_v2/l_upper_arm.stl": {
+      "bytes": 35884,
+      "sha256": "640eb728419ae5489ed60a165511973350888a6e4df7c9dadbe20c875abec376"
+    },
+    "assets/robot/meshes/igris_c_v2/l_upper_leg.stl": {
+      "bytes": 23584,
+      "sha256": "7c1e596fec13f0ee062efe5b1e9516cecefa1fac86a0748e42c82c19df09c642"
+    },
+    "assets/robot/meshes/igris_c_v2/l_wrist_connector.stl": {
+      "bytes": 16884,
+      "sha256": "bbdb7e4db237ef4902d33d3b3bace6da1a06575d87665249a22eefc3ceb6ce13"
+    },
+    "assets/robot/meshes/igris_c_v2/l_wrist_rod.stl": {
+      "bytes": 9284,
+      "sha256": "c397a513a75688e7849502112226cd753c747f4ac03a7f018d8577a54154fdb2"
+    },
+    "assets/robot/meshes/igris_c_v2/neck.stl": {
+      "bytes": 13284,
+      "sha256": "eb9e5b492caa540c3613fb7201b4350d77e87f5259bad23c0dae6a7b7c3e5b5d"
+    },
+    "assets/robot/meshes/igris_c_v2/pelvis.stl": {
+      "bytes": 18084,
+      "sha256": "f24b73144138717488aafa39419c2445cf0f4abe694f67128241d894d07c5187"
+    },
+    "assets/robot/meshes/igris_c_v2/pelvis_lower.stl": {
+      "bytes": 9084,
+      "sha256": "a1d67f0c055b473dc8a8403b33388e9da879a5da1a9d226b2768ffdfbe5d1917"
+    },
+    "assets/robot/meshes/igris_c_v2/pelvis_upper_back.stl": {
+      "bytes": 27584,
+      "sha256": "a89738370d878194ff61a7f09d212e749f6d51d8d196d2a6ba00d0dc0312207b"
+    },
+    "assets/robot/meshes/igris_c_v2/pelvis_upper_front.stl": {
+      "bytes": 17684,
+      "sha256": "04c0749e17177960721c9fa649467917a9b8bf0ff6f28e5f172a822feb5dd15f"
+    },
+    "assets/robot/meshes/igris_c_v2/r_ankle_frame.stl": {
+      "bytes": 11984,
+      "sha256": "eaac0e0d594d6e1384627c2e1be05d88880e20b1f8d9c045fc8e8d91666d9f83"
+    },
+    "assets/robot/meshes/igris_c_v2/r_elbow_bracket.stl": {
+      "bytes": 30184,
+      "sha256": "e4c6ba79c4c45639379291be19f87a713059a427633baa87df13807d30270510"
+    },
+    "assets/robot/meshes/igris_c_v2/r_foot_original.stl": {
+      "bytes": 24084,
+      "sha256": "002e5d88a71b49ed3426d4e4f3bc328c8419e57efc7230039fa7b079afbb5d12"
+    },
+    "assets/robot/meshes/igris_c_v2/r_forearm.stl": {
+      "bytes": 45684,
+      "sha256": "588a8035454f3fb8e05f09f13ca53475b6f7768749a289ba7b9ddd0fdb703f26"
+    },
+    "assets/robot/meshes/igris_c_v2/r_hip_bracket.stl": {
+      "bytes": 105684,
+      "sha256": "841c64a9006ab15b3f02de535491301fa38d9e333204589874a953c9ffe2d19b"
+    },
+    "assets/robot/meshes/igris_c_v2/r_hip_frame.stl": {
+      "bytes": 22084,
+      "sha256": "e2481439b5e3e8b781c435b8f9925741f62129af0c98155976cda420bcab683e"
+    },
+    "assets/robot/meshes/igris_c_v2/r_lower_leg.stl": {
+      "bytes": 11284,
+      "sha256": "bbd309fe354d61551e0b50f90a5c9592053175474265446fcb3bd7068dffa816"
+    },
+    "assets/robot/meshes/igris_c_v2/r_shoulder_bracket.stl": {
+      "bytes": 43284,
+      "sha256": "e95bd335d40e937fc0e7e415a407c2f520bb600f54b7af668bdda91fd96f58a6"
+    },
+    "assets/robot/meshes/igris_c_v2/r_shoulder_frame.stl": {
+      "bytes": 14284,
+      "sha256": "60a188302df0a68ceb7a8e47357d7534b814d239ae3a69e5dfd29c65e0256d4d"
+    },
+    "assets/robot/meshes/igris_c_v2/r_upper_arm.stl": {
+      "bytes": 35884,
+      "sha256": "640eb728419ae5489ed60a165511973350888a6e4df7c9dadbe20c875abec376"
+    },
+    "assets/robot/meshes/igris_c_v2/r_upper_leg.stl": {
+      "bytes": 23584,
+      "sha256": "7c1e596fec13f0ee062efe5b1e9516cecefa1fac86a0748e42c82c19df09c642"
+    },
+    "assets/robot/meshes/igris_c_v2/r_wrist_connector.stl": {
+      "bytes": 16884,
+      "sha256": "29dabd52e5e11fe365f96747b5846fa005311205f2bda713501014993d5c7196"
+    },
+    "assets/robot/meshes/igris_c_v2/r_wrist_rod.stl": {
+      "bytes": 9284,
+      "sha256": "a94cfe48adaa1ff1638ac75a9b365f40e66fa72578c2168c641cd50366217055"
+    },
+    "assets/robot/meshes/igris_c_v2/torso.stl": {
+      "bytes": 18884,
+      "sha256": "e0dcb0101a6cc312d7daacfed2a890fa4bba5c5c9076bca8bef702b0266d1bb5"
+    },
+    "assets/robot/meshes/igris_c_v2/waist_follower.stl": {
+      "bytes": 13084,
+      "sha256": "09609ddedbf84a44aea0e22724c600da6f02353ba6fab17b14ed82147aa3da5d"
+    },
+    "assets/robot/meshes/igris_c_v2/waist_frame.stl": {
+      "bytes": 18984,
+      "sha256": "65589ee8abe0951c4010ead9e747851a2cb0fdde4569bc7a9d5f6b38e6206676"
+    },
+    "assets/robot/urdf/igris_c_v2_torso_1dof.urdf": {
+      "bytes": 36039,
+      "sha256": "0623aee3d46dd349479657cb69c58d7e27dea87fc33ce5b9375ddca4deff4fcd"
+    },
+    "assets/robot/usd/1d_gripper_cam/.asset_hash": {
+      "bytes": 32,
+      "sha256": "d08500bc87eb3c73420796b837157d1116da94a4bc8bac85a627ad0b8dd8540b"
+    },
+    "assets/robot/usd/1d_gripper_cam/config.yaml": {
+      "bytes": 679,
+      "sha256": "91b6c94d77c397042532354095b81fc5b68a751b504e6391ff3dc9eb219a500a"
+    },
+    "assets/robot/usd/1d_gripper_cam/configuration/igrisc_1dgripper_base.usd": {
+      "bytes": 1249344,
+      "sha256": "0c0914b3ccfd99b7587af6b1b506938a3623bc3a18ac13186346dd49030f9df9"
+    },
+    "assets/robot/usd/1d_gripper_cam/configuration/igrisc_1dgripper_physics.usd": {
+      "bytes": 12402,
+      "sha256": "20f049d103759eb90bf329f6344fee9a26c010f1f32714b005e06d653087877c"
+    },
+    "assets/robot/usd/1d_gripper_cam/configuration/igrisc_1dgripper_robot.usd": {
+      "bytes": 3046,
+      "sha256": "4880716ed776ed075ea97f775de449742f3301e6ee33abe3e1d492b0a0f32909"
+    },
+    "assets/robot/usd/1d_gripper_cam/configuration/igrisc_1dgripper_sensor.usd": {
+      "bytes": 650,
+      "sha256": "f894450491843363f671bb6e2d3fb87455c30810bf7f4b634a63843479a7d443"
+    },
+    "assets/robot/usd/1d_gripper_cam/igrisc_1dgripper.usd": {
+      "bytes": 5493,
+      "sha256": "27591284834561407d08563cc289d9e3ef00413b976ba558dc270c391dc9d35f"
+    },
+    "assets/workcell/Assets/AprilTag_36h11_ID0.png": {
+      "bytes": 56453,
+      "sha256": "6b8c92d40951f6634af46765734fbbcb9ed8ac93cdb31df4e017d2f7948a6a92"
+    },
+    "assets/workcell/Assets/AprilTag_36h11_ID0.usda": {
+      "bytes": 4042,
+      "sha256": "b5a59df391b962cadda025905399ec72a42c6123239f9c9f51d6442e0c39b167"
+    },
+    "assets/workcell/Assets/CRS_Ring.usdc": {
+      "bytes": 432870,
+      "sha256": "80f5ff20b1c2375bcfcad392847f239058f6e38a4a2a3920aed1ba272e6a96f9"
+    },
+    "assets/workcell/Assets/CRS_Ring_Loadable.usda": {
+      "bytes": 67434,
+      "sha256": "7c0587422afb4ecf0157c7fa8bd98ea72fc37e4c0eff69d2458afc41f0a50f3b"
+    },
+    "assets/workcell/Assets/Danny/Danny.usd": {
+      "bytes": 75469,
+      "sha256": "ed1bac43f35b0a80c65bf5745839e2203a30f594d3d2a89dd00456cdd2b5e09e"
+    },
+    "assets/workcell/Assets/Danny/Textures/DannyTable_Wood_A.png": {
+      "bytes": 607183,
+      "sha256": "302e9ee8105bee71c57b9dc003e195188478ae92723f56a674ea305f73c29ae1"
+    },
+    "assets/workcell/Assets/Danny/Textures/DannyTable_Wood_N.png": {
+      "bytes": 1157090,
+      "sha256": "6e58ed565a78453983c7cc60f51ef206b25b30b242925679424c01cd8f315772"
+    },
+    "assets/workcell/Assets/Danny/Textures/DannyTable_Wood_R.png": {
+      "bytes": 90493,
+      "sha256": "033d0163765312274e1988b7ecf834c3ba2499e28bf3c1b268106ecaef250967"
+    },
+    "assets/workcell/Assets/asset_cart.usd": {
+      "bytes": 71630,
+      "sha256": "1bfe68316049f163c5bac9561eb7dfe2627bbcb510ebbef9201967b6281b67b0"
+    },
+    "assets/workcell/Assets/asset_jig_rev01.usd": {
+      "bytes": 43422,
+      "sha256": "0b8b0e9a635dc96a8f7eb7cc7317d360751f5da11322fa947228cbefd5e320c2"
+    },
+    "assets/workcell/Assets/cleaner_body.usd": {
+      "bytes": 19184,
+      "sha256": "3e1c151f20f3640daeb28b413c69f179691e03942c7d9518ec95529c6bd7c80f"
+    },
+    "assets/workcell/Assets/cleaner_cover.usd": {
+      "bytes": 8788,
+      "sha256": "7faf65d74505e8a5cfa4029fd5eed38858c3deef6c89829834dd0ed9fdcfd0e3"
+    },
+    "assets/workcell/Assets/cleaner_cover_black_handle.usdc": {
+      "bytes": 17760,
+      "sha256": "c71746849ca8f1583a3df064a64dcd6feee205c7ea03cf686ae8de85f9433732"
+    },
+    "assets/workcell/Environment/3DGS_NuRec_5_1.usdz": {
+      "bytes": 127433121,
+      "sha256": "d3978544112b7d7d0175549e5a196a6922f41a2b72e7662462fd8b0924dc8b76"
+    },
+    "assets/workcell/Environment/Mesh.usdc": {
+      "bytes": 14847960,
+      "sha256": "b8a1f838f1f96a106f5cee53beea41b563b7b53c6c5272541bc0e23ce45baaaf"
+    },
+    "assets/workcell/Environment/PlanarColliders.usdc": {
+      "bytes": 852396,
+      "sha256": "83a91323cf5f09acbead0349d26eba62713c87113cea684efe9833e9061f2bd5"
+    },
+    "assets/workcell/LegacyRobot/configuration/igris_c_base.usd": {
+      "bytes": 1290933,
+      "sha256": "71d124354056fe11e6825942a79566da85ec79984e24f7b4924683faca041730"
+    },
+    "assets/workcell/LegacyRobot/configuration/igris_c_physics.usd": {
+      "bytes": 13709,
+      "sha256": "d6c325920f8ae6e8911e9af2952679727c1b40b1a074c2d0cf54553a4035a010"
+    },
+    "assets/workcell/LegacyRobot/configuration/igris_c_robot.usd": {
+      "bytes": 3768,
+      "sha256": "9ff4d2d8cabeac0250f5e52a8cba28ba20448ec3a00229ccb3a76e8d67332c52"
+    },
+    "assets/workcell/LegacyRobot/configuration/igris_c_sensor.usd": {
+      "bytes": 658,
+      "sha256": "7c74af1303e41c38a9be09a20b409389a4de2a69b1554d6e954b68eeca4ad2e9"
+    },
+    "assets/workcell/LegacyRobot/igris_c.usd": {
+      "bytes": 1472,
+      "sha256": "d522ba7cdcf7617e51394d59c161e17da40c4f3134c772010f3070169d398c29"
+    },
+    "assets/workcell/Materials/Base/Plastics/Plastic.mdl": {
+      "bytes": 1511,
+      "sha256": "eec05fc1f50a27f5fd3f05ec5464c3ca41537d3c476b4325275e234bb77f4429"
+    },
+    "assets/workcell/Materials/vMaterials_2/Leather/ABS_Hard_Leather.mdl": {
+      "bytes": 34999,
+      "sha256": "772e56af8fd3af820502c6837786061ed99c3caf4a1af836b3862891cc1e5c8c"
+    },
+    "assets/workcell/Materials/vMaterials_2/Leather/textures/abs_hard_leather_multi_R_rough_G_height_B_ao.jpg": {
+      "bytes": 2406522,
+      "sha256": "ce7b1b6e61457281fb53dceb3b4a757538df48c424167a95fdb8be63316a8d84"
+    },
+    "assets/workcell/Materials/vMaterials_2/Leather/textures/abs_hard_leather_norm.jpg": {
+      "bytes": 2190580,
+      "sha256": "0226db2caf0ad7ec81bacce3c2493cde8a47b5a82f9164422634939fbb9a65c7"
+    },
+    "assets/workcell/Materials/vMaterials_2/Metal/Stainless_Steel.mdl": {
+      "bytes": 80870,
+      "sha256": "c36448744a96ab3e6972de06287dedb6f85c0d735d6c6f5df028a0f4cc89bce9"
+    },
+    "assets/workcell/Materials/vMaterials_2/Metal/Stainless_Steel_Brushed.mdl": {
+      "bytes": 106167,
+      "sha256": "0898730d0c187f7400ca0d35ed97261dec41d0dda10fd47a371684bf71873597"
+    },
+    "assets/workcell/Materials/vMaterials_2/Metal/Stainless_Steel_Brushed_Punched.mdl": {
+      "bytes": 102815,
+      "sha256": "6ac053181c4fe6e97ce74be7e7b0bc40f49261617f831f7fa7a5fa8543a7c892"
+    },
+    "assets/workcell/Materials/vMaterials_2/Metal/textures/atlas_02_norm_dist.png": {
+      "bytes": 1576300,
+      "sha256": "545d952caf139061c8f7c9474fbadd59cc2dedc5616386bbcb2ac71c88add6f0"
+    },
+    "assets/workcell/Materials/vMaterials_2/Metal/textures/stainless_brushed_multi_R_impurities_G_rough_B_dents.jpg": {
+      "bytes": 3045027,
+      "sha256": "1dd0876e9c89ae300b4d8838b3ddcb5f0eb3006f97d3dac0b9023eb52df7c9c5"
+    },
+    "assets/workcell/Materials/vMaterials_2/Metal/textures/stainless_brushed_norm.jpg": {
+      "bytes": 3323602,
+      "sha256": "81099d9d4775db344922f1e2c52fa977841799145ee809e08d91ca7a209317b2"
+    },
+    "assets/workcell/Materials/vMaterials_2/Metal/textures/stainless_brushed_smudges.jpg": {
+      "bytes": 2232876,
+      "sha256": "f0a0323d350c75d91dc20db6ee2a6e8a7e2e78b0f8b475726e61817efa7b6f25"
+    },
+    "assets/workcell/Materials/vMaterials_2/Metal/textures/stainless_damages_norm.jpg": {
+      "bytes": 964428,
+      "sha256": "32762c1356d4c87a57b94198d4daa97ada2bd4ad6059979aab308a4de60c2d76"
+    },
+    "assets/workcell/Materials/vMaterials_2/Metal/textures/stainless_multi_R_diff_G_rough_B_dents.jpg": {
+      "bytes": 3129252,
+      "sha256": "0be519dc74d2947e4c3af7dade1f81100a43ca213d01111d8d12a6cf8660d9bb"
+    },
+    "assets/workcell/Materials/vMaterials_2/Metal/textures/stainless_norm.jpg": {
+      "bytes": 1219078,
+      "sha256": "9186838b8ad79e26c4433a243e56fc2bdb2fc708c470f0ad53445cdce89ae657"
+    },
+    "assets/workcell/Materials/vMaterials_2/Metal/textures/stainless_smudges.jpg": {
+      "bytes": 2211375,
+      "sha256": "8dd6497616fcaab7ba8d75e40a780d2cf7e7838bc1920515b76127db05fd2c39"
+    },
+    "assets/workcell/Materials/vMaterials_2/Plastic/Plastic_Thick_Translucent_Flakes.mdl": {
+      "bytes": 38565,
+      "sha256": "31b2c2a907765c26b73ebbcc8666e2fb516f92fbbc546a49be496da9ba77eb54"
+    },
+    "assets/workcell/Scene.usda": {
+      "bytes": 291523,
+      "sha256": "f8304c3316f377c33506c13e1f5560d703de18d05833dd607730121d57a41c5e"
+    },
+    "assets/workcell/layout.usda": {
+      "bytes": 2052,
+      "sha256": "73fcb2e3e6a2a89941aac40a4ea4bbba17aff9c20f8e47b33f53753e71415531"
+    },
+    "assets/workcell/layout_base.usda": {
+      "bytes": 2611,
+      "sha256": "521563e02a097cec731dee8a6f131245ef93e98a532ac87aa111399b929267f8"
+    },
+    "configs/left2.json": {
+      "bytes": 218833,
+      "sha256": "e60f48967a3ccce16ec95b98abc354e48ebb09c8fcef79facb7cf24e68f4e2ff"
+    },
+    "configs/right4.json": {
+      "bytes": 146978,
+      "sha256": "8a3409b0b4eb63d67eacf19166a16b3fc8287a7bd1492ef6f1fc39b7ceb967e3"
+    },
+    "ik/pink/pin_backend.py": {
+      "bytes": 8497,
+      "sha256": "c1992fddac9b3b2c3e06677d0bd3acb1ea2d5819d6613e921a2d9f5f5fe4bb21"
+    },
+    "ik/pink/pink_qp.py": {
+      "bytes": 3913,
+      "sha256": "7fd72ec5f1e577da30e8fedbf4fbfc27d90698d3ce026c02454e60c1a62f7029"
+    },
+    "ik/pink/provenance.json": {
+      "bytes": 5908,
+      "sha256": "4b8f395e7352af729e1a00dd8112c16007d073f1cf5756322c8a74140626d0b3"
+    },
+    "ik/pink/servo_factory.py": {
+      "bytes": 5271,
+      "sha256": "324a649436489f2435611462ee0a67ad08a84e1146578f5af2c7125a90e8d56e"
+    },
+    "ik/pink/worker.py": {
+      "bytes": 10098,
+      "sha256": "204b5b5cb74aea218da14975c83f3f37828e61b97158b1a056daa8e469d94fb0"
+    },
+    "requirements/dataset.txt": {
+      "bytes": 344,
+      "sha256": "d9b69a110aaca7f532d3dd5d7c66d16d74d70e0658cf1f21023aea7265489ae3"
+    },
+    "requirements/ik_pink.txt": {
+      "bytes": 895,
+      "sha256": "f55952c5339f1822f071e7bcaf7736f880c915035196192f4cc8980681b80186"
+    },
+    "requirements/runtime.txt": {
+      "bytes": 404,
+      "sha256": "9e638f6380f94271378553e93f0d9251cd005dec45b2e0bd2c8a7420d455e730"
+    },
+    "requirements/sim-constraints.txt": {
+      "bytes": 364,
+      "sha256": "2e585cd24f79b311894e39134a5b2b9e4166e8c336b2010bad04622500941a72"
+    },
+    "runtime/left2/scripts/nepes/collect_stationary.py": {
+      "bytes": 8108,
+      "sha256": "cf6b0058756411fd58f6cafeeab275ef6a57e36ca42a1deecd36312caaf75747"
+    },
+    "runtime/left2/scripts/nepes/run_stationary.py": {
+      "bytes": 5703,
+      "sha256": "a800cdba0e7141d4e5342f31392faddf7d7ab5de575f2892665a3a6d2d1f8ef9"
+    },
+    "runtime/left2/scripts/nepes/run_tasks.py": {
+      "bytes": 15912,
+      "sha256": "fdb62bab092710ad4b5e8b2ee7969ddd5885c0bf1f8d48c4ee44e373027969df"
+    },
+    "runtime/left2/source/robros_lab/config/extension.toml": {
+      "bytes": 975,
+      "sha256": "38c92d817a0337dc24e7d427c2fad791116482ab33bacf196777edce93daddeb"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/__init__.py": {
+      "bytes": 210,
+      "sha256": "9d4eee0de32b3d75cfff3966a36d8fb8a033aa3ede8e36a0af027ac481bda6a9"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/assets/__init__.py": {
+      "bytes": 951,
+      "sha256": "115ea2b71f1155a950255b6ec07a5a5a0f39e354a92b6a02abc5fe8d02dfc7cc"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/assets/robots/__init__.py": {
+      "bytes": 105,
+      "sha256": "9e1c6461ad536d234eb5726d71294bdf12d393e2a08388c1fdee99d3ce24c245"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/assets/robots/robros/igris_c/from_urdf/urdf/igris_c_v2_wrist_hand_isaac.urdf": {
+      "bytes": 51411,
+      "sha256": "dd3e42661e5bdd9e15ffd65341b8b5f8f00d32855dab56eeddbd95f5441da992"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/assets/robots/robros/igris_c/from_urdf/usd/extras/wrist_hand_independent/configuration/igris_c_base.usd": {
+      "bytes": 1290933,
+      "sha256": "71d124354056fe11e6825942a79566da85ec79984e24f7b4924683faca041730"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/assets/robots/robros/igris_c/from_urdf/usd/extras/wrist_hand_independent/configuration/igris_c_physics.usd": {
+      "bytes": 13709,
+      "sha256": "d6c325920f8ae6e8911e9af2952679727c1b40b1a074c2d0cf54553a4035a010"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/assets/robots/robros/igris_c/from_urdf/usd/extras/wrist_hand_independent/configuration/igris_c_robot.usd": {
+      "bytes": 3768,
+      "sha256": "9ff4d2d8cabeac0250f5e52a8cba28ba20448ec3a00229ccb3a76e8d67332c52"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/assets/robots/robros/igris_c/from_urdf/usd/extras/wrist_hand_independent/configuration/igris_c_sensor.usd": {
+      "bytes": 658,
+      "sha256": "7c74af1303e41c38a9be09a20b409389a4de2a69b1554d6e954b68eeca4ad2e9"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/assets/robots/robros/igris_c/from_urdf/usd/extras/wrist_hand_independent/igris_c.usd": {
+      "bytes": 1472,
+      "sha256": "d522ba7cdcf7617e51394d59c161e17da40c4f3134c772010f3070169d398c29"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/assets/robots/robros.py": {
+      "bytes": 7546,
+      "sha256": "763681243a21c46c1954ecc2f3934b23fb73719a8bc4739e68405c77fdb3a8d6"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/__init__.py": {
+      "bytes": 571,
+      "sha256": "d1ff25e354fa7baeb5cf749f50a59f2ea8ba137b4f94cf3fff89453f5574195e"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/base/__init__.py": {
+      "bytes": 85,
+      "sha256": "8edf6aaa1961e0cfe05182c83d30493eb91ac3310198b19b0c91de130ac61f32"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/base/mdp/__init__.py": {
+      "bytes": 399,
+      "sha256": "b4aba26a620c61e58aca4b2e73c8bdc1291993f2caa2eeeecc8e2693ff34db56"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/base/mdp/student_observations.py": {
+      "bytes": 5476,
+      "sha256": "ee2fe74f97bce65cdfd09f8aa43c4cc65a3f330a0e1861a20a92331d056e0636"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/base/usd_scene.py": {
+      "bytes": 10085,
+      "sha256": "c4e63e8bd62db9aef6945f59788ebbee1712095a81a604f2a3b16af69bbec5b1"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/hug_wbc/__init__.py": {
+      "bytes": 46,
+      "sha256": "4a9e428dfdb5f2a08b890b121e2f9f6a10d22b52e23bdf1ea5be005ff18449a6"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/hug_wbc/config/__init__.py": {
+      "bytes": 41,
+      "sha256": "11db3d1467c3d4df635858fdc5bb4bf4c5cdc94ffb246222114f5f71e639d834"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/hug_wbc/config/igris_c/__init__.py": {
+      "bytes": 612,
+      "sha256": "c26aa0956db354194660a2a7717648d5790f7f0127d46a063f106c4aa2435dd5"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/hug_wbc/config/igris_c/env_cfg.py": {
+      "bytes": 14823,
+      "sha256": "605125cb3f61c0586e5b8d3328cc11b4045509ce38f4f07da35492a003086b4b"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/hug_wbc/controllers/__init__.py": {
+      "bytes": 634,
+      "sha256": "54488cab4ef788ce657bb003583f95df1a0bffe38fb822429a7086a2c209f629"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/hug_wbc/controllers/hugwbc_policy.py": {
+      "bytes": 9465,
+      "sha256": "3e1aa46f81bed32316ae26adbc01b90921524c72a8f2ae35d24266732c060d43"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/hug_wbc/controllers/npz_command_source.py": {
+      "bytes": 12872,
+      "sha256": "f4f67ce3abe16e52d86927b53f748f3f0d36e07a1ccc59ca35e92dec1218e8d7"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/hug_wbc/mdp/__init__.py": {
+      "bytes": 189,
+      "sha256": "648e6c9bc95b1f1977bb68dff4c061896bee8ca5ee7fbeaa23872593b39ed735"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/hug_wbc/mdp/actions.py": {
+      "bytes": 4944,
+      "sha256": "a43f22bbacb9f8d67673a355a9ad33e2cb835ea8c9f41696ef58d471ef382125"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/hug_wbc/mdp/commands.py": {
+      "bytes": 7088,
+      "sha256": "aeddbf93032a69ddb1f4e58f65e0a537e0dec44657be36c035302862f4d43b7b"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/hug_wbc/mdp/observations.py": {
+      "bytes": 2352,
+      "sha256": "38cb7c677c3d51e34965a3a65c6c862f3a749ac437cf85f009de3caf4a66f66b"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/__init__.py": {
+      "bytes": 328,
+      "sha256": "e83963fc476493aa71e41b60970c1da0c052523ae5bed067bf2c25b56c6036f4"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/action_adapter.py": {
+      "bytes": 9255,
+      "sha256": "c9b7e665cf42b892ef9cfbd4d7d6c0801fe768d8eea223542ab95d905b83c326"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/camera_cfg.py": {
+      "bytes": 3316,
+      "sha256": "86c8cdfe90674a3928f9104e20896a658a7065f9bf140cf0a63b271a16e54e72"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/controllers/__init__.py": {
+      "bytes": 867,
+      "sha256": "4f984c6462c3e0624465448aead5a9a6db70e31dd4de62b945adcbaf4085cde7"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/controllers/auxiliary_joint_controller.py": {
+      "bytes": 7960,
+      "sha256": "56eb9f5181980df2f2e5b650df3adfe62324892200b0bb4674af10d5beef1071"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/controllers/base.py": {
+      "bytes": 6656,
+      "sha256": "e8ccd066079bff461244c3445de107b8740acda5abb706d7fed3880521ff37d6"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/controllers/npz_motion_reference.py": {
+      "bytes": 15717,
+      "sha256": "84d606de0f030799a788de83eb3a3d6bf275ce0fdee5e43bd231f7951ef16c30"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/controllers/standing_reference.py": {
+      "bytes": 8372,
+      "sha256": "41fc62382cc37d9467dd6db1374ab64a06b35f3a546e36fb5436bee6377f2bb7"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/controllers/student_policy.py": {
+      "bytes": 10154,
+      "sha256": "b34f29c9b64add3c3ff85e6dbae4808ab07efab492e61431a0c6180fae8c9433"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/env_cfg.py": {
+      "bytes": 2397,
+      "sha256": "92a10994f512c7f28f4c683fb7118310b0ec340c4d518002c2f4e0533a9908a8"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/mdp/__init__.py": {
+      "bytes": 601,
+      "sha256": "d17b20dc03017d7e1ab9e84053d7279521377d1e8f5a92accafccf8ad61a4857"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/mdp/reference_command.py": {
+      "bytes": 10020,
+      "sha256": "af0bc42378c4a37f6856b6b7fc96664462aafa1be77f00dc3a481c57decf5803"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/mdp/reference_observations.py": {
+      "bytes": 2933,
+      "sha256": "797d96573f426a96bed66a3b782c5f78cd53b646860e93243cafce072f3a8ceb"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/observations.py": {
+      "bytes": 5298,
+      "sha256": "669b55b566b9b266734aa181901511873bc25954d5162aed89cd3eb29237e859"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/robot_cfg.py": {
+      "bytes": 9561,
+      "sha256": "42ecafdfa3e9fd543ae0fc6b3829e82964e9a720541292b38fd68ce954bafd6d"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/scene_cfg.py": {
+      "bytes": 814,
+      "sha256": "6d85ca0561303ce5dcb97d2c69968037e2f1c66a2aac46f7742119f7cc5f5985"
+    },
+    "runtime/left2/source/robros_lab/robros_lab/tasks/motion_tracking/student_contract.py": {
+      "bytes": 1202,
+      "sha256": "3acb4ef89820363452b96b63b679596772bdbda20b60aafb465ed347f9dfcf5e"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/__init__.py": {
+      "bytes": 112,
+      "sha256": "0f8bfa7794d9ac16f6a37e379094725c895459be5bf2f92c6fa7f21617fe6613"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/actuator_delay.py": {
+      "bytes": 14011,
+      "sha256": "6384bd76636fad819e3db4bd747c71385c57f64dc9cfc4462936bc8a61d94a92"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/generator/make_pads.py": {
+      "bytes": 23597,
+      "sha256": "befa23a5f24a815c4af6448f3bf09f1d1c686beaf2e29c8baaaced4878bd8328"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_0.stl": {
+      "bytes": 1084,
+      "sha256": "b8af89e6aa18c8c198e506ed9fdc5e9361236874a7af52f79507128a0106537c"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_1.stl": {
+      "bytes": 3884,
+      "sha256": "29f237164486d2a8fc379ec72dbbf4a9b50e50a02fc89005873fa838dd573a35"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_2.stl": {
+      "bytes": 1484,
+      "sha256": "5ea3ee00506257a5c3e7394d52241a0cba48314308394dba99771bb1e36ec8c7"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_3.stl": {
+      "bytes": 1484,
+      "sha256": "d6e6f4ca7a01ae82ddd4f6a8579f14719a599d9fef22b6b3ad5195a878005380"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_4.stl": {
+      "bytes": 684,
+      "sha256": "94eafb83d10c5469b279690a4bc2c59d344269a70cda540bac805ff466beb10d"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_5.stl": {
+      "bytes": 684,
+      "sha256": "6932e09b6cf0c08e3ce554236f8829f88f08ca972f1ada569d16753b657fdcb7"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_6.stl": {
+      "bytes": 684,
+      "sha256": "bad69e2c5e4d167ad64925677a8366780703434671cb7cb5f47062c0ea72ea96"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_7.stl": {
+      "bytes": 2284,
+      "sha256": "ab22a9c983c86ec074182a19f313cee5606fa96d1fb07db02f7f64329169b9b1"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_moving_pad_0.stl": {
+      "bytes": 1484,
+      "sha256": "38f407446e3e88245f1899e98dedff70eaafd2f356eea54593a6c3d0f5faac78"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/package.json": {
+      "bytes": 9867,
+      "sha256": "f12ba3312e00a9aa85098b3c0099f86e22447be2f08bd74e8fefc385b1b1001e"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/pads.json": {
+      "bytes": 39764,
+      "sha256": "fff4cbd50cfaf624017654a7128c13b13b465caeca7f0574656f76b673e7f431"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_0.stl": {
+      "bytes": 1084,
+      "sha256": "a738b75721a1a56e703a30e02b6ba839cb15106a4ce071cf03942a6571b90576"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_1.stl": {
+      "bytes": 1084,
+      "sha256": "0620d83456ff8e9a7e4850d22dcffde2520e2be6c1787cac1a122a1becb19e79"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_2.stl": {
+      "bytes": 684,
+      "sha256": "5b90082d66731bbaad8a4083e2b731b0a153bb9ead5fea00056a586d92301b57"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_3.stl": {
+      "bytes": 1084,
+      "sha256": "12dc797a9274a4f5b81ce923f96baca4b43164686a18b1eb9b69b623308f658f"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_4.stl": {
+      "bytes": 684,
+      "sha256": "1093f1d53f67351dcfdce26997ea0f5a77042912b2c1b9feaa4638731f499077"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_5.stl": {
+      "bytes": 684,
+      "sha256": "326bdc4f5fc16143570f3a348823fdd2f5a1c1aa6e5240d589f5b389eb0f62da"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_6.stl": {
+      "bytes": 684,
+      "sha256": "ab83f54ac1942ccc2cd9a6add46ea84fe623c399423102d8f82a1230857b1ccd"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_7.stl": {
+      "bytes": 684,
+      "sha256": "afdd708ca25b2346d5039adfce8c2d5111acabd4047ca62f6de8d3f4f566a227"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_moving_pad_0.stl": {
+      "bytes": 1484,
+      "sha256": "911e6cf1f44b4022cd88dd396c52e504bf2dcbf303387441e893dc74cb5d5518"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/white_bodies/l_fixed_white_body.stl": {
+      "bytes": 37284,
+      "sha256": "5623a058ed4667b3562e177c21d665141630c66a7990073862b0f6fceb2c4224"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/white_bodies/l_moving_white_body.stl": {
+      "bytes": 11684,
+      "sha256": "ec41bab012c1896a32ef584b1f6b756be4873aed9b5006e448a4e03c59a31c71"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/white_bodies/r_fixed_white_body.stl": {
+      "bytes": 19784,
+      "sha256": "299d76201e743bdb1e0e11c93868c5e406c0ec28c0e47171597f21d4771f5125"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/white_bodies/r_moving_white_body.stl": {
+      "bytes": 11684,
+      "sha256": "e6c7d04d35ac107fe777d2a89e941a2ac771048078631e9234a64c25e63c5ea0"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/assets/jig_guide_prisms_v1.json": {
+      "bytes": 291747,
+      "sha256": "570ae5ea4b4feae058daf9e1f99500e9cdf781a9bf3c11ea3a501eeb9239133c"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/async_image_writer.py": {
+      "bytes": 4353,
+      "sha256": "48ed054b23fb58101ce6c665620999f54b2828ddee83d2429621c684ec013fbf"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/auxiliary_support.py": {
+      "bytes": 16664,
+      "sha256": "fd32f192f43458cbde6626210b7ab0fdecc72f895e32944145e03d59d03bdb4c"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/backend.py": {
+      "bytes": 24230,
+      "sha256": "6824ff63cfbecbe4f216e81831cc64598827404d018e9ee0dbe2e821e8d1af7f"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/bimanual.py": {
+      "bytes": 23124,
+      "sha256": "41bda1beece285f00e9cbc56696881f042a62f41bb3f68ebe7636d3a6ceb9b07"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/camera_capture.py": {
+      "bytes": 54809,
+      "sha256": "b3429aca524847ae5148f27ee79e38fdb4274cdb3c9697c034ba34defaa3c409"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/carry_feedforward.py": {
+      "bytes": 3237,
+      "sha256": "5fb05fb148694c2f4c95f09764b91ad2070f727394aa30d54cecc20c0f509c4e"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/cli.py": {
+      "bytes": 5409,
+      "sha256": "7c4bc4e41cbdd6d9689860cbe35261f6f819feb7e714323145680907e263b8da"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/collection.py": {
+      "bytes": 31226,
+      "sha256": "31a2ede1a95222677b2e17e42c919f1db1c4e39dc64638b9172afd1aec3ada5c"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/compact_collection.py": {
+      "bytes": 22087,
+      "sha256": "f596583a49bc051b418030175cb1979d919596803f4f5d87c5d6bb19025ac861"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/compact_dataset.py": {
+      "bytes": 27438,
+      "sha256": "fccd0f46476250bef4a38089df797b9ee3a1f01597a9ca35111f8001eb1c275b"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/compact_storage.py": {
+      "bytes": 29295,
+      "sha256": "7291126c33a79e08168d4b0237a144d463a546d4e17d63dbcc2ed88b5dc3efcf"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/completed_transfer_continuity.py": {
+      "bytes": 17860,
+      "sha256": "66d30dc18fb390025896420b030453bd7bc8131ed21c923933949e7209a06dd2"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/constants.py": {
+      "bytes": 1701,
+      "sha256": "4af34023a022ce4f5630a1d8e552c99f54750e2f7a9aa5f077da0470e079e4dc"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/contact_distance.py": {
+      "bytes": 2936,
+      "sha256": "707f1b588c46079215e2d08931f6ef2b81e6fe87d6041ef5fd7b6d27d6587193"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/continuous_posture.py": {
+      "bytes": 16999,
+      "sha256": "f0c23a1380dbd9ab00c108c8565040a47603e5c1a95d87efcde25231594a65d9"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/crs_manipulation.py": {
+      "bytes": 44222,
+      "sha256": "071e68a7057251d0f1d9e1decd36b8668e18a914aebb1b87efe64547383f54ce"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/dataset.py": {
+      "bytes": 36828,
+      "sha256": "20e3afbcdbfa284479c392af5c6bb33682f40327f3acf5bf3860edc147d10666"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/floor_support.py": {
+      "bytes": 20490,
+      "sha256": "d57c0da8947fc6ee3e3399177bfab6997b9445a0a8d33b98b30c675d6e853d24"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/foot_contact_observation.py": {
+      "bytes": 13246,
+      "sha256": "957d2f73c29df7355cd1c0b95e278f8dea023e7d081954db6babda0c6f3df144"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/foot_observation.py": {
+      "bytes": 3784,
+      "sha256": "d952a5e7d25ff0b56273228b9c1eb123aa2a3cd89a354818180dc45ce02f6a83"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/goal_ik.py": {
+      "bytes": 6622,
+      "sha256": "283159375081b692853c60b4050f73d8fe46d8096ad3aeacc24769cbd707da32"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/grasp_carry.py": {
+      "bytes": 6457,
+      "sha256": "12976bd6e8ab60378fe61cbed521e0dd98f68d0154346d4d72f040049d733b42"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/grasp_settling.py": {
+      "bytes": 6508,
+      "sha256": "67f8a28cafc0faf15aba5afdb3cf19280ac145808ec4a8e1e01d7473f7d17a08"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/handover.py": {
+      "bytes": 28244,
+      "sha256": "c9c9de6e7b4d47bf9a0a81d083a866a2368fe1a29bea0b887d076b20cdaa6072"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/head_gaze.py": {
+      "bytes": 6305,
+      "sha256": "7e869c614a8822f3546eeb8c0803321a5af8c688b05260561fb77eea59715b0b"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/hinge_controller.py": {
+      "bytes": 26309,
+      "sha256": "e8b8a1e38b6271312cc4fcd5592092bb77351e0fd9a221640736a4d05bca762e"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/hinged_door.py": {
+      "bytes": 7055,
+      "sha256": "80556f419e6bccbcbce33a1dcf6cbe25eb8c4915495005606651de5ac40ef038"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/jig_slots.py": {
+      "bytes": 28561,
+      "sha256": "0616d12dce061e9a8b0247b83cb2fed2a59b270946c1655ecb0d059f62ae24eb"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/latest_robot.py": {
+      "bytes": 87627,
+      "sha256": "7959c6c966cfd888d307ba9b5a32634ff05b42872db8d557481152f4e078a413"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/lid_fit_clearance.py": {
+      "bytes": 7760,
+      "sha256": "94f6a6eaf6b5e4116a1a28475103d955bd3b6fe4fc7d71a31f4335e850c5becd"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/lift_reference_continuity.py": {
+      "bytes": 1471,
+      "sha256": "91686b7f106878558789d56b817e3ca69eb04d00badb8435c19ddbc8efc477f5"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/live_scene.py": {
+      "bytes": 51102,
+      "sha256": "5a20e1c622585725a26c35feeac2ea28bd4752f65ac548fcd6b954326702ffe0"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/motion_watchdog.py": {
+      "bytes": 9921,
+      "sha256": "830a33a80e5a51cc7100533f372da0124b7531caf4feca545fa4af3d0b832224"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/nepes_initialization.py": {
+      "bytes": 8958,
+      "sha256": "993d7d3fb887efaa87d9c32226ceb66791c2ab05ff841893c37bdfff22069a21"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/nepes_tasks.py": {
+      "bytes": 168284,
+      "sha256": "fb4be73defb8761fc33b81ac72eda4f4a9b882ea4d79381141468dfc687896ef"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/no_walk_stance.py": {
+      "bytes": 8214,
+      "sha256": "1cc65984a188af5bcb9116a2bf0501a8f02be4aa9b2edc9d8b20b8a57db45f43"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/object_relations.py": {
+      "bytes": 5057,
+      "sha256": "1e3bd13f19aaf3011cb413c8e72189a68362ac1ca1628976ba90653ccb2dc4f2"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/object_symmetry.py": {
+      "bytes": 13922,
+      "sha256": "c1e0a9e8a114c2de6fa68d526fefb1334d87dc5beff511ba4819eeafd9ba1b81"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/payload_transport.py": {
+      "bytes": 16056,
+      "sha256": "1d802756137106d4f5f7c7255e84d54cc02e6daf3dacfab27dbf1fc44b8636bd"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/pelvis_motion.py": {
+      "bytes": 1709,
+      "sha256": "285a5f735633a9d39b37c1f7b9ba22c8f518eaa5e05a39a6c9dd5bb81db5efcb"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/physics_readback.py": {
+      "bytes": 8659,
+      "sha256": "12a32f707ba8599dd61b5661999df530844eb8ca3eed31605e06aefb7489f648"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/place_aligned_descent.py": {
+      "bytes": 8876,
+      "sha256": "cf569433e12155a1c1c728f0f8a7193fdfd1dce57168f6dab4d56ceaf0e79d50"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/place_entry_height.py": {
+      "bytes": 5187,
+      "sha256": "d2f37e19525b1f917d82a73b673c50ef6ce3ede80edbe60769418f579f920c64"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/place_release_options.py": {
+      "bytes": 8386,
+      "sha256": "8cca9e4a20dfd2f2bb3d9d8f9bc86413e6b45ba3ebec0718d9440cab7671f1e7"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/placement_alignment.py": {
+      "bytes": 8656,
+      "sha256": "adcf95f526efffba72f8d625348d13d04aabc3770ee32bcc237b01af578c344e"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/placement_hold.py": {
+      "bytes": 8381,
+      "sha256": "4b86c98cc4c0095ed48d1b8f02b8228f6628bf98f2fa0c785e447c717547a12b"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/placement_support_filter.py": {
+      "bytes": 8427,
+      "sha256": "28ea403e47605e110d160eb50195c3fd9e8e2c49687fa76f87c376a6b04e8b64"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/posture_control.py": {
+      "bytes": 18934,
+      "sha256": "969dd9552db62700c5734b7b99b016053f102318697e3d08f9e0ddcfc5113649"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/posture_hold.py": {
+      "bytes": 3464,
+      "sha256": "7cc4f3419bb14650bba01054d67186132e3197ff4952269641f186402ca8f45a"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/posture_hold_admission.py": {
+      "bytes": 14537,
+      "sha256": "1e7a522a839ad63cf79caaaeb03afd1667a3cf829c4a785b0039908278aac886"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/posture_path.py": {
+      "bytes": 7531,
+      "sha256": "62587bfb2b003adf164fd192c8752bd22bb280679ab3cd70ad95dab59413baab"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/pregrasp.py": {
+      "bytes": 6036,
+      "sha256": "7e1663c0abc49ff73212114e6c0266300ff6759411980f17dfca0db42a3208fa"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/pressed_key_completion.py": {
+      "bytes": 15072,
+      "sha256": "f8ce832705cce1eac938f8c99dd1db16626b707d2dd5ae5b24de3a80792ed8f7"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/recording_boundary.py": {
+      "bytes": 24917,
+      "sha256": "ab47a524f4f4e7645afcabb7ff13180f367fc1cc51f51fd15220087ddfbc2d27"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/reference_continuity.py": {
+      "bytes": 44195,
+      "sha256": "eeaca1157675e442c9d27bbdfacc63bffb318fa591c8fd1d874cc05b153a99a6"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/replay.py": {
+      "bytes": 10595,
+      "sha256": "b4f4e6ae861a3b056a56bab634f80478428a07fe5c44a0c1760e49d5b0fa9a47"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/robot_model.py": {
+      "bytes": 36033,
+      "sha256": "1c4529668106b2763ce7fc3c1dbd4d537121036d3305e6c673ac7acf9402d2b7"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/robot_stability.py": {
+      "bytes": 1067,
+      "sha256": "4cf09e0133e74261b8f3cce3b01ee1b251b5218fd9908f23f876f0863945d7f0"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/shutdown.py": {
+      "bytes": 2899,
+      "sha256": "5d8370645d4a3a224ccd4ab4fc72bf80e82fd91715503c4179f3597e528a8d65"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/single_arm_layout.py": {
+      "bytes": 8007,
+      "sha256": "b556a49b6577e68e36eaf3ec5ab1c08cfae7789c591b126147dd517df01d49db"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/single_step.py": {
+      "bytes": 22183,
+      "sha256": "9047bb63dd76697860c80e7903f9e351897ae506bf32c08aa1775089e8472d86"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/snapshot.py": {
+      "bytes": 21973,
+      "sha256": "dbdaf58b14dcb04c18cd548e2e00319c9c41670cc6ebc4ce32e1068c1a342036"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/stationary_catalog.py": {
+      "bytes": 24048,
+      "sha256": "0467db16a222af8e99e945920d0bcc81f3839d053bb652529d48586b1bbf176a"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/stationary_collection.py": {
+      "bytes": 145949,
+      "sha256": "85e7a7345e13a58e0cbfc8e99594e70dad5e5c36ede9e512823cb671679b8c8f"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/stationary_feet.py": {
+      "bytes": 15197,
+      "sha256": "bc45aabf0f9669e91f239ff1e90502a837c5d2854a10bb54261ea8d32e37993a"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/stationary_initialization.py": {
+      "bytes": 5271,
+      "sha256": "f2d741a3ef763468318f3c06f7acfbb1257bc1920110f37a9e5921d5b97407e8"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/stationary_lift.py": {
+      "bytes": 17024,
+      "sha256": "6ce5d4dc405de1f5a2cc39503844e56e5724d38bac812d71804eac9668de634e"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/stationary_pick_load.py": {
+      "bytes": 122389,
+      "sha256": "33e505b0b42feee59c454b1cd8b110e8be0e3b4008ae661ef47004e7a8836990"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/stationary_place.py": {
+      "bytes": 29035,
+      "sha256": "48b66ef16e56202fd2a19e436936c42712c9b28f6ecbf101c7452034a23410d2"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/support_settling.py": {
+      "bytes": 5898,
+      "sha256": "9f000bf2fb91b6acb34c0a18bb73cca8f2e0d802eb84625ad5c34faf710323fd"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/supported_grip_relief.py": {
+      "bytes": 33169,
+      "sha256": "c11b2a8ff6468cc6f2130b7a7c2b10e81d338d52707fc839c77ae660ae20d5b1"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/task_control.py": {
+      "bytes": 38311,
+      "sha256": "1820c9c9dd1d4389b8fde387b9aa89d790e55b84591e263ff3d3bf2dd1fbbfeb"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/task_runtime.py": {
+      "bytes": 190123,
+      "sha256": "f9570e1398e723e607622e55cd33ba1181c4576ad8aa91184bb4f2e091cacaae"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/throughput.py": {
+      "bytes": 4147,
+      "sha256": "9d5be4e11e766d304804acf8155c75e39c9f02b88e57d0a0d2bab34833400977"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/trajectory.py": {
+      "bytes": 20307,
+      "sha256": "3d8419add0425738023a1bcb3b26d4f0e3efea1b9d08c4532c7a262386b387d5"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/transfer_arrival_precision.py": {
+      "bytes": 3051,
+      "sha256": "26a4d24ecb8efbad31643a82d59e62cebc5301de6bc9df49d434b2ec40f73bc2"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/upper_body_control.py": {
+      "bytes": 53587,
+      "sha256": "977445152a9a652291d7d0f15310da884266dff12102fed28ab71fc55a2d097a"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/upper_body_feedforward.py": {
+      "bytes": 3977,
+      "sha256": "5ae63ba1b3172f8991475969c93116f8df6e63155f484223f357a0204d933cfd"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/upper_body_guidance.py": {
+      "bytes": 16851,
+      "sha256": "9c27e1205817da810a2706ff9e569e4eec3f6ce28583c1f6d6337308122c9276"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/upper_body_ik_backend.py": {
+      "bytes": 24404,
+      "sha256": "43305a6ff4edd832cc0ac90bb292034cff640f66bb3850ad3cb785618391b310"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/upright_runtime.py": {
+      "bytes": 27876,
+      "sha256": "4ae380fad3319e4daa8644ea78c7609a96b8f4f1a65cbca2699d2672b254553b"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/waypoint_planning.py": {
+      "bytes": 12084,
+      "sha256": "d501327a83eeba76e5a41afba2539317ebaaec4744da3caa4e00d86c697e7aaf"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/waypoint_postures.py": {
+      "bytes": 4422,
+      "sha256": "7a3dd8c8c99c1010f3ac1c14e93ae9090fca8a79e2c0e0424b01ad37302c3f33"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/world_collision.py": {
+      "bytes": 6106,
+      "sha256": "f066ffc07a61c0f24ddddd6533fe3e543d8ed5d42b15c4a0b968286cc2dd1ef9"
+    },
+    "runtime/left2/source/robros_motion_planning/robros_motion_planning/world_geometry.py": {
+      "bytes": 10806,
+      "sha256": "2cfd8294696bad52d8e041193ea55ea040c25677ff2c8c33ded789ddb50dfb32"
+    },
+    "runtime/right4/scripts/nepes/collect_stationary.py": {
+      "bytes": 8108,
+      "sha256": "cf6b0058756411fd58f6cafeeab275ef6a57e36ca42a1deecd36312caaf75747"
+    },
+    "runtime/right4/scripts/nepes/run_stationary.py": {
+      "bytes": 5703,
+      "sha256": "a800cdba0e7141d4e5342f31392faddf7d7ab5de575f2892665a3a6d2d1f8ef9"
+    },
+    "runtime/right4/scripts/nepes/run_tasks.py": {
+      "bytes": 15912,
+      "sha256": "fdb62bab092710ad4b5e8b2ee7969ddd5885c0bf1f8d48c4ee44e373027969df"
+    },
+    "runtime/right4/source/robros_lab/config/extension.toml": {
+      "bytes": 975,
+      "sha256": "38c92d817a0337dc24e7d427c2fad791116482ab33bacf196777edce93daddeb"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/__init__.py": {
+      "bytes": 210,
+      "sha256": "9d4eee0de32b3d75cfff3966a36d8fb8a033aa3ede8e36a0af027ac481bda6a9"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/assets/__init__.py": {
+      "bytes": 951,
+      "sha256": "115ea2b71f1155a950255b6ec07a5a5a0f39e354a92b6a02abc5fe8d02dfc7cc"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/assets/robots/__init__.py": {
+      "bytes": 105,
+      "sha256": "9e1c6461ad536d234eb5726d71294bdf12d393e2a08388c1fdee99d3ce24c245"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/assets/robots/robros/igris_c/from_urdf/urdf/igris_c_v2_wrist_hand_isaac.urdf": {
+      "bytes": 51411,
+      "sha256": "dd3e42661e5bdd9e15ffd65341b8b5f8f00d32855dab56eeddbd95f5441da992"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/assets/robots/robros/igris_c/from_urdf/usd/extras/wrist_hand_independent/configuration/igris_c_base.usd": {
+      "bytes": 1290933,
+      "sha256": "71d124354056fe11e6825942a79566da85ec79984e24f7b4924683faca041730"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/assets/robots/robros/igris_c/from_urdf/usd/extras/wrist_hand_independent/configuration/igris_c_physics.usd": {
+      "bytes": 13709,
+      "sha256": "d6c325920f8ae6e8911e9af2952679727c1b40b1a074c2d0cf54553a4035a010"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/assets/robots/robros/igris_c/from_urdf/usd/extras/wrist_hand_independent/configuration/igris_c_robot.usd": {
+      "bytes": 3768,
+      "sha256": "9ff4d2d8cabeac0250f5e52a8cba28ba20448ec3a00229ccb3a76e8d67332c52"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/assets/robots/robros/igris_c/from_urdf/usd/extras/wrist_hand_independent/configuration/igris_c_sensor.usd": {
+      "bytes": 658,
+      "sha256": "7c74af1303e41c38a9be09a20b409389a4de2a69b1554d6e954b68eeca4ad2e9"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/assets/robots/robros/igris_c/from_urdf/usd/extras/wrist_hand_independent/igris_c.usd": {
+      "bytes": 1472,
+      "sha256": "d522ba7cdcf7617e51394d59c161e17da40c4f3134c772010f3070169d398c29"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/assets/robots/robros.py": {
+      "bytes": 7546,
+      "sha256": "763681243a21c46c1954ecc2f3934b23fb73719a8bc4739e68405c77fdb3a8d6"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/__init__.py": {
+      "bytes": 571,
+      "sha256": "d1ff25e354fa7baeb5cf749f50a59f2ea8ba137b4f94cf3fff89453f5574195e"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/base/__init__.py": {
+      "bytes": 85,
+      "sha256": "8edf6aaa1961e0cfe05182c83d30493eb91ac3310198b19b0c91de130ac61f32"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/base/mdp/__init__.py": {
+      "bytes": 399,
+      "sha256": "b4aba26a620c61e58aca4b2e73c8bdc1291993f2caa2eeeecc8e2693ff34db56"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/base/mdp/student_observations.py": {
+      "bytes": 5476,
+      "sha256": "ee2fe74f97bce65cdfd09f8aa43c4cc65a3f330a0e1861a20a92331d056e0636"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/base/usd_scene.py": {
+      "bytes": 10085,
+      "sha256": "c4e63e8bd62db9aef6945f59788ebbee1712095a81a604f2a3b16af69bbec5b1"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/hug_wbc/__init__.py": {
+      "bytes": 46,
+      "sha256": "4a9e428dfdb5f2a08b890b121e2f9f6a10d22b52e23bdf1ea5be005ff18449a6"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/hug_wbc/config/__init__.py": {
+      "bytes": 41,
+      "sha256": "11db3d1467c3d4df635858fdc5bb4bf4c5cdc94ffb246222114f5f71e639d834"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/hug_wbc/config/igris_c/__init__.py": {
+      "bytes": 612,
+      "sha256": "c26aa0956db354194660a2a7717648d5790f7f0127d46a063f106c4aa2435dd5"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/hug_wbc/config/igris_c/env_cfg.py": {
+      "bytes": 14823,
+      "sha256": "605125cb3f61c0586e5b8d3328cc11b4045509ce38f4f07da35492a003086b4b"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/hug_wbc/controllers/__init__.py": {
+      "bytes": 634,
+      "sha256": "54488cab4ef788ce657bb003583f95df1a0bffe38fb822429a7086a2c209f629"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/hug_wbc/controllers/hugwbc_policy.py": {
+      "bytes": 9465,
+      "sha256": "3e1aa46f81bed32316ae26adbc01b90921524c72a8f2ae35d24266732c060d43"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/hug_wbc/controllers/npz_command_source.py": {
+      "bytes": 12872,
+      "sha256": "f4f67ce3abe16e52d86927b53f748f3f0d36e07a1ccc59ca35e92dec1218e8d7"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/hug_wbc/mdp/__init__.py": {
+      "bytes": 189,
+      "sha256": "648e6c9bc95b1f1977bb68dff4c061896bee8ca5ee7fbeaa23872593b39ed735"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/hug_wbc/mdp/actions.py": {
+      "bytes": 4944,
+      "sha256": "a43f22bbacb9f8d67673a355a9ad33e2cb835ea8c9f41696ef58d471ef382125"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/hug_wbc/mdp/commands.py": {
+      "bytes": 7088,
+      "sha256": "aeddbf93032a69ddb1f4e58f65e0a537e0dec44657be36c035302862f4d43b7b"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/hug_wbc/mdp/observations.py": {
+      "bytes": 2352,
+      "sha256": "38cb7c677c3d51e34965a3a65c6c862f3a749ac437cf85f009de3caf4a66f66b"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/__init__.py": {
+      "bytes": 328,
+      "sha256": "e83963fc476493aa71e41b60970c1da0c052523ae5bed067bf2c25b56c6036f4"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/action_adapter.py": {
+      "bytes": 9255,
+      "sha256": "c9b7e665cf42b892ef9cfbd4d7d6c0801fe768d8eea223542ab95d905b83c326"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/camera_cfg.py": {
+      "bytes": 3316,
+      "sha256": "86c8cdfe90674a3928f9104e20896a658a7065f9bf140cf0a63b271a16e54e72"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/controllers/__init__.py": {
+      "bytes": 867,
+      "sha256": "4f984c6462c3e0624465448aead5a9a6db70e31dd4de62b945adcbaf4085cde7"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/controllers/auxiliary_joint_controller.py": {
+      "bytes": 7960,
+      "sha256": "56eb9f5181980df2f2e5b650df3adfe62324892200b0bb4674af10d5beef1071"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/controllers/base.py": {
+      "bytes": 6656,
+      "sha256": "e8ccd066079bff461244c3445de107b8740acda5abb706d7fed3880521ff37d6"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/controllers/npz_motion_reference.py": {
+      "bytes": 15717,
+      "sha256": "84d606de0f030799a788de83eb3a3d6bf275ce0fdee5e43bd231f7951ef16c30"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/controllers/standing_reference.py": {
+      "bytes": 8372,
+      "sha256": "41fc62382cc37d9467dd6db1374ab64a06b35f3a546e36fb5436bee6377f2bb7"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/controllers/student_policy.py": {
+      "bytes": 10154,
+      "sha256": "b34f29c9b64add3c3ff85e6dbae4808ab07efab492e61431a0c6180fae8c9433"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/env_cfg.py": {
+      "bytes": 2397,
+      "sha256": "92a10994f512c7f28f4c683fb7118310b0ec340c4d518002c2f4e0533a9908a8"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/mdp/__init__.py": {
+      "bytes": 601,
+      "sha256": "d17b20dc03017d7e1ab9e84053d7279521377d1e8f5a92accafccf8ad61a4857"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/mdp/reference_command.py": {
+      "bytes": 10020,
+      "sha256": "af0bc42378c4a37f6856b6b7fc96664462aafa1be77f00dc3a481c57decf5803"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/mdp/reference_observations.py": {
+      "bytes": 2933,
+      "sha256": "797d96573f426a96bed66a3b782c5f78cd53b646860e93243cafce072f3a8ceb"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/observations.py": {
+      "bytes": 5298,
+      "sha256": "669b55b566b9b266734aa181901511873bc25954d5162aed89cd3eb29237e859"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/robot_cfg.py": {
+      "bytes": 9561,
+      "sha256": "42ecafdfa3e9fd543ae0fc6b3829e82964e9a720541292b38fd68ce954bafd6d"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/scene_cfg.py": {
+      "bytes": 814,
+      "sha256": "6d85ca0561303ce5dcb97d2c69968037e2f1c66a2aac46f7742119f7cc5f5985"
+    },
+    "runtime/right4/source/robros_lab/robros_lab/tasks/motion_tracking/student_contract.py": {
+      "bytes": 1202,
+      "sha256": "3acb4ef89820363452b96b63b679596772bdbda20b60aafb465ed347f9dfcf5e"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/__init__.py": {
+      "bytes": 112,
+      "sha256": "0f8bfa7794d9ac16f6a37e379094725c895459be5bf2f92c6fa7f21617fe6613"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/actuator_delay.py": {
+      "bytes": 14011,
+      "sha256": "6384bd76636fad819e3db4bd747c71385c57f64dc9cfc4462936bc8a61d94a92"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/generator/make_pads.py": {
+      "bytes": 23597,
+      "sha256": "befa23a5f24a815c4af6448f3bf09f1d1c686beaf2e29c8baaaced4878bd8328"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_0.stl": {
+      "bytes": 1084,
+      "sha256": "b8af89e6aa18c8c198e506ed9fdc5e9361236874a7af52f79507128a0106537c"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_1.stl": {
+      "bytes": 3884,
+      "sha256": "29f237164486d2a8fc379ec72dbbf4a9b50e50a02fc89005873fa838dd573a35"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_2.stl": {
+      "bytes": 1484,
+      "sha256": "5ea3ee00506257a5c3e7394d52241a0cba48314308394dba99771bb1e36ec8c7"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_3.stl": {
+      "bytes": 1484,
+      "sha256": "d6e6f4ca7a01ae82ddd4f6a8579f14719a599d9fef22b6b3ad5195a878005380"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_4.stl": {
+      "bytes": 684,
+      "sha256": "94eafb83d10c5469b279690a4bc2c59d344269a70cda540bac805ff466beb10d"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_5.stl": {
+      "bytes": 684,
+      "sha256": "6932e09b6cf0c08e3ce554236f8829f88f08ca972f1ada569d16753b657fdcb7"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_6.stl": {
+      "bytes": 684,
+      "sha256": "bad69e2c5e4d167ad64925677a8366780703434671cb7cb5f47062c0ea72ea96"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_fixed_pad_7.stl": {
+      "bytes": 2284,
+      "sha256": "ab22a9c983c86ec074182a19f313cee5606fa96d1fb07db02f7f64329169b9b1"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/l_moving_pad_0.stl": {
+      "bytes": 1484,
+      "sha256": "38f407446e3e88245f1899e98dedff70eaafd2f356eea54593a6c3d0f5faac78"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/package.json": {
+      "bytes": 9867,
+      "sha256": "f12ba3312e00a9aa85098b3c0099f86e22447be2f08bd74e8fefc385b1b1001e"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/pads.json": {
+      "bytes": 39764,
+      "sha256": "fff4cbd50cfaf624017654a7128c13b13b465caeca7f0574656f76b673e7f431"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_0.stl": {
+      "bytes": 1084,
+      "sha256": "a738b75721a1a56e703a30e02b6ba839cb15106a4ce071cf03942a6571b90576"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_1.stl": {
+      "bytes": 1084,
+      "sha256": "0620d83456ff8e9a7e4850d22dcffde2520e2be6c1787cac1a122a1becb19e79"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_2.stl": {
+      "bytes": 684,
+      "sha256": "5b90082d66731bbaad8a4083e2b731b0a153bb9ead5fea00056a586d92301b57"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_3.stl": {
+      "bytes": 1084,
+      "sha256": "12dc797a9274a4f5b81ce923f96baca4b43164686a18b1eb9b69b623308f658f"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_4.stl": {
+      "bytes": 684,
+      "sha256": "1093f1d53f67351dcfdce26997ea0f5a77042912b2c1b9feaa4638731f499077"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_5.stl": {
+      "bytes": 684,
+      "sha256": "326bdc4f5fc16143570f3a348823fdd2f5a1c1aa6e5240d589f5b389eb0f62da"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_6.stl": {
+      "bytes": 684,
+      "sha256": "ab83f54ac1942ccc2cd9a6add46ea84fe623c399423102d8f82a1230857b1ccd"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_fixed_pad_7.stl": {
+      "bytes": 684,
+      "sha256": "afdd708ca25b2346d5039adfce8c2d5111acabd4047ca62f6de8d3f4f566a227"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/r_moving_pad_0.stl": {
+      "bytes": 1484,
+      "sha256": "911e6cf1f44b4022cd88dd396c52e504bf2dcbf303387441e893dc74cb5d5518"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/white_bodies/l_fixed_white_body.stl": {
+      "bytes": 37284,
+      "sha256": "5623a058ed4667b3562e177c21d665141630c66a7990073862b0f6fceb2c4224"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/white_bodies/l_moving_white_body.stl": {
+      "bytes": 11684,
+      "sha256": "ec41bab012c1896a32ef584b1f6b756be4873aed9b5006e448a4e03c59a31c71"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/white_bodies/r_fixed_white_body.stl": {
+      "bytes": 19784,
+      "sha256": "299d76201e743bdb1e0e11c93868c5e406c0ec28c0e47171597f21d4771f5125"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/gripper_pads/filled_pad_v1/white_bodies/r_moving_white_body.stl": {
+      "bytes": 11684,
+      "sha256": "e6c7d04d35ac107fe777d2a89e941a2ac771048078631e9234a64c25e63c5ea0"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/assets/jig_guide_prisms_v1.json": {
+      "bytes": 291747,
+      "sha256": "570ae5ea4b4feae058daf9e1f99500e9cdf781a9bf3c11ea3a501eeb9239133c"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/async_image_writer.py": {
+      "bytes": 4353,
+      "sha256": "48ed054b23fb58101ce6c665620999f54b2828ddee83d2429621c684ec013fbf"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/auxiliary_support.py": {
+      "bytes": 16664,
+      "sha256": "fd32f192f43458cbde6626210b7ab0fdecc72f895e32944145e03d59d03bdb4c"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/backend.py": {
+      "bytes": 24230,
+      "sha256": "6824ff63cfbecbe4f216e81831cc64598827404d018e9ee0dbe2e821e8d1af7f"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/bimanual.py": {
+      "bytes": 23124,
+      "sha256": "41bda1beece285f00e9cbc56696881f042a62f41bb3f68ebe7636d3a6ceb9b07"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/camera_capture.py": {
+      "bytes": 54809,
+      "sha256": "b3429aca524847ae5148f27ee79e38fdb4274cdb3c9697c034ba34defaa3c409"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/carry_feedforward.py": {
+      "bytes": 3237,
+      "sha256": "5fb05fb148694c2f4c95f09764b91ad2070f727394aa30d54cecc20c0f509c4e"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/cli.py": {
+      "bytes": 5409,
+      "sha256": "7c4bc4e41cbdd6d9689860cbe35261f6f819feb7e714323145680907e263b8da"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/collection.py": {
+      "bytes": 31226,
+      "sha256": "31a2ede1a95222677b2e17e42c919f1db1c4e39dc64638b9172afd1aec3ada5c"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/compact_collection.py": {
+      "bytes": 22087,
+      "sha256": "f596583a49bc051b418030175cb1979d919596803f4f5d87c5d6bb19025ac861"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/compact_dataset.py": {
+      "bytes": 27438,
+      "sha256": "fccd0f46476250bef4a38089df797b9ee3a1f01597a9ca35111f8001eb1c275b"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/compact_storage.py": {
+      "bytes": 29295,
+      "sha256": "7291126c33a79e08168d4b0237a144d463a546d4e17d63dbcc2ed88b5dc3efcf"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/constants.py": {
+      "bytes": 1701,
+      "sha256": "4af34023a022ce4f5630a1d8e552c99f54750e2f7a9aa5f077da0470e079e4dc"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/contact_distance.py": {
+      "bytes": 2936,
+      "sha256": "707f1b588c46079215e2d08931f6ef2b81e6fe87d6041ef5fd7b6d27d6587193"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/continuous_posture.py": {
+      "bytes": 16999,
+      "sha256": "f0c23a1380dbd9ab00c108c8565040a47603e5c1a95d87efcde25231594a65d9"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/crs_manipulation.py": {
+      "bytes": 44222,
+      "sha256": "071e68a7057251d0f1d9e1decd36b8668e18a914aebb1b87efe64547383f54ce"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/dataset.py": {
+      "bytes": 36828,
+      "sha256": "20e3afbcdbfa284479c392af5c6bb33682f40327f3acf5bf3860edc147d10666"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/floor_support.py": {
+      "bytes": 20490,
+      "sha256": "d57c0da8947fc6ee3e3399177bfab6997b9445a0a8d33b98b30c675d6e853d24"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/foot_contact_observation.py": {
+      "bytes": 13246,
+      "sha256": "957d2f73c29df7355cd1c0b95e278f8dea023e7d081954db6babda0c6f3df144"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/foot_observation.py": {
+      "bytes": 3784,
+      "sha256": "d952a5e7d25ff0b56273228b9c1eb123aa2a3cd89a354818180dc45ce02f6a83"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/goal_ik.py": {
+      "bytes": 6622,
+      "sha256": "283159375081b692853c60b4050f73d8fe46d8096ad3aeacc24769cbd707da32"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/grasp_carry.py": {
+      "bytes": 6457,
+      "sha256": "12976bd6e8ab60378fe61cbed521e0dd98f68d0154346d4d72f040049d733b42"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/grasp_settling.py": {
+      "bytes": 6508,
+      "sha256": "67f8a28cafc0faf15aba5afdb3cf19280ac145808ec4a8e1e01d7473f7d17a08"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/handover.py": {
+      "bytes": 28244,
+      "sha256": "c9c9de6e7b4d47bf9a0a81d083a866a2368fe1a29bea0b887d076b20cdaa6072"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/head_gaze.py": {
+      "bytes": 6305,
+      "sha256": "7e869c614a8822f3546eeb8c0803321a5af8c688b05260561fb77eea59715b0b"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/hinge_controller.py": {
+      "bytes": 26309,
+      "sha256": "e8b8a1e38b6271312cc4fcd5592092bb77351e0fd9a221640736a4d05bca762e"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/hinged_door.py": {
+      "bytes": 7055,
+      "sha256": "80556f419e6bccbcbce33a1dcf6cbe25eb8c4915495005606651de5ac40ef038"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/jig_slots.py": {
+      "bytes": 28561,
+      "sha256": "0616d12dce061e9a8b0247b83cb2fed2a59b270946c1655ecb0d059f62ae24eb"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/latest_robot.py": {
+      "bytes": 87627,
+      "sha256": "7959c6c966cfd888d307ba9b5a32634ff05b42872db8d557481152f4e078a413"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/lid_fit_clearance.py": {
+      "bytes": 7760,
+      "sha256": "94f6a6eaf6b5e4116a1a28475103d955bd3b6fe4fc7d71a31f4335e850c5becd"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/lift_reference_continuity.py": {
+      "bytes": 1471,
+      "sha256": "91686b7f106878558789d56b817e3ca69eb04d00badb8435c19ddbc8efc477f5"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/live_scene.py": {
+      "bytes": 51102,
+      "sha256": "5a20e1c622585725a26c35feeac2ea28bd4752f65ac548fcd6b954326702ffe0"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/motion_watchdog.py": {
+      "bytes": 9921,
+      "sha256": "830a33a80e5a51cc7100533f372da0124b7531caf4feca545fa4af3d0b832224"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/nepes_initialization.py": {
+      "bytes": 8958,
+      "sha256": "993d7d3fb887efaa87d9c32226ceb66791c2ab05ff841893c37bdfff22069a21"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/nepes_tasks.py": {
+      "bytes": 166025,
+      "sha256": "56f6c48fecf362172308fa55c67f5b62b4d53a0150c0dedb97312e8fdb4640c2"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/no_walk_stance.py": {
+      "bytes": 8214,
+      "sha256": "1cc65984a188af5bcb9116a2bf0501a8f02be4aa9b2edc9d8b20b8a57db45f43"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/object_relations.py": {
+      "bytes": 5057,
+      "sha256": "1e3bd13f19aaf3011cb413c8e72189a68362ac1ca1628976ba90653ccb2dc4f2"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/object_symmetry.py": {
+      "bytes": 13922,
+      "sha256": "c1e0a9e8a114c2de6fa68d526fefb1334d87dc5beff511ba4819eeafd9ba1b81"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/payload_transport.py": {
+      "bytes": 16056,
+      "sha256": "1d802756137106d4f5f7c7255e84d54cc02e6daf3dacfab27dbf1fc44b8636bd"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/pelvis_motion.py": {
+      "bytes": 1709,
+      "sha256": "285a5f735633a9d39b37c1f7b9ba22c8f518eaa5e05a39a6c9dd5bb81db5efcb"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/physics_readback.py": {
+      "bytes": 8659,
+      "sha256": "12a32f707ba8599dd61b5661999df530844eb8ca3eed31605e06aefb7489f648"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/place_aligned_descent.py": {
+      "bytes": 8876,
+      "sha256": "cf569433e12155a1c1c728f0f8a7193fdfd1dce57168f6dab4d56ceaf0e79d50"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/place_release_options.py": {
+      "bytes": 8386,
+      "sha256": "8cca9e4a20dfd2f2bb3d9d8f9bc86413e6b45ba3ebec0718d9440cab7671f1e7"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/placement_alignment.py": {
+      "bytes": 6262,
+      "sha256": "e6b0fbc97d9ea75779cd7c6bc3b395642100b8bec9aeb138e2cdc66c61735847"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/placement_hold.py": {
+      "bytes": 8381,
+      "sha256": "4b86c98cc4c0095ed48d1b8f02b8228f6628bf98f2fa0c785e447c717547a12b"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/placement_support_filter.py": {
+      "bytes": 8427,
+      "sha256": "28ea403e47605e110d160eb50195c3fd9e8e2c49687fa76f87c376a6b04e8b64"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/posture_control.py": {
+      "bytes": 18934,
+      "sha256": "969dd9552db62700c5734b7b99b016053f102318697e3d08f9e0ddcfc5113649"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/posture_hold.py": {
+      "bytes": 3464,
+      "sha256": "7cc4f3419bb14650bba01054d67186132e3197ff4952269641f186402ca8f45a"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/posture_hold_admission.py": {
+      "bytes": 14537,
+      "sha256": "1e7a522a839ad63cf79caaaeb03afd1667a3cf829c4a785b0039908278aac886"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/posture_path.py": {
+      "bytes": 7531,
+      "sha256": "62587bfb2b003adf164fd192c8752bd22bb280679ab3cd70ad95dab59413baab"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/pregrasp.py": {
+      "bytes": 6036,
+      "sha256": "7e1663c0abc49ff73212114e6c0266300ff6759411980f17dfca0db42a3208fa"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/pressed_key_completion.py": {
+      "bytes": 15072,
+      "sha256": "f8ce832705cce1eac938f8c99dd1db16626b707d2dd5ae5b24de3a80792ed8f7"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/recording_boundary.py": {
+      "bytes": 24917,
+      "sha256": "ab47a524f4f4e7645afcabb7ff13180f367fc1cc51f51fd15220087ddfbc2d27"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/reference_continuity.py": {
+      "bytes": 44195,
+      "sha256": "eeaca1157675e442c9d27bbdfacc63bffb318fa591c8fd1d874cc05b153a99a6"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/replay.py": {
+      "bytes": 10595,
+      "sha256": "b4f4e6ae861a3b056a56bab634f80478428a07fe5c44a0c1760e49d5b0fa9a47"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/robot_model.py": {
+      "bytes": 36033,
+      "sha256": "1c4529668106b2763ce7fc3c1dbd4d537121036d3305e6c673ac7acf9402d2b7"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/robot_stability.py": {
+      "bytes": 1067,
+      "sha256": "4cf09e0133e74261b8f3cce3b01ee1b251b5218fd9908f23f876f0863945d7f0"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/shutdown.py": {
+      "bytes": 2899,
+      "sha256": "5d8370645d4a3a224ccd4ab4fc72bf80e82fd91715503c4179f3597e528a8d65"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/single_arm_layout.py": {
+      "bytes": 8007,
+      "sha256": "b556a49b6577e68e36eaf3ec5ab1c08cfae7789c591b126147dd517df01d49db"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/single_step.py": {
+      "bytes": 22183,
+      "sha256": "9047bb63dd76697860c80e7903f9e351897ae506bf32c08aa1775089e8472d86"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/snapshot.py": {
+      "bytes": 21973,
+      "sha256": "dbdaf58b14dcb04c18cd548e2e00319c9c41670cc6ebc4ce32e1068c1a342036"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/stationary_catalog.py": {
+      "bytes": 24048,
+      "sha256": "0467db16a222af8e99e945920d0bcc81f3839d053bb652529d48586b1bbf176a"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/stationary_collection.py": {
+      "bytes": 144299,
+      "sha256": "7bbe83953c7190c80103d5713108c6292f11447f262d74f6f1126d02daa5ff0b"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/stationary_feet.py": {
+      "bytes": 15197,
+      "sha256": "bc45aabf0f9669e91f239ff1e90502a837c5d2854a10bb54261ea8d32e37993a"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/stationary_initialization.py": {
+      "bytes": 5271,
+      "sha256": "f2d741a3ef763468318f3c06f7acfbb1257bc1920110f37a9e5921d5b97407e8"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/stationary_lift.py": {
+      "bytes": 17024,
+      "sha256": "6ce5d4dc405de1f5a2cc39503844e56e5724d38bac812d71804eac9668de634e"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/stationary_pick_load.py": {
+      "bytes": 120266,
+      "sha256": "515a612b17e441982ca3df7960958ff198090ee268c1fc8bea195514eba3ea5c"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/stationary_place.py": {
+      "bytes": 29035,
+      "sha256": "48b66ef16e56202fd2a19e436936c42712c9b28f6ecbf101c7452034a23410d2"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/support_settling.py": {
+      "bytes": 5898,
+      "sha256": "9f000bf2fb91b6acb34c0a18bb73cca8f2e0d802eb84625ad5c34faf710323fd"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/supported_grip_relief.py": {
+      "bytes": 33169,
+      "sha256": "c11b2a8ff6468cc6f2130b7a7c2b10e81d338d52707fc839c77ae660ae20d5b1"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/task_control.py": {
+      "bytes": 38311,
+      "sha256": "1820c9c9dd1d4389b8fde387b9aa89d790e55b84591e263ff3d3bf2dd1fbbfeb"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/task_runtime.py": {
+      "bytes": 185494,
+      "sha256": "0b8665f97b6c9bb5dafc09a73d460f14ab5617be783f9231c7fc7199d632da58"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/throughput.py": {
+      "bytes": 4147,
+      "sha256": "9d5be4e11e766d304804acf8155c75e39c9f02b88e57d0a0d2bab34833400977"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/trajectory.py": {
+      "bytes": 20307,
+      "sha256": "3d8419add0425738023a1bcb3b26d4f0e3efea1b9d08c4532c7a262386b387d5"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/upper_body_control.py": {
+      "bytes": 50139,
+      "sha256": "6aeb9a04b892ce39b9b6c196c3a63f6e3492223154cdc01191983ec382f4d2a4"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/upper_body_feedforward.py": {
+      "bytes": 3271,
+      "sha256": "6462f860ee2b58c45117a6100b4d8b5822f9ca04a966c8f947720048e38b4db6"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/upper_body_guidance.py": {
+      "bytes": 16851,
+      "sha256": "9c27e1205817da810a2706ff9e569e4eec3f6ce28583c1f6d6337308122c9276"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/upper_body_ik_backend.py": {
+      "bytes": 24404,
+      "sha256": "43305a6ff4edd832cc0ac90bb292034cff640f66bb3850ad3cb785618391b310"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/upright_runtime.py": {
+      "bytes": 27876,
+      "sha256": "4ae380fad3319e4daa8644ea78c7609a96b8f4f1a65cbca2699d2672b254553b"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/waypoint_planning.py": {
+      "bytes": 12084,
+      "sha256": "d501327a83eeba76e5a41afba2539317ebaaec4744da3caa4e00d86c697e7aaf"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/waypoint_postures.py": {
+      "bytes": 4422,
+      "sha256": "7a3dd8c8c99c1010f3ac1c14e93ae9090fca8a79e2c0e0424b01ad37302c3f33"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/world_collision.py": {
+      "bytes": 6106,
+      "sha256": "f066ffc07a61c0f24ddddd6533fe3e543d8ed5d42b15c4a0b968286cc2dd1ef9"
+    },
+    "runtime/right4/source/robros_motion_planning/robros_motion_planning/world_geometry.py": {
+      "bytes": 10806,
+      "sha256": "2cfd8294696bad52d8e041193ea55ea040c25677ff2c8c33ded789ddb50dfb32"
+    },
+    "scripts/augment.py": {
+      "bytes": 840,
+      "sha256": "ded763b551f793a6875e5558813f2908e4018d1abe805a30b0f73252912296f4"
+    },
+    "scripts/augmentation/augment.py": {
+      "bytes": 12538,
+      "sha256": "1d927c3c3e7011127571df8dc13057e6872ac0e20397f65f6d40fdfc1cd86aea"
+    },
+    "scripts/augmentation/augment_video_v2.py": {
+      "bytes": 25329,
+      "sha256": "854243cefd91a24b6fdb68077481525ec2bc9889b0d8951c02b0f3515b506369"
+    },
+    "scripts/augmentation/render_collect.py": {
+      "bytes": 20507,
+      "sha256": "e96321858196a8cb5027a5295dcde41b6d667796ff438f0b84a8412e56e503cb"
+    },
+    "scripts/augmentation/render_merge.py": {
+      "bytes": 3965,
+      "sha256": "e55292251e571e63e0d5d321024af7627a1e9d9b7b0b519b377b4af208254306"
+    },
+    "scripts/augmentation/render_scene.py": {
+      "bytes": 9686,
+      "sha256": "3490dbb299990dd7eeb6b5ba1feeab0826e38e448dc74fce4166f9e022a3d9dd"
+    },
+    "scripts/augmentation/render_verify.py": {
+      "bytes": 20356,
+      "sha256": "79323eb6dced0dafc7d81d37458c4338768a3668ce95b1d744929abf35682565"
+    },
+    "scripts/augmentation/source_selection.py": {
+      "bytes": 8283,
+      "sha256": "a74c65fd63e563b9ac16a4c792618afd0a8a1b297ef3632e48eba1858568e29a"
+    },
+    "scripts/augmentation/video_collect.py": {
+      "bytes": 10827,
+      "sha256": "d00a214715ffc5fa722928c9b9a2f82c5069f6b55422e655f764b8a650585e61"
+    },
+    "scripts/augmentation/video_common.py": {
+      "bytes": 18731,
+      "sha256": "244736d531a18ab76fc28d4aba7de3a2d1da04b2e6337f4570def7ec7c18b5b5"
+    },
+    "scripts/build_release.py": {
+      "bytes": 4822,
+      "sha256": "b0fe5d2bc613e809dbf7bde3361b5cd014ef60e34c04db996e7f1fd6aec14cad"
+    },
+    "scripts/campaign.py": {
+      "bytes": 27998,
+      "sha256": "4c33d9872b0fcc267d1358505b2214d832d31abdf5bc0ffa1a8ac52fe2950120"
+    },
+    "scripts/campaign_sources.py": {
+      "bytes": 25285,
+      "sha256": "5513a3199f98b46b4e6a8a63adf943e4fba86291aa9c6e5454ec0a6b84bb9a5c"
+    },
+    "scripts/check_release.py": {
+      "bytes": 10668,
+      "sha256": "653f9f6b11ff0bc44e68b4830fb3dcd03c77416b9b5b4fe663aa09ffaf87a3b1"
+    },
+    "scripts/collect.py": {
+      "bytes": 8604,
+      "sha256": "975fe81ae506ec8b973a2a2ab6bc5e6b88c3e0b635bc2ec1a09573a877a8ff7b"
+    },
+    "scripts/compare_attempts.py": {
+      "bytes": 7753,
+      "sha256": "ca97e29b86ace95a707a5280c03319820a6a9cc9c6cef68020503f457652d43c"
+    },
+    "scripts/import_candidates.py": {
+      "bytes": 11514,
+      "sha256": "ce4295d655f49221910adb20ff2ed26332c1d18edbb6c0e929890f2fdc24f391"
+    },
+    "scripts/pipeline.py": {
+      "bytes": 8564,
+      "sha256": "7fd6ccb76ea2bd7db9f0ddbfe006bec30f274dcfe537ac62e975884a04291b0d"
+    },
+    "scripts/replay.py": {
+      "bytes": 8711,
+      "sha256": "7da8ef468d0a85daeb148f76f6aa1c9bf3cdfe8001f34cb3cf78c7ec1a93f170"
+    },
+    "scripts/replay_support/__init__.py": {
+      "bytes": 66,
+      "sha256": "e63d918744aab32fca1058bb6361e3ec91a2a52af4aa2d28999dae3b23d8c0d9"
+    },
+    "scripts/replay_support/encode.py": {
+      "bytes": 3118,
+      "sha256": "d81472c27b88f4d4386acbe081704ae1276ddb2bf864c9d18074e443193daaa1"
+    },
+    "scripts/replay_support/fk.py": {
+      "bytes": 5151,
+      "sha256": "5269c25a549341f97e61fd1e792ebe8c7d10c3985ae9cf3963ff33a909867c91"
+    },
+    "scripts/replay_support/render.py": {
+      "bytes": 17757,
+      "sha256": "70a381d511cd1c3b670d5ae32915ca78ea7b1739bf88e123ba1cdf9b41d01d04"
+    },
+    "scripts/replay_support/trace.py": {
+      "bytes": 10889,
+      "sha256": "50b77801a1fd1e6d4e4337ac12cc8715a4cf9278a80cb8eeb4beda457536e306"
+    },
+    "scripts/replay_support/visual_overlay.py": {
+      "bytes": 8456,
+      "sha256": "b81fd0c5cd210324c915503bb9d32ac625bc24d7fd748e42ff94fd9547fe811d"
+    },
+    "scripts/seeded/collect_parallel.py": {
+      "bytes": 70558,
+      "sha256": "034cd42ac4b1ce5d5bc42c79afda071be5829af096aa80cd817406c4d0a36cda"
+    },
+    "scripts/seeded/collect_seeded.py": {
+      "bytes": 26079,
+      "sha256": "3beb4ae64a455c3232d303020909c0a3fd91b08ddee4df56f989f1ea753bdebd"
+    },
+    "scripts/seeded/merge_seeded.py": {
+      "bytes": 36827,
+      "sha256": "b4e696a45ffc85abb1b443ea7a6f7abb5df0c8e2d2893281dbb01b35e53f7400"
+    },
+    "scripts/seeded/seeded_config.py": {
+      "bytes": 13023,
+      "sha256": "018835cf36770c67b0064145a21b2a4b8887f198eeb0b8d7748c2040e45856c2"
+    },
+    "scripts/setup.sh": {
+      "bytes": 10586,
+      "sha256": "ddb4062c7e73073b8ed537e46aff8d188872202c83dfc08398407835273da517"
+    },
+    "tests/ik_pink/_support.py": {
+      "bytes": 2544,
+      "sha256": "8552a2ff7fdf9a7c73981de2d80b2d0486e017edea04b3eae8a19453e65ecf77"
+    },
+    "tests/ik_pink/fixtures/igris_c_260910_canonical.urdf": {
+      "bytes": 48584,
+      "sha256": "8e3caec3a5aac5b4dd3653271bfa48133de80164dc89feccd6a9afc278eda046"
+    },
+    "tests/ik_pink/fixtures/measured_snapshots_v1.json": {
+      "bytes": 389987,
+      "sha256": "5ddc12e28ad3e4d6de32796f4ebc5f9e9a81bde1d4ba1ab39f3decb918c150bd"
+    },
+    "tests/ik_pink/fixtures/provenance.json": {
+      "bytes": 7932,
+      "sha256": "82d069c610d6ca5967f37155c76b4f55b29c0742d25c66f2cd59404d58653605"
+    },
+    "tests/ik_pink/test_fixture_equivalence.py": {
+      "bytes": 5326,
+      "sha256": "9c97b93b82496bfd453f4472002162fe934c4743cb4490d21bace2a949abae44"
+    },
+    "tests/ik_pink/test_pin_backend.py": {
+      "bytes": 7975,
+      "sha256": "5016bb95773de7de95608fb6e2ebc0a16e74572607917b791682ad43d60d6868"
+    },
+    "tests/ik_pink/test_pink_qp.py": {
+      "bytes": 2884,
+      "sha256": "160e83907b81f9015088bea62933cb895b935087ae93ef5e5ca5b9ce615d7670"
+    },
+    "tests/ik_pink/test_servo_contract.py": {
+      "bytes": 7792,
+      "sha256": "c5434bf67019d2a50f99a29d38f67d5556fbd2cda985490fe207a78d6732d5eb"
+    },
+    "tests/ik_pink/test_solver_dispatch.py": {
+      "bytes": 2377,
+      "sha256": "6c0eb3f0689ed8cec19900ed26f99eb426e196da687be79262fcc97962233bb8"
+    },
+    "tests/ik_pink/test_worker_stdio.py": {
+      "bytes": 9658,
+      "sha256": "20e6619af74913c5ba6b2fff5a30c846d4464a6e06a8cbb2f982610b6d6048e4"
+    },
+    "tests/ik_pink_owner.py": {
+      "bytes": 8260,
+      "sha256": "0afa3310c68479ce486a71204d9a787d787e2dcd76b4348fad96234906523f1c"
+    },
+    "tests/parallel_process_fixture.py": {
+      "bytes": 18509,
+      "sha256": "1050e3cba37e9287798f5e4a9bfe6f2c5995d3d536ad544ae9ee1c85499b8006"
+    },
+    "tests/seeded_process_fixture.py": {
+      "bytes": 10923,
+      "sha256": "dc52449f744d75030306f46340ea8f49a4d2d4e5f0fc8316bc49e9726695ab39"
+    },
+    "tests/test_augmentation_contract.py": {
+      "bytes": 6819,
+      "sha256": "1881d64cc5e0da6a1350f369d4be92cf93a9d0265a7182cbb2187d3d90d7ebb8"
+    },
+    "tests/test_augmentation_process.py": {
+      "bytes": 5959,
+      "sha256": "0db467f73ded22fb8624c6addb849e522ac941faa6371021a439951a139c45c7"
+    },
+    "tests/test_augmentation_video.py": {
+      "bytes": 11430,
+      "sha256": "c695259a2360d6bd1d3f55c73df02a43c0318588224efee92220cf249a3bf64f"
+    },
+    "tests/test_campaign.py": {
+      "bytes": 13339,
+      "sha256": "4ed097c19ed5acd996eb35241d2e0235dd6a0bc7b389c9933fb269629736142a"
+    },
+    "tests/test_campaign_sources.py": {
+      "bytes": 8798,
+      "sha256": "91a4ce07102db7975293ba4f1e6426b293c6610bf9909c4a994bfe6193b0b1de"
+    },
+    "tests/test_ik_pink_bridge.py": {
+      "bytes": 33914,
+      "sha256": "028ac99b56d261cfdf6bff2371a451fb755b2a9ba78d89fe9ad394307ddfe054"
+    },
+    "tests/test_parallel_collect.py": {
+      "bytes": 33429,
+      "sha256": "9550f8a87f29f759e1c84edfbe7ec2104a36bfed88a89a94f84fc12ce025e56d"
+    },
+    "tests/test_parallel_entrypoints.py": {
+      "bytes": 29067,
+      "sha256": "8a36077ab64ce14b14ec92488cb02ff592ebba460c6842100ae9f0a5cb5cda27"
+    },
+    "tests/test_parallel_identity.py": {
+      "bytes": 17701,
+      "sha256": "07ad698529fde3cee7ca4ae3194a9f2a999f03853592bbd40d3241986cf541b6"
+    },
+    "tests/test_parallel_pink.py": {
+      "bytes": 34487,
+      "sha256": "6771135f4ba5b9989b883af7a87996646343ab8f4ac3f5bdda6ead01991e40f2"
+    },
+    "tests/test_parallel_recovery.py": {
+      "bytes": 20387,
+      "sha256": "bf420cb884a56c10cef0d5516926f879838a027ca6faf949e0a7589fb0465c92"
+    },
+    "tests/test_parallel_tools.py": {
+      "bytes": 14813,
+      "sha256": "ffa0dfe00d3497a65d65d5d83d1351de7ec52b9d26137ebc9dad6b303b745f76"
+    },
+    "tests/test_pipeline.py": {
+      "bytes": 3111,
+      "sha256": "e1b2e3233a8b0638d083d22d6828950916333a1e47516cf6de3bd5c663937c88"
+    },
+    "tests/test_replay.py": {
+      "bytes": 16499,
+      "sha256": "4ea0680309d1b25899d7fb44a03ec7f35bf2c17f0c8c99a217888c591a100846"
+    },
+    "tests/test_seeded_numeric.py": {
+      "bytes": 6216,
+      "sha256": "ddea74da725fc9680a1c9e9b2b1795440ac26b27d93b3e1832128af180b2ee68"
+    },
+    "tests/test_seeded_portable.py": {
+      "bytes": 13621,
+      "sha256": "d2b8155526ec7662349fed90505857f6db50981210186eb34cf7dd731a5b2a87"
+    },
+    "tests/test_seeded_process.py": {
+      "bytes": 3322,
+      "sha256": "b92e8e990cc1db657ab9e19838a0e8e57dd0eacb1050e556b61112447d81d87e"
+    },
+    "tests/test_unequal_quotas.py": {
+      "bytes": 12373,
+      "sha256": "f563d8718f5d4b28b21d90f1f5e26034b6e90f497ae8b5016556d204a56e7e0c"
+    }
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "closure": {
+    "basis": "pads.json q_touch_rad (hppfcl-evaluated touch of the inner pads, photo-estimated design value)",
+    "empty_close_first_touch_q_rad": {
+      "l_1_dof_gripper_moving": 0.02002,
+      "r_1_dof_gripper_moving": -0.02002
+    }
+  },
+  "colors_linear_rgb": {
+    "jaw_body": [
+      0.8154,
+      0.8154,
+      0.7678
+    ],
+    "pad": [
+      0.48,
+      0.3559,
+      0.204
+    ]
+  },
+  "designed_against": {
+    "meshes/igris_c_end_effector/1_dof_gripper/l_1_dof_gripper_fixed.stl": "c97070632f30de97469ec38d0372c1750157b37a700a2f90647e9a24427c6373",
+    "meshes/igris_c_end_effector/1_dof_gripper/l_1_dof_gripper_moving.stl": "773d0576eedbd019ce89c3f53f434b56b328750afaf452ddaa8878d7c60fd882",
+    "meshes/igris_c_end_effector/1_dof_gripper/r_1_dof_gripper_fixed.stl": "8c69ffeea48205b27bedd4777965b6ae564add935608a52140d33a1d6732b291",
+    "meshes/igris_c_end_effector/1_dof_gripper/r_1_dof_gripper_moving.stl": "0b913573ef1de8b4cda9153568d69045aa4cacbe6ecaf8bfbbbb9e5fef08e3c8"
+  },
+  "frame": "jaw_link",
+  "jaws": {
+    "Left_Hand": {
+      "body": {
+        "id": "jaw_body",
+        "replaces": "meshes/igris_c_end_effector/1_dof_gripper/l_1_dof_gripper_fixed.stl",
+        "role": "white printed jaw body: supplied jaw mesh minus the old inserts and old back plate",
+        "sha256": "5623a058ed4667b3562e177c21d665141630c66a7990073862b0f6fceb2c4224",
+        "stl": "white_bodies/l_fixed_white_body.stl"
+      },
+      "pads": [
+        {
+          "collider": true,
+          "id": "back_strip_base",
+          "role": "back strip base layer",
+          "sha256": "29f237164486d2a8fc379ec72dbbf4a9b50e50a02fc89005873fa838dd573a35",
+          "stl": "l_fixed_pad_1.stl"
+        },
+        {
+          "collider": true,
+          "id": "back_strip_rib_0",
+          "role": "back strip raised segment between grooves",
+          "sha256": "5ea3ee00506257a5c3e7394d52241a0cba48314308394dba99771bb1e36ec8c7",
+          "stl": "l_fixed_pad_2.stl"
+        },
+        {
+          "collider": true,
+          "id": "back_strip_rib_1",
+          "role": "back strip raised segment between grooves",
+          "sha256": "d6e6f4ca7a01ae82ddd4f6a8579f14719a599d9fef22b6b3ad5195a878005380",
+          "stl": "l_fixed_pad_3.stl"
+        },
+        {
+          "collider": true,
+          "id": "back_strip_rib_2",
+          "role": "back strip raised segment between grooves",
+          "sha256": "94eafb83d10c5469b279690a4bc2c59d344269a70cda540bac805ff466beb10d",
+          "stl": "l_fixed_pad_4.stl"
+        },
+        {
+          "collider": true,
+          "id": "back_strip_rib_3",
+          "role": "back strip raised segment between grooves",
+          "sha256": "6932e09b6cf0c08e3ce554236f8829f88f08ca972f1ada569d16753b657fdcb7",
+          "stl": "l_fixed_pad_5.stl"
+        },
+        {
+          "collider": true,
+          "id": "back_strip_rib_4",
+          "role": "back strip raised segment between grooves",
+          "sha256": "bad69e2c5e4d167ad64925677a8366780703434671cb7cb5f47062c0ea72ea96",
+          "stl": "l_fixed_pad_6.stl"
+        },
+        {
+          "collider": true,
+          "id": "back_strip_rib_5",
+          "role": "back strip raised segment between grooves",
+          "sha256": "ab22a9c983c86ec074182a19f313cee5606fa96d1fb07db02f7f64329169b9b1",
+          "stl": "l_fixed_pad_7.stl"
+        },
+        {
+          "collider": true,
+          "id": "inner_gripping_pad",
+          "role": "inner gripping pad (replaces old tip insert)",
+          "sha256": "b8af89e6aa18c8c198e506ed9fdc5e9361236874a7af52f79507128a0106537c",
+          "stl": "l_fixed_pad_0.stl"
+        }
+      ]
+    },
+    "Right_Hand": {
+      "body": {
+        "id": "jaw_body",
+        "replaces": "meshes/igris_c_end_effector/1_dof_gripper/r_1_dof_gripper_fixed.stl",
+        "role": "white printed jaw body: supplied jaw mesh minus the old inserts and old back plate",
+        "sha256": "299d76201e743bdb1e0e11c93868c5e406c0ec28c0e47171597f21d4771f5125",
+        "stl": "white_bodies/r_fixed_white_body.stl"
+      },
+      "pads": [
+        {
+          "collider": true,
+          "id": "back_strip_base",
+          "role": "back strip base layer",
+          "sha256": "0620d83456ff8e9a7e4850d22dcffde2520e2be6c1787cac1a122a1becb19e79",
+          "stl": "r_fixed_pad_1.stl"
+        },
+        {
+          "collider": true,
+          "id": "back_strip_rib_0",
+          "role": "back strip raised segment between grooves",
+          "sha256": "5b90082d66731bbaad8a4083e2b731b0a153bb9ead5fea00056a586d92301b57",
+          "stl": "r_fixed_pad_2.stl"
+        },
+        {
+          "collider": true,
+          "id": "back_strip_rib_1",
+          "role": "back strip raised segment between grooves",
+          "sha256": "12dc797a9274a4f5b81ce923f96baca4b43164686a18b1eb9b69b623308f658f",
+          "stl": "r_fixed_pad_3.stl"
+        },
+        {
+          "collider": true,
+          "id": "back_strip_rib_2",
+          "role": "back strip raised segment between grooves",
+          "sha256": "1093f1d53f67351dcfdce26997ea0f5a77042912b2c1b9feaa4638731f499077",
+          "stl": "r_fixed_pad_4.stl"
+        },
+        {
+          "collider": true,
+          "id": "back_strip_rib_3",
+          "role": "back strip raised segment between grooves",
+          "sha256": "326bdc4f5fc16143570f3a348823fdd2f5a1c1aa6e5240d589f5b389eb0f62da",
+          "stl": "r_fixed_pad_5.stl"
+        },
+        {
+          "collider": true,
+          "id": "back_strip_rib_4",
+          "role": "back strip raised segment between grooves",
+          "sha256": "ab83f54ac1942ccc2cd9a6add46ea84fe623c399423102d8f82a1230857b1ccd",
+          "stl": "r_fixed_pad_6.stl"
+        },
+        {
+          "collider": true,
+          "id": "back_strip_rib_5",
+          "role": "back strip raised segment between grooves",
+          "sha256": "afdd708ca25b2346d5039adfce8c2d5111acabd4047ca62f6de8d3f4f566a227",
+          "stl": "r_fixed_pad_7.stl"
+        },
+        {
+          "collider": true,
+          "id": "inner_gripping_pad",
+          "role": "inner gripping pad (replaces old tip insert)",
+          "sha256": "a738b75721a1a56e703a30e02b6ba839cb15106a4ce071cf03942a6571b90576",
+          "stl": "r_fixed_pad_0.stl"
+        }
+      ]
+    },
+    "l_1_dof_gripper_moving": {
+      "body": {
+        "id": "jaw_body",
+        "replaces": "meshes/igris_c_end_effector/1_dof_gripper/l_1_dof_gripper_moving.stl",
+        "role": "white printed jaw body: supplied jaw mesh minus the old inserts and old back plate",
+        "sha256": "ec41bab012c1896a32ef584b1f6b756be4873aed9b5006e448a4e03c59a31c71",
+        "stl": "white_bodies/l_moving_white_body.stl"
+      },
+      "pads": [
+        {
+          "collider": true,
+          "id": "inner_gripping_pad",
+          "role": "inner gripping pad (replaces old inner insert incl. arc recess)",
+          "sha256": "38f407446e3e88245f1899e98dedff70eaafd2f356eea54593a6c3d0f5faac78",
+          "stl": "l_moving_pad_0.stl"
+        }
+      ]
+    },
+    "r_1_dof_gripper_moving": {
+      "body": {
+        "id": "jaw_body",
+        "replaces": "meshes/igris_c_end_effector/1_dof_gripper/r_1_dof_gripper_moving.stl",
+        "role": "white printed jaw body: supplied jaw mesh minus the old inserts and old back plate",
+        "sha256": "e6c7d04d35ac107fe777d2a89e941a2ac771048078631e9234a64c25e63c5ea0",
+        "stl": "white_bodies/r_moving_white_body.stl"
+      },
+      "pads": [
+        {
+          "collider": true,
+          "id": "inner_gripping_pad",
+          "role": "inner gripping pad (replaces old inner insert incl. arc recess)",
+          "sha256": "911e6cf1f44b4022cd88dd396c52e504bf2dcbf303387441e893dc74cb5d5518",
+          "stl": "r_moving_pad_0.stl"
+        }
+      ]
+    }
+  },
+  "notes": [
+    "New pad dimensions (caliper/CAD) are a new variant (new directory, registry entry and pin); never edit these files.",
+    "Pads replace the old inserts; the jaw meshes are replaced by white_bodies/*.stl (see pads.json integration_notes)."
+  ],
+  "provenance": {
+    "colors_basis": "photo pixels (a14_segment.py): median sRGB of the brightest-quartile pixels of each class; beige = mean of inner pads and back strip",
+    "colors_source_srgb": {
+      "jaw_body": [
+        0.914,
+        0.914,
+        0.89
+      ],
+      "pad": [
+        0.722,
+        0.631,
+        0.489
+      ]
+    },
+    "generator": {
+      "command": "outputs/planning/venv/bin/python make_pads.py --white-bodies [--out DIR] [--set name=value]",
+      "file": "generator/make_pads.py",
+      "note": "--repo defaults to the checkout above the script (the parent holding igrisc_model_cam_260910/); --out defaults to <repo>/outputs/gripper_pads/make_pads, outside the Python package, and --out inside this package is refused, so a rerun never touches the pinned files",
+      "sha256": "befa23a5f24a815c4af6448f3bf09f1d1c686beaf2e29c8baaaced4878bd8328"
+    },
+    "jaw_identity": "Photo shows the LEFT gripper from its +x side: upper white jaw = FIXED (l_1_dof_gripper_fixed), lower = MOVING. The slotted box with the lens cylinder is the CAD wrist-camera housing on the fixed link (lens end centroid (50.4, 20.3, -52.5) mm = URDF l_wrist_camera_joint origin); its projection with the fitted camera lands on the photo box although the box was not used in the fit. The grey textured bracket with three screws on the LOWER jaw is the CAD moving-jaw side plate/hinge arm (x 18..34 mm, from z -86.5 to the hinge).",
+    "pads_json": {
+      "file": "pads.json",
+      "schema": "igris_c_new_gripper_pads_v1",
+      "sha256": "fff4cbd50cfaf624017654a7128c13b13b465caeca7f0574656f76b673e7f431"
+    },
+    "photo": "scratchpad gripper_new/img_01_line1497.jpg (not copied)"
+  },
+  "schema": "igris_c_gripper_pad_package_v1",
+  "status": "estimated_from_photo_and_original_jaw_meshes",
+  "units": "meters",
+  "variant": "filled_pad_v1"
+}

@@ -1,0 +1,118 @@
+#usda 1.0
+(
+    defaultPrim = "AprilTag"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "AprilTag" (
+    customData = {
+        double blackBorderSizeMeters = 0.1
+        double paperHeightMeters = 0.139156
+        double paperThicknessMeters = 0.0001
+        double paperWidthMeters = 0.125
+        string source = "tag36h11_id00000.svg"
+        string surface = "Complete original SVG including white margins and ID caption on 0.1 mm matte paper box"
+        string tagFamily = "tag36h11"
+        int tagId = 0
+    }
+)
+{
+    def "Looks"
+    {
+        def Material "Paper"
+        {
+            token outputs:surface.connect = </AprilTag/Looks/Paper/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.8, 0.8, 0.8)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:metallic = 0
+                float inputs:roughness = 1
+                color3f inputs:specularColor = (0.02, 0.02, 0.02)
+                int inputs:useSpecularWorkflow = 1
+                token outputs:surface
+            }
+        }
+
+        def Material "Ink"
+        {
+            token outputs:surface.connect = </AprilTag/Looks/Ink/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.005, 0.005, 0.005)
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:metallic = 0
+                float inputs:roughness = 1
+                color3f inputs:specularColor = (0.02, 0.02, 0.02)
+                int inputs:useSpecularWorkflow = 1
+                token outputs:surface
+            }
+        }
+
+        def Material "Print"
+        {
+            token outputs:surface.connect = </AprilTag/Looks/Print/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </AprilTag/Looks/Print/Texture.outputs:rgb>
+                color3f inputs:emissiveColor = (0, 0, 0)
+                float inputs:metallic = 0
+                float inputs:roughness = 1
+                color3f inputs:specularColor = (0.02, 0.02, 0.02)
+                int inputs:useSpecularWorkflow = 1
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @AprilTag_36h11_ID0.png@
+                float4 inputs:scale = (0.8, 0.8, 0.8, 1)
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </AprilTag/Looks/Print/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+    }
+
+    def Cube "Paper" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </AprilTag/Looks/Paper>
+        double size = 1
+        float3 xformOp:scale = (0.125, 0.0001, 0.139156)
+        double3 xformOp:translate = (0, 0.00005, -0.007078)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Mesh "PrintedFace" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        uniform bool doubleSided = 1
+        int[] faceVertexCounts = [4]
+        int[] faceVertexIndices = [0, 1, 2, 3]
+        rel material:binding = </AprilTag/Looks/Print>
+        point3f[] points = [(-0.0625, -0.000002, -0.076656), (0.0625, -0.000002, -0.076656), (0.0625, -0.000002, 0.0625), (-0.0625, -0.000002, 0.0625)]
+        texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+            interpolation = "vertex"
+        )
+        uniform token subdivisionScheme = "none"
+    }
+}
+

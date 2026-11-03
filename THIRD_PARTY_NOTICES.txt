@@ -1,0 +1,32 @@
+IGRIS NEPES Collection — third-party components
+
+Project source
+The repository's Apache License 2.0 is retained in LICENSE. Existing copyright
+and SPDX headers remain in individual source files; some portions credit the
+Isaac Lab Project Developers under BSD-3-Clause.
+
+Isaac Lab
+https://github.com/isaac-sim/IsaacLab
+External checkout: f4aa17f87e2e5db5484f0b5974918573e8918ce2 (VERSION 2.3.2).
+The SDK is installed separately by setup.sh and retains its upstream BSD-3-Clause
+license. SDK sources, simulator binaries, and SDK caches are not bundled here.
+
+Isaac Sim / Omniverse
+https://docs.isaacsim.omniverse.nvidia.com/5.1.0/
+NVIDIA packages are installed separately under their own license terms. This
+package does not automatically accept the NVIDIA EULA.
+
+LeRobot
+https://github.com/huggingface/lerobot
+The official 0.4.4 package is installed separately for the v3.0 dataset API.
+
+Workcell / robot assets and HugWBC policy
+The USD, material, mesh, and model checkpoint files are the project assets
+needed to run this collection scene. Their inclusion is for transferring this
+project; the source-code LICENSE does not establish a separate license for
+every asset. Preserve original embedded attribution and ownership information.
+
+Distribution changes
+This package relocates runtime code and project assets, resolves references
+within the package, and adds portable launch/install scripts. It excludes
+recorded datasets, episode traces, videos, and development handoff documents.

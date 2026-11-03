@@ -1,0 +1,28 @@
+# Isolated Pink IK worker environment: Python 3.11, Linux x86_64 (manylinux_2_28 wheels).
+# setup.sh creates <env-root>/ik and installs exactly this closure with
+# --no-deps --only-binary=:all:, then runs pip check and ik/pink/worker.py --check.
+# Never install these into the Isaac Sim or dataset Python.
+# Same versions as the validated 2026-10-30 experiment environment (test-only
+# pytest packages removed). pin 3.8 wheels link urdfdom 4 / tinyxml2 10;
+# unconstrained newer wheels fail to import.
+cmeel==0.61.0
+cmeel-assimp==6.0.5
+cmeel-boost==1.89.0
+cmeel-console-bridge==1.0.2.3
+cmeel-octomap==1.10.0
+cmeel-qhull==8.0.2.1
+cmeel-tinyxml2==10.0.0
+cmeel-urdfdom==4.0.1
+cmeel-zlib==1.3.2
+coal==3.0.2
+eigenpy==3.12.0
+libcoal==3.0.2
+libpinocchio==3.8.0
+loop-rate-limiters==1.2.0
+numpy==2.3.5
+pin==3.8.0
+pin-pink==4.4.0
+qpsolvers==4.13.0
+quadprog==0.1.14
+scipy==1.17.1
+typing_extensions==4.16.0

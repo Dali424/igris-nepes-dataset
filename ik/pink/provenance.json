@@ -1,0 +1,117 @@
+{
+  "schema": "nepes_pink_ik_code_provenance_v1",
+  "created": "2026-10-30",
+  "repository_paths": "Relative to the igris_c_isaacsim_public workstation checkout; provenance only.",
+  "files": {
+    "ik/pink/pin_backend.py": {
+      "origin": "experiments/pink_ik_20261030/pin_backend.py",
+      "origin_sha256": "c1992fddac9b3b2c3e06677d0bd3acb1ea2d5819d6613e921a2d9f5f5fe4bb21",
+      "change": "byte-identical copy"
+    },
+    "ik/pink/pink_qp.py": {
+      "origin": "experiments/pink_ik_20261030/pink_qp.py",
+      "origin_sha256": "7fd72ec5f1e577da30e8fedbf4fbfc27d90698d3ce026c02454e60c1a62f7029",
+      "change": "byte-identical copy"
+    },
+    "ik/pink/servo_factory.py": {
+      "origin": "experiments/pink_ik_20261030/experimental_servo.py",
+      "origin_sha256": "aa6a938aa98037d9abb071fb7607ab8ccf328b038b7d40570e2ce63a0ca88d89",
+      "change": "Reads the native solver from the shipped runtime (the upper_body_control.py bytes before the backend hook, whose hash equals the production solver) instead of a separate reference copy; the per-solve experimental diagnostics key was removed (the runtime client adds 'ik_backend'). Same Pinocchio kinematics, Pink QP adapter, objective and integration."
+    },
+    "ik/pink/worker.py": {
+      "origin": "experiments/pink_ik_20261030/worker.py",
+      "origin_sha256": "ed9d3b8baa65764cf327139d8775eafe71332de05312a7d887e5b0c873d6f7e2",
+      "change": "Same JSON-lines protocol and stop-on-first-error policy, plus: hello handshake (interpreter, exact package versions, worker source hashes), one runtime profile per worker, protocol kept on a private file descriptor (library output goes to stderr), SIGINT ignored, owner watchdog, and the --check self-test used by setup.sh/check_release.py."
+    },
+    "runtime/{profile}/source/robros_motion_planning/robros_motion_planning/upper_body_ik_backend.py": {
+      "origin": "experiments/pink_ik_20261030/native_bridge.py",
+      "origin_sha256": "fc1c20d741075d5bdf7e7b3c4c9463169b9f9755887bec06f7616bbeba569f87",
+      "change": "WorkerClient/proxy part only (the experiment launcher and its guards are not shipped): explicit NEPES_IK_BACKEND selection (default pink), NEPES_IK_PYTHON discovery with a clear error, version/source/limits verification, run report, no fallback and no restart."
+    },
+    "runtime/{profile}/source/robros_motion_planning/robros_motion_planning/upper_body_control.py": {
+      "origin": "experiments/pink_ik_20261030/prepare_runtime.py (patch_text)",
+      "origin_sha256": "ba30b990ea9b75fc43337b12594f4e4aa7f388d757550e65533c1806aa47ac4e",
+      "change": "The production file followed by a short import-time hook (no absolute paths). The part before the hook marker is byte-identical to the production solver.",
+      "native_prefix_sha256": {
+        "left2": "84bba28c5a58d54e9f7adcc60b589d9fbb2a49149cc6a969f5d152a14e7afeef",
+        "right4": "e4a4357e1f5a202e9b48a2bc413f5564b3d4a91ad415c27c1efbcdac20ad4b15"
+      }
+    },
+    "requirements/ik_pink.txt": {
+      "origin": "experiments/pink_ik_20261030/requirements.txt and the experiment venv (pip freeze)",
+      "origin_sha256": "8c464b5d02941f070a5ada8d27b77526ac71e5a96c811b9de1bba5c048253fc3",
+      "change": "Complete runtime closure of the validated environment pinned exactly; pytest removed."
+    }
+  },
+  "evidence": {
+    "cpu_tests": {
+      "experiment_passed": 45,
+      "experiment_subtests_passed": 5,
+      "log": "experiments/pink_ik_20261030/validation.log"
+    },
+    "measured_snapshot_benchmark": {
+      "path": "experiments/pink_ik_20261030/benchmark_v1.json",
+      "sha256": "0ba3d815f16cd95c2f6206a12131d1c57a787543311a4d69baa9bda4146eb7a8",
+      "samples": 50,
+      "repeats": 30,
+      "packages": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.1",
+        "pin": "3.8.0",
+        "pin-pink": "4.4.0"
+      },
+      "max_command_difference_from_native_rad": {
+        "pinocchio": 4.440892098500626e-16,
+        "pink": 2.220446049250313e-16
+      },
+      "bound_violation_samples": {
+        "pinocchio": 0,
+        "pink": 0
+      },
+      "median_one_step_ms": {
+        "baseline": 0.9073955,
+        "pinocchio": 0.400074,
+        "pink": 0.429164
+      }
+    },
+    "native_isaac_ab": {
+      "path": "experiments/pink_ik_ab_20261030/runs/seed10000/report.json",
+      "sha256": "356b81f0038eda87f5609bdd553d5694009e78ab7ec686c33eaf5b754ccdcb2c",
+      "review": "experiments/pink_ik_ab_20261030/review/independent_outcomes.json",
+      "review_sha256": "04212e9c6425ad7a7e23d8d6b969abee62ce0ef8c972df6fc68b7d09addea8ba",
+      "trials_accepted": 4,
+      "seed": 10000,
+      "paired": [
+        {
+          "pair": 4,
+          "all_actual_arrow_columns_exact_equal": true,
+          "differing_columns": [],
+          "same_trace_stage_intervals": true,
+          "frames": [
+            2737,
+            2737
+          ],
+          "whole_wall_reduction_percent": 3.75
+        },
+        {
+          "pair": 2,
+          "all_actual_arrow_columns_exact_equal": true,
+          "differing_columns": [],
+          "same_trace_stage_intervals": true,
+          "frames": [
+            4316,
+            4316
+          ],
+          "whole_wall_reduction_percent": 0.73
+        }
+      ],
+      "limitations": [
+        "One paired trial per arm, baseline always first; cache/order/system load may explain differences. This is not a reliable speedup estimate.",
+        "Measured wall includes real Pink stdio-worker overhead and full capture/storage export, not pure solver arithmetic.",
+        "Throughput sections nest; never sum environment_step_including_capture with capture_render_and_read/all_render_calls.",
+        "Exact equality of these recorded trajectories does not establish success probability or equivalence across other seeds.",
+        "Benchmark output remains experimental and is excluded from production dataset quotas."
+      ]
+    }
+  }
+}

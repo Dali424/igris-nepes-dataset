@@ -1,0 +1,1636 @@
+{
+ "schema": "igris_c_new_gripper_pads_v1",
+ "frames_units": "Every STL is in its URDF link frame, meters. fixed pieces -> {l,r}_1_dof_gripper_fixed (canonical Left_Hand/Right_Hand); moving pieces -> {l,r}_1_dof_gripper_moving joint frame (origin (0, s*0.02625, -0.04225) + Rx(q), s=+1 left/-1 right).",
+ "generator": {
+  "script": "make_pads.py",
+  "run": "outputs/planning/venv/bin/python make_pads.py --white-bodies [--set name=value]",
+  "evaluate": "eval_pads.py",
+  "figures": "viz_pads.py",
+  "this_file": "build_pads_json.py"
+ },
+ "pieces": [
+  {
+   "hand": "left",
+   "source_urdf_link": "l_1_dof_gripper_fixed",
+   "piece": "inner_gripping_pad",
+   "role": "inner gripping pad (replaces old tip insert)",
+   "stl": "l_fixed_pad_0.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 2.056504171041228e-05,
+   "bbox_m": [
+    [
+     -0.034,
+     -0.002,
+     -0.1565
+    ],
+    [
+     0.034,
+     0.0039,
+     -0.0883
+    ]
+   ],
+   "mass_kg_est": 0.024678050052494734,
+   "min_thickness_mm": 5.9,
+   "n_vertices": 12,
+   "sha256": "b8af89e6aa18c8c198e506ed9fdc5e9361236874a7af52f79507128a0106537c"
+  },
+  {
+   "hand": "left",
+   "source_urdf_link": "l_1_dof_gripper_moving",
+   "piece": "inner_gripping_pad",
+   "role": "inner gripping pad (replaces old inner insert incl. arc recess)",
+   "stl": "l_moving_pad_0.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 3.424874234587569e-05,
+   "bbox_m": [
+    [
+     -0.034,
+     -0.024594,
+     -0.11195
+    ],
+    [
+     0.034,
+     -0.009528,
+     -0.04605
+    ]
+   ],
+   "mass_kg_est": 0.04109849081505083,
+   "min_thickness_mm": 4.704,
+   "n_vertices": 16,
+   "sha256": "38f407446e3e88245f1899e98dedff70eaafd2f356eea54593a6c3d0f5faac78",
+   "max_thickness_mm": 13.744
+  },
+  {
+   "hand": "left",
+   "source_urdf_link": "l_1_dof_gripper_fixed",
+   "piece": "back_strip_base",
+   "role": "back strip base layer",
+   "stl": "l_fixed_pad_1.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 2.6285663869319333e-05,
+   "bbox_m": [
+    [
+     -0.03,
+     -0.025028,
+     -0.134151
+    ],
+    [
+     0.03,
+     -0.008941,
+     -0.021617
+    ]
+   ],
+   "mass_kg_est": 0.0315427966431832,
+   "min_thickness_mm": 4.1,
+   "n_vertices": 40,
+   "sha256": "29f237164486d2a8fc379ec72dbbf4a9b50e50a02fc89005873fa838dd573a35"
+  },
+  {
+   "hand": "left",
+   "source_urdf_link": "l_1_dof_gripper_fixed",
+   "piece": "back_strip_rib_0",
+   "role": "back strip raised segment between grooves",
+   "stl": "l_fixed_pad_2.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 1.6497403916996991e-06,
+   "bbox_m": [
+    [
+     -0.02486,
+     -0.017193,
+     -0.134417
+    ],
+    [
+     0.02486,
+     -0.013018,
+     -0.118387
+    ]
+   ],
+   "mass_kg_est": 0.001979688470039639,
+   "min_thickness_mm": 2.5,
+   "n_vertices": 16,
+   "sha256": "5ea3ee00506257a5c3e7394d52241a0cba48314308394dba99771bb1e36ec8c7",
+   "z_range_mm": [
+    -133.71,
+    -117.95
+   ]
+  },
+  {
+   "hand": "left",
+   "source_urdf_link": "l_1_dof_gripper_fixed",
+   "piece": "back_strip_rib_1",
+   "role": "back strip raised segment between grooves",
+   "stl": "l_fixed_pad_3.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 2.4571773311661104e-06,
+   "bbox_m": [
+    [
+     -0.03,
+     -0.019261,
+     -0.116153
+    ],
+    [
+     0.03,
+     -0.014975,
+     -0.099087
+    ]
+   ],
+   "mass_kg_est": 0.0029486127973993325,
+   "min_thickness_mm": 2.5,
+   "n_vertices": 16,
+   "sha256": "d6e6f4ca7a01ae82ddd4f6a8579f14719a599d9fef22b6b3ad5195a878005380",
+   "z_range_mm": [
+    -115.45,
+    -98.65
+   ]
+  },
+  {
+   "hand": "left",
+   "source_urdf_link": "l_1_dof_gripper_fixed",
+   "piece": "back_strip_rib_2",
+   "role": "back strip raised segment between grooves",
+   "stl": "l_fixed_pad_4.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 2.3684793223345124e-06,
+   "bbox_m": [
+    [
+     -0.03,
+     -0.021211,
+     -0.096853
+    ],
+    [
+     0.03,
+     -0.017043,
+     -0.080887
+    ]
+   ],
+   "mass_kg_est": 0.002842175186801415,
+   "min_thickness_mm": 2.5,
+   "n_vertices": 8,
+   "sha256": "94eafb83d10c5469b279690a4bc2c59d344269a70cda540bac805ff466beb10d",
+   "z_range_mm": [
+    -96.15,
+    -80.45
+   ]
+  },
+  {
+   "hand": "left",
+   "source_urdf_link": "l_1_dof_gripper_fixed",
+   "piece": "back_strip_rib_3",
+   "role": "back strip raised segment between grooves",
+   "stl": "l_fixed_pad_5.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 2.4137361049979373e-06,
+   "bbox_m": [
+    [
+     -0.03,
+     -0.023193,
+     -0.078653
+    ],
+    [
+     0.03,
+     -0.018993,
+     -0.062387
+    ]
+   ],
+   "mass_kg_est": 0.0028964833259975246,
+   "min_thickness_mm": 2.5,
+   "n_vertices": 8,
+   "sha256": "6932e09b6cf0c08e3ce554236f8829f88f08ca972f1ada569d16753b657fdcb7",
+   "z_range_mm": [
+    -77.95,
+    -61.95
+   ]
+  },
+  {
+   "hand": "left",
+   "source_urdf_link": "l_1_dof_gripper_fixed",
+   "piece": "back_strip_rib_4",
+   "role": "back strip raised segment between grooves",
+   "stl": "l_fixed_pad_6.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 2.3835644669361556e-06,
+   "bbox_m": [
+    [
+     -0.03,
+     -0.025154,
+     -0.060153
+    ],
+    [
+     0.03,
+     -0.020975,
+     -0.044087
+    ]
+   ],
+   "mass_kg_est": 0.0028602773603233866,
+   "min_thickness_mm": 2.5,
+   "n_vertices": 8,
+   "sha256": "bad69e2c5e4d167ad64925677a8366780703434671cb7cb5f47062c0ea72ea96",
+   "z_range_mm": [
+    -59.45,
+    -43.65
+   ]
+  },
+  {
+   "hand": "left",
+   "source_urdf_link": "l_1_dof_gripper_fixed",
+   "piece": "back_strip_rib_5",
+   "role": "back strip raised segment between grooves",
+   "stl": "l_fixed_pad_7.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 2.9261765225212884e-06,
+   "bbox_m": [
+    [
+     -0.03,
+     -0.027514,
+     -0.041853
+    ],
+    [
+     0.03,
+     -0.022936,
+     -0.022054
+    ]
+   ],
+   "mass_kg_est": 0.003511411827025546,
+   "min_thickness_mm": 2.5,
+   "n_vertices": 24,
+   "sha256": "ab22a9c983c86ec074182a19f313cee5606fa96d1fb07db02f7f64329169b9b1",
+   "z_range_mm": [
+    -41.15,
+    -21.62
+   ]
+  },
+  {
+   "hand": "right",
+   "source_urdf_link": "r_1_dof_gripper_fixed",
+   "piece": "inner_gripping_pad",
+   "role": "inner gripping pad (replaces old tip insert)",
+   "stl": "r_fixed_pad_0.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 2.056504171041228e-05,
+   "bbox_m": [
+    [
+     -0.034,
+     -0.0039,
+     -0.1565
+    ],
+    [
+     0.034,
+     0.002,
+     -0.0883
+    ]
+   ],
+   "mass_kg_est": 0.024678050052494734,
+   "min_thickness_mm": 5.9,
+   "n_vertices": 12,
+   "sha256": "a738b75721a1a56e703a30e02b6ba839cb15106a4ce071cf03942a6571b90576"
+  },
+  {
+   "hand": "right",
+   "source_urdf_link": "r_1_dof_gripper_moving",
+   "piece": "inner_gripping_pad",
+   "role": "inner gripping pad (replaces old inner insert incl. arc recess)",
+   "stl": "r_moving_pad_0.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 3.424874234587569e-05,
+   "bbox_m": [
+    [
+     -0.034,
+     0.009528,
+     -0.11195
+    ],
+    [
+     0.034,
+     0.024594,
+     -0.04605
+    ]
+   ],
+   "mass_kg_est": 0.04109849081505083,
+   "min_thickness_mm": 4.704,
+   "n_vertices": 16,
+   "sha256": "911e6cf1f44b4022cd88dd396c52e504bf2dcbf303387441e893dc74cb5d5518",
+   "max_thickness_mm": 13.744
+  },
+  {
+   "hand": "right",
+   "source_urdf_link": "r_1_dof_gripper_fixed",
+   "piece": "back_strip_base",
+   "role": "back strip base layer",
+   "stl": "r_fixed_pad_1.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 2.633524771012552e-05,
+   "bbox_m": [
+    [
+     -0.03,
+     0.008941,
+     -0.134151
+    ],
+    [
+     0.03,
+     0.025028,
+     -0.021617
+    ]
+   ],
+   "mass_kg_est": 0.03160229725215063,
+   "min_thickness_mm": 4.1,
+   "n_vertices": 12,
+   "sha256": "0620d83456ff8e9a7e4850d22dcffde2520e2be6c1787cac1a122a1becb19e79"
+  },
+  {
+   "hand": "right",
+   "source_urdf_link": "r_1_dof_gripper_fixed",
+   "piece": "back_strip_rib_0",
+   "role": "back strip raised segment between grooves",
+   "stl": "r_fixed_pad_2.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 1.658266785222818e-06,
+   "bbox_m": [
+    [
+     -0.02486,
+     0.013018,
+     -0.134417
+    ],
+    [
+     0.02486,
+     0.017193,
+     -0.118387
+    ]
+   ],
+   "mass_kg_est": 0.0019899201422673815,
+   "min_thickness_mm": 2.5,
+   "n_vertices": 8,
+   "sha256": "5b90082d66731bbaad8a4083e2b731b0a153bb9ead5fea00056a586d92301b57",
+   "z_range_mm": [
+    -133.71,
+    -117.95
+   ]
+  },
+  {
+   "hand": "right",
+   "source_urdf_link": "r_1_dof_gripper_fixed",
+   "piece": "back_strip_rib_1",
+   "role": "back strip raised segment between grooves",
+   "stl": "r_fixed_pad_3.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 2.4583276620961747e-06,
+   "bbox_m": [
+    [
+     -0.03,
+     0.014975,
+     -0.116153
+    ],
+    [
+     0.03,
+     0.019261,
+     -0.099087
+    ]
+   ],
+   "mass_kg_est": 0.0029499931945154096,
+   "min_thickness_mm": 2.5,
+   "n_vertices": 12,
+   "sha256": "12dc797a9274a4f5b81ce923f96baca4b43164686a18b1eb9b69b623308f658f",
+   "z_range_mm": [
+    -115.45,
+    -98.65
+   ]
+  },
+  {
+   "hand": "right",
+   "source_urdf_link": "r_1_dof_gripper_fixed",
+   "piece": "back_strip_rib_2",
+   "role": "back strip raised segment between grooves",
+   "stl": "r_fixed_pad_4.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 2.368478459911066e-06,
+   "bbox_m": [
+    [
+     -0.03,
+     0.017043,
+     -0.096853
+    ],
+    [
+     0.03,
+     0.021211,
+     -0.080887
+    ]
+   ],
+   "mass_kg_est": 0.002842174151893279,
+   "min_thickness_mm": 2.5,
+   "n_vertices": 8,
+   "sha256": "1093f1d53f67351dcfdce26997ea0f5a77042912b2c1b9feaa4638731f499077",
+   "z_range_mm": [
+    -96.15,
+    -80.45
+   ]
+  },
+  {
+   "hand": "right",
+   "source_urdf_link": "r_1_dof_gripper_fixed",
+   "piece": "back_strip_rib_3",
+   "role": "back strip raised segment between grooves",
+   "stl": "r_fixed_pad_5.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 2.413737013950206e-06,
+   "bbox_m": [
+    [
+     -0.03,
+     0.018993,
+     -0.078653
+    ],
+    [
+     0.03,
+     0.023193,
+     -0.062387
+    ]
+   ],
+   "mass_kg_est": 0.0028964844167402473,
+   "min_thickness_mm": 2.5,
+   "n_vertices": 8,
+   "sha256": "326bdc4f5fc16143570f3a348823fdd2f5a1c1aa6e5240d589f5b389eb0f62da",
+   "z_range_mm": [
+    -77.95,
+    -61.95
+   ]
+  },
+  {
+   "hand": "right",
+   "source_urdf_link": "r_1_dof_gripper_fixed",
+   "piece": "back_strip_rib_4",
+   "role": "back strip raised segment between grooves",
+   "stl": "r_fixed_pad_6.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 2.3835644669361556e-06,
+   "bbox_m": [
+    [
+     -0.03,
+     0.020975,
+     -0.060153
+    ],
+    [
+     0.03,
+     0.025154,
+     -0.044087
+    ]
+   ],
+   "mass_kg_est": 0.0028602773603233866,
+   "min_thickness_mm": 2.5,
+   "n_vertices": 8,
+   "sha256": "ab83f54ac1942ccc2cd9a6add46ea84fe623c399423102d8f82a1230857b1ccd",
+   "z_range_mm": [
+    -59.45,
+    -43.65
+   ]
+  },
+  {
+   "hand": "right",
+   "source_urdf_link": "r_1_dof_gripper_fixed",
+   "piece": "back_strip_rib_5",
+   "role": "back strip raised segment between grooves",
+   "stl": "r_fixed_pad_7.stl",
+   "convex": true,
+   "watertight": true,
+   "volume_m3": 2.9467347108125464e-06,
+   "bbox_m": [
+    [
+     -0.03,
+     0.022936,
+     -0.041853
+    ],
+    [
+     0.03,
+     0.027514,
+     -0.022054
+    ]
+   ],
+   "mass_kg_est": 0.003536081652975056,
+   "min_thickness_mm": 2.5,
+   "n_vertices": 8,
+   "sha256": "afdd708ca25b2346d5039adfce8c2d5111acabd4047ca62f6de8d3f4f566a227",
+   "z_range_mm": [
+    -41.15,
+    -21.62
+   ]
+  }
+ ],
+ "per_link_totals": {
+  "l_fixed": {
+   "volume_cm3": 61.05,
+   "mass_g_at_1.2": 73.26,
+   "n_pieces": 8
+  },
+  "l_moving": {
+   "volume_cm3": 34.249,
+   "mass_g_at_1.2": 41.1,
+   "n_pieces": 1
+  },
+  "r_fixed": {
+   "volume_cm3": 61.129,
+   "mass_g_at_1.2": 73.36,
+   "n_pieces": 8
+  },
+  "r_moving": {
+   "volume_cm3": 34.249,
+   "mass_g_at_1.2": 41.1,
+   "n_pieces": 1
+  }
+ },
+ "parameters": {
+  "fixed_face_mm": {
+   "value": 3.9,
+   "unit": "mm",
+   "basis": "photo-estimated (seam back-projected on the jaw side faces with the fitted camera: 3.94 mm mean at q 0.02; coupled with q_touch: 3.44 + 25.5*q_touch over q 0..0.03)",
+   "uncertainty": 0.6,
+   "meaning": "fixed-jaw pad gripping face height s*y in the fixed link frame (= fixed pad thickness - 2 mm). Measure: fixed pad thickness normal to the fixed finger plate (caliper)"
+  },
+  "fixed_base_mm": {
+   "value": -2.0,
+   "unit": "mm",
+   "basis": "mesh-derived",
+   "uncertainty": 0.0,
+   "meaning": "pad base = plane of the old tip insert / structural fixed finger (s*y = -2 mm)"
+  },
+  "q_touch_rad": {
+   "value": 0.02,
+   "unit": "rad",
+   "basis": "photo-estimated (camera fit with the moving angle free: best 0.02-0.03 rad; focal length then 1280-1620 px = 24-26 mm-equiv. phone lens; a perfectly uniform fixed pad would favour 0.00)",
+   "uncertainty": 0.02,
+   "meaning": "joint angle |q| at which the two inner pads touch (no object). Measure: joint reading when closed on nothing, or the jaw opening at the tips when the pads touch"
+  },
+  "pad_z_tip_mm": {
+   "value": -156.5,
+   "unit": "mm",
+   "basis": "mesh-derived (old insert tip = jaw tip); photo: fixed pad flush with its white jaw tip",
+   "uncertainty": 1.0,
+   "meaning": "pad tip end along the finger (fixed frame z)"
+  },
+  "pad_z_root_mm": {
+   "value": -88.3,
+   "unit": "mm",
+   "basis": "mesh-derived clearance (fixed pad must end at z <= -88.30 for 0.2 mm clearance to the moving jaw body swinging over q in [q_touch, limit]; at the old insert end -86.5 it penetrates 1.04 mm); photo: both pad root ends aligned at the seam, back-projected z -87.5..-89.3",
+   "uncertainty": 1.5,
+   "meaning": "pad root end along the finger (fixed-frame z at q=0; the moving pad uses the same value in its joint frame, z' = z - (-42.25))"
+  },
+  "moving_tip_setback_mm": {
+   "value": 2.3,
+   "unit": "mm",
+   "basis": "photo-estimated (lower pad tip at z -156.8..-157.1 vs lower white tip -159.2 and upper pad tip -159.2..-159.4; fixed pad is flush with its jaw tip)",
+   "uncertainty": 1.0,
+   "meaning": "moving pad tip set back from the moving jaw tip, along the finger"
+  },
+  "strip_thickness_mm": {
+   "value": 6.6,
+   "unit": "mm",
+   "basis": "photo-estimated (back-projection, median of 400 columns)",
+   "uncertainty": 1.0,
+   "meaning": "back strip thickness normal to the fixed jaw back face (old CAD back plate: 3.0 mm)"
+  },
+  "strip_groove_centres_z_mm": {
+   "value": [
+    -116.7,
+    -97.4,
+    -79.2,
+    -60.7,
+    -42.4
+   ],
+   "unit": "mm",
+   "basis": "photo-estimated (shadow/silhouette)",
+   "uncertainty": 2.0,
+   "meaning": "z of the transverse grooves on the back strip (pitch ~18.3 mm)"
+  },
+  "strip_groove_width_mm": {
+   "value": 2.5,
+   "unit": "mm",
+   "basis": "photo-estimated",
+   "uncertainty": 1.0,
+   "meaning": "groove width along the finger"
+  },
+  "strip_groove_depth_mm": {
+   "value": 2.5,
+   "unit": "mm",
+   "basis": "photo-estimated",
+   "uncertainty": 1.0,
+   "meaning": "groove depth into the strip"
+  },
+  "density_g_cm3": {
+   "value": 1.2,
+   "unit": "g/cm3",
+   "basis": "given (task)",
+   "uncertainty": 0.1,
+   "meaning": "pad material density"
+  }
+ },
+ "q_touch_rad": {
+  "left": 0.02002,
+  "right": -0.02002,
+  "check": {
+   "l": {
+    "pad_gap_mm_at_q_touch_minus_1mrad": -0.11,
+    "pad_gap_mm_at_q_touch_plus_1mrad": 0.0475
+   },
+   "r": {
+    "pad_gap_mm_at_q_touch_minus_1mrad": -0.11,
+    "pad_gap_mm_at_q_touch_plus_1mrad": 0.0475
+   }
+  },
+  "note": "closed target 0.0 is no longer reachable: the pads stop the joint at q_touch (PD stiffness 60 N*m/rad -> 1.2 N*m squeeze with no object)"
+ },
+ "colors": {
+  "recommended_displayColor": {
+   "white_jaw": {
+    "srgb": [
+     0.914,
+     0.914,
+     0.89
+    ],
+    "linear": [
+     0.8154,
+     0.8154,
+     0.7678
+    ]
+   },
+   "beige_pad": {
+    "srgb": [
+     0.722,
+     0.631,
+     0.489
+    ],
+    "linear": [
+     0.48,
+     0.3559,
+     0.204
+    ]
+   }
+  },
+  "basis": "photo pixels (a14_segment.py): median sRGB of the brightest-quartile pixels of each class; beige = mean of inner pads and back strip",
+  "samples_srgb": {
+   "inner_pads_beige": {
+    "median": [
+     0.576,
+     0.471,
+     0.353
+    ],
+    "lit_p75": [
+     0.698,
+     0.592,
+     0.455
+    ],
+    "n_px": 79601
+   },
+   "top_strip_beige": {
+    "median": [
+     0.714,
+     0.643,
+     0.494
+    ],
+    "lit_p75": [
+     0.745,
+     0.671,
+     0.522
+    ],
+    "n_px": 19257
+   },
+   "white_jaws": {
+    "median": [
+     0.824,
+     0.824,
+     0.796
+    ],
+    "lit_p75": [
+     0.914,
+     0.914,
+     0.89
+    ],
+    "n_px": 195654
+   }
+  }
+ },
+ "dimensions": [
+  {
+   "name": "pad base plane (fixed inner pad) s*y",
+   "value_mm": -2.0,
+   "basis": "mesh-derived (old tip-insert base = structural finger plane)",
+   "uncertainty_mm": 0.0
+  },
+  {
+   "name": "parting plane / fixed pad face s*y (fixed frame)",
+   "value_mm": 3.9,
+   "basis": "photo-estimated",
+   "uncertainty_mm": 0.6
+  },
+  {
+   "name": "fixed inner pad thickness",
+   "value_mm": 5.9,
+   "basis": "photo-estimated (via parting plane)",
+   "uncertainty_mm": 0.6
+  },
+  {
+   "name": "q_touch (pads meet, no object)",
+   "value_rad": 0.02,
+   "basis": "photo-estimated",
+   "uncertainty_rad": 0.02,
+   "equivalent_mm_at_moving_tip": 2.3
+  },
+  {
+   "name": "moving inner pad thickness (tip end / root end, normal to its face)",
+   "value_mm": [
+    4.704,
+    13.74
+   ],
+   "basis": "derived (mesh interface plane + photo face/q_touch)",
+   "uncertainty_mm": 0.7
+  },
+  {
+   "name": "moving pad inner boundary = old insert/body interface plane (moving frame, left)",
+   "value": "y' = -2.289 + 0.15721 z' mm (8.93 deg)",
+   "basis": "mesh-derived",
+   "uncertainty_mm": 0.0
+  },
+  {
+   "name": "pad footprint (both pads)",
+   "value": "old insert outline: |x| <= 34.0 for z in [-108.5, -86.5], straight taper to |x| = 10.0 (fixed) / 9.38 + 0.9 mm corner rounds (moving) at the tip",
+   "basis": "mesh-derived; photo: pad side faces flush with the white side faces",
+   "uncertainty_mm": 0.5
+  },
+  {
+   "name": "fixed pad tip end z",
+   "value_mm": -156.5,
+   "basis": "mesh-derived (jaw tip); photo: flush with its white tip",
+   "uncertainty_mm": 1.0
+  },
+  {
+   "name": "moving pad tip setback from the moving jaw tip",
+   "value_mm": 2.3,
+   "basis": "photo-estimated",
+   "uncertainty_mm": 1.0
+  },
+  {
+   "name": "pad root end z (both; fixed frame at q=0)",
+   "value_mm": -88.3,
+   "basis": "mesh-derived swing clearance (<= -88.30 for 0.2 mm) + photo (-87.5 .. -89.3)",
+   "uncertainty_mm": 1.5
+  },
+  {
+   "name": "fixed / moving inner pad length along z",
+   "value_mm": [
+    68.2,
+    65.9
+   ],
+   "basis": "derived",
+   "uncertainty_mm": 1.8
+  },
+  {
+   "name": "back strip base = fixed jaw back face (left)",
+   "value": "y = -23.268 - 0.10714 z mm (right: y = 23.268 + 0.10714 z)",
+   "basis": "mesh-derived",
+   "uncertainty_mm": 0.0
+  },
+  {
+   "name": "back strip footprint",
+   "value": "old back-plate base outline (left 20-vertex rounded, right 6-vertex; z -133.7 .. -21.6, |x| <= 30)",
+   "basis": "mesh-derived; photo: strip left end back-projects to z -131.9 (old plate end -133.7)",
+   "uncertainty_mm": 1.5
+  },
+  {
+   "name": "back strip thickness (normal to back face)",
+   "value_mm": 6.6,
+   "basis": "photo-estimated (top edge 6.62 mm above the back face, band 6.35 mm); old back plate 3.0 mm",
+   "uncertainty_mm": 1.0
+  },
+  {
+   "name": "back strip groove centres z",
+   "value_mm": [
+    -116.7,
+    -97.4,
+    -79.2,
+    -60.7,
+    -42.4
+   ],
+   "basis": "photo-estimated",
+   "uncertainty_mm": 2.0
+  },
+  {
+   "name": "back strip groove width / depth",
+   "value_mm": [
+    2.5,
+    2.5
+   ],
+   "basis": "photo-estimated",
+   "uncertainty_mm": 1.0
+  },
+  {
+   "name": "real white jaw tips vs CAD (not modelled)",
+   "value_mm": 2.7,
+   "basis": "photo-estimated (tips back-project to z -159.2..-159.4)",
+   "uncertainty_mm": 2.0
+  }
+ ],
+ "evidence": {
+  "jaw_identity": "Photo shows the LEFT gripper from its +x side: upper white jaw = FIXED (l_1_dof_gripper_fixed), lower = MOVING. The slotted box with the lens cylinder is the CAD wrist-camera housing on the fixed link (lens end centroid (50.4, 20.3, -52.5) mm = URDF l_wrist_camera_joint origin); its projection with the fitted camera lands on the photo box although the box was not used in the fit. The grey textured bracket with three screws on the LOWER jaw is the CAD moving-jaw side plate/hinge arm (x 18..34 mm, from z -86.5 to the hinge).",
+  "camera_fit": {
+   "f_px": 1290.7,
+   "q_rad": 0.02,
+   "camera_pos_mm_fixed_frame": [
+    172.6,
+    -12.6,
+    -106.2
+   ],
+   "residual_rms_px": "pad-top edge 4.4, lower-pad edge 1.2, 4 taper-edge points 6.8 (~0.7 mm)"
+  },
+  "seam_height_vs_assumed_q": {
+   "0.00": 3.44,
+   "0.01": 3.69,
+   "0.02": 3.94,
+   "0.03": 4.2
+  },
+  "seam_slope_vs_assumed_q": {
+   "0.00": -0.0042,
+   "0.01": -0.0069,
+   "0.02": -0.0095,
+   "0.03": -0.0134
+  },
+  "ratio_check_h_f": {
+   "q0.0": 3.48,
+   "q0.02": 4.13,
+   "q0.03": 4.46
+  },
+  "pad_tip_root_backprojection_mm": {
+   "upper_pad_tip_top": [
+    8.56,
+    -2.22,
+    -159.38
+   ],
+   "upper_pad_tip_bottom": [
+    8.64,
+    3.89,
+    -159.22
+   ],
+   "lower_pad_tip_top": [
+    9.86,
+    4.26,
+    -156.78
+   ],
+   "lower_pad_tip_bottom": [
+    9.71,
+    8.06,
+    -157.08
+   ],
+   "white_lower_tip": [
+    8.65,
+    9.17,
+    -159.2
+   ],
+   "upper_pad_root_top": [
+    34.0,
+    -1.8,
+    -87.48
+   ],
+   "seam_root": [
+    34.0,
+    3.83,
+    -89.29
+   ],
+   "lower_pad_root_bottom": [
+    34.0,
+    17.39,
+    -88.33
+   ],
+   "lower_pad_root_mid": [
+    34.0,
+    10.4,
+    -88.09
+   ]
+  },
+  "hypothesis_fill_recess_flush_with_rim": "PARTLY REJECTED: the pads fill the arc recess and meet when closed (confirmed), but they replace the whole old inserts (V-channel insert + V-ridge/arc insert) with flat faces meeting at s*y = 3.9 mm; filling the fixed channel to its rim (s*y = 10.5) would put the fixed face 6.6 mm above the photographed seam and cannot coexist with the moving ridge.",
+  "protrusion_vs_old_surfaces_mm": {
+   "fixed_face_above_old_floor_centre": 2.9,
+   "fixed_face_below_old_channel_rim_edge": 6.6,
+   "back_strip_beyond_old_back_plate": 3.58
+  }
+ },
+ "original_jaws": {
+  "components": "fixed = structural body + wrist-camera housing + tip insert (V-channel; 17.08 cm3) + back plate (3.0 mm; 18.40/18.44 cm3) + interface triangles; moving = structural body + side plate/hinge arm + inner insert (V-ridge + arc recess; 28.37 cm3) + 12 interface triangles",
+  "non_watertight_handling": "surfaces by first ray hit from outside (internal faces never hit first); occupancy by generalized winding number of all faces (max 1.0: internal duplicate faces cancel); structure by connected components; shells re-closed with the assembly's own interface triangles before any boolean",
+  "fixed_inner": "floor s*y = 1.0 for |x| <= 15 from the tip to z -71.5, 26.6 deg side walls to the rim s*y = 10.5 at |x| = 34",
+  "fixed_channel_depth_mm": 9.37,
+  "moving_inner_q0": "V-ridge nested in the channel (gap 0 for z -123..-86.5); arc recess near the tip",
+  "moving_arc_recess": {
+   "max_depth_mm": 6.677812115217388,
+   "at_z_mm": -133.49999999999997,
+   "z_extent_mm": [
+    -155.5,
+    -115.49999999999996
+   ],
+   "area_depth_gt_0p5mm_cm2": 14.025
+  },
+  "moving_outer_top_face_recess_mm": 0.0,
+  "fixed_whole_hull_excess_x0_mm": {
+   "-150": 2.092769006901168,
+   "-140": 5.277234642976719,
+   "-125": 9.587760186823363,
+   "-110": 13.898285730670034,
+   "-100": 16.771969426567807,
+   "-90": 19.64565312246558
+  },
+  "mirror_check": "moving jaws exact y-mirrors (0.0 mm); fixed jaws identical in the pad region (insert footprint/planes 0.0 mm) but differ at the root ramp z -80..-60 (<= 4.0 mm) and in the back-plate outline (<= 4.33 mm); the right strip uses the right outline",
+  "gap_vs_q_left_min_over_x_mm": {
+   "z_mm": [
+    -152.5,
+    -140.0,
+    -125.0,
+    -110.0,
+    -90.0
+   ],
+   "rows": {
+    "0.0000": {
+     "new_min_gap_mm": [
+      -2.21,
+      -1.96,
+      -1.66,
+      -1.36,
+      -0.96
+     ],
+     "old_min_gap_mm": [
+      2.115,
+      4.727,
+      0.0,
+      -0.0,
+      -0.0
+     ]
+    },
+    "0.0200": {
+     "new_min_gap_mm": [
+      0.002,
+      0.002,
+      0.002,
+      0.001,
+      0.001
+     ],
+     "old_min_gap_mm": [
+      4.513,
+      6.728,
+      1.653,
+      1.352,
+      0.951
+     ]
+    },
+    "0.0300": {
+     "new_min_gap_mm": [
+      1.101,
+      0.976,
+      0.826,
+      0.676,
+      0.476
+     ],
+     "old_min_gap_mm": [
+      5.697,
+      7.721,
+      2.474,
+      2.022,
+      1.422
+     ]
+    },
+    "0.0500": {
+     "new_min_gap_mm": [
+      3.298,
+      2.923,
+      2.473,
+      2.023,
+      1.423
+     ],
+     "old_min_gap_mm": [
+      8.049,
+      9.703,
+      4.115,
+      3.359,
+      2.358
+     ]
+    },
+    "0.0750": {
+     "new_min_gap_mm": [
+      6.036,
+      5.348,
+      4.522,
+      3.696,
+      2.595
+     ],
+     "old_min_gap_mm": [
+      10.951,
+      12.168,
+      6.16,
+      5.02,
+      3.517
+     ]
+    },
+    "0.1000": {
+     "new_min_gap_mm": [
+      8.767,
+      7.765,
+      6.562,
+      5.36,
+      7.711
+     ],
+     "old_min_gap_mm": [
+      13.815,
+      14.623,
+      8.199,
+      6.671,
+      4.664
+     ]
+    },
+    "0.2000": {
+     "new_min_gap_mm": [
+      19.695,
+      17.42,
+      14.691,
+      11.961,
+      6.266
+     ],
+     "old_min_gap_mm": [
+      25.006,
+      24.397,
+      16.347,
+      13.22,
+      9.166
+     ]
+    },
+    "0.4000": {
+     "new_min_gap_mm": [
+      42.318,
+      37.326,
+      31.335,
+      25.343,
+      15.124
+     ],
+     "old_min_gap_mm": [
+      46.881,
+      44.38,
+      33.218,
+      26.48,
+      18.024
+     ]
+    }
+   }
+  }
+ },
+ "evaluation": {
+  "q_touch": {
+   "l": {
+    "q_touch_rad_signed": 0.020021493902966883,
+    "q_touch_abs_rad": 0.020021493902966883,
+    "design_parameter_q_touch_rad": 0.02,
+    "pad_pad_distance_mm_at_q_touch_minus_1mrad": -0.11,
+    "pad_pad_distance_mm_at_q_touch_plus_1mrad": 0.0475,
+    "global_min_distance_mm_by_q": {
+     "0.0201": [
+      0.0,
+      "fixed_white|moving_white"
+     ],
+     "0.0300": [
+      0.0,
+      "fixed_white|moving_white"
+     ],
+     "0.1000": [
+      0.0,
+      "fixed_white|moving_white"
+     ],
+     "0.4000": [
+      0.0,
+      "fixed_white|moving_white"
+     ],
+     "1.5000": [
+      0.0,
+      "fixed_white|moving_white"
+     ]
+    }
+   },
+   "r": {
+    "q_touch_rad_signed": -0.020021493902966883,
+    "q_touch_abs_rad": 0.020021493902966883,
+    "design_parameter_q_touch_rad": 0.02,
+    "pad_pad_distance_mm_at_q_touch_minus_1mrad": -0.11,
+    "pad_pad_distance_mm_at_q_touch_plus_1mrad": 0.0475,
+    "global_min_distance_mm_by_q": {
+     "0.0201": [
+      0.0,
+      "fixed_white|moving_white"
+     ],
+     "0.0300": [
+      0.0,
+      "fixed_white|moving_white"
+     ],
+     "0.1000": [
+      0.0,
+      "fixed_white|moving_white"
+     ],
+     "0.4000": [
+      0.0,
+      "fixed_white|moving_white"
+     ],
+     "1.5000": [
+      0.0,
+      "fixed_white|moving_white"
+     ]
+    }
+   }
+  },
+  "old_top_rim_grasp_left": {
+   "G": "contact_heading_final.json valid_G_by_heading[52.5] current_validated (h_x 52.5, az 90)",
+   "ring_tilt_to_jaw_plate_deg": 12.95,
+   "rim_inside_jaws": {
+    "x": [
+     -21.812413022872903,
+     11.650888478950852
+    ],
+    "z": [
+     -156.49821810029056,
+     -132.7279285846821
+    ],
+    "depth_from_tip_mm": 23.772071415317896,
+    "hull_xz_mm": [
+     [
+      -21.81,
+      -132.86
+     ],
+     [
+      -18.74,
+      -139.02
+     ],
+     [
+      -10.07,
+      -156.36
+     ],
+     [
+      -9.92,
+      -156.45
+     ],
+     [
+      -8.39,
+      -156.49
+     ],
+     [
+      -4.1,
+      -156.5
+     ],
+     [
+      0.63,
+      -156.5
+     ],
+     [
+      6.7,
+      -156.49
+     ],
+     [
+      8.26,
+      -156.46
+     ],
+     [
+      9.83,
+      -156.37
+     ],
+     [
+      10.13,
+      -155.99
+     ],
+     [
+      10.46,
+      -155.5
+     ],
+     [
+      11.61,
+      -153.19
+     ],
+     [
+      11.65,
+      -152.85
+     ],
+     [
+      11.4,
+      -152.62
+     ],
+     [
+      6.57,
+      -148.65
+     ],
+     [
+      6.12,
+      -148.32
+     ],
+     [
+      4.24,
+      -147.03
+     ],
+     [
+      0.06,
+      -144.19
+     ],
+     [
+      -3.91,
+      -141.53
+     ],
+     [
+      -10.62,
+      -137.88
+     ],
+     [
+      -11.1,
+      -137.62
+     ],
+     [
+      -13.64,
+      -136.24
+     ],
+     [
+      -14.19,
+      -135.95
+     ],
+     [
+      -15.08,
+      -135.5
+     ],
+     [
+      -17.72,
+      -134.38
+     ],
+     [
+      -18.56,
+      -134.02
+     ],
+     [
+      -21.36,
+      -132.86
+     ],
+     [
+      -21.74,
+      -132.73
+     ],
+     [
+      -21.81,
+      -132.75
+     ]
+    ]
+   },
+   "validation_old_jaws_contact_q_rad": 0.03210594654083252,
+   "fixed_pad_intrusion_into_ring_at_old_G_mm": 2.726,
+   "required_G_shift_along_ring_normal_mm": -2.826,
+   "contact_q_rad": {
+    "A_same_hand_orientation_ring_plane_plate": {
+     "3.75mm": {
+      "new": 0.1209,
+      "old": 0.0321,
+      "new_first_component": "collider_0046_Sector_13"
+     },
+     "6.00mm": {
+      "new": 0.1443,
+      "old": 0.0516,
+      "new_first_component": "collider_0046_Sector_13"
+     }
+    },
+    "B_plate_parallel_to_pads": {
+     "3.75mm": {
+      "new": 0.0628,
+      "old": 0.0298
+     },
+     "6.00mm": {
+      "new": 0.0879,
+      "old": 0.0479
+     }
+    },
+    "cross_check": {
+     "A_real_rim_hppfcl_contact_q_rad": 0.12088954336941243,
+     "A_first_pair_just_above": "moving_pad|collider_0046_Sector_13",
+     "A_pin_clearance_at_contact_mm": 6.600400638235004,
+     "A_nearest_pin": "moving_pad|collider_0103_Pin_06",
+     "A_eval_pads_value_rad": 0.12088837623596191,
+     "B_3.75mm_new_raycast_q": 0.06271731853485107,
+     "B_3.75mm_old_raycast_q": 0.02937134802341461,
+     "B_6.00mm_new_raycast_q": 0.08783079162240029,
+     "B_6.00mm_old_raycast_q": 0.04754573404788971
+    }
+   },
+   "approach_q0.4_old_G": [
+    {
+     "d_mm": 25.0,
+     "pad_hits": [],
+     "white_body_hits": []
+    },
+    {
+     "d_mm": 20.0,
+     "pad_hits": [],
+     "white_body_hits": []
+    },
+    {
+     "d_mm": 15.0,
+     "pad_hits": [
+      "fixed_pad_0:collider_0047_Sector_14",
+      "fixed_pad_0:collider_0048_Sector_15"
+     ],
+     "white_body_hits": []
+    },
+    {
+     "d_mm": 10.0,
+     "pad_hits": [
+      "fixed_pad_0:collider_0046_Sector_13",
+      "fixed_pad_0:collider_0047_Sector_14",
+      "fixed_pad_0:collider_0048_Sector_15"
+     ],
+     "white_body_hits": []
+    },
+    {
+     "d_mm": 5.0,
+     "pad_hits": [
+      "fixed_pad_0:collider_0047_Sector_14",
+      "fixed_pad_0:collider_0048_Sector_15",
+      "fixed_pad_0:collider_0049_Sector_16"
+     ],
+     "white_body_hits": []
+    },
+    {
+     "d_mm": 0.0,
+     "pad_hits": [
+      "fixed_pad_0:collider_0047_Sector_14",
+      "fixed_pad_0:collider_0048_Sector_15",
+      "fixed_pad_0:collider_0049_Sector_16"
+     ],
+     "white_body_hits": []
+    }
+   ],
+   "approach_q0.4_replaced_G": [
+    {
+     "d_mm": 25.0,
+     "pad_hits": [],
+     "white_body_hits": []
+    },
+    {
+     "d_mm": 20.0,
+     "pad_hits": [],
+     "white_body_hits": []
+    },
+    {
+     "d_mm": 15.0,
+     "pad_hits": [],
+     "white_body_hits": []
+    },
+    {
+     "d_mm": 10.0,
+     "pad_hits": [],
+     "white_body_hits": []
+    },
+    {
+     "d_mm": 5.0,
+     "pad_hits": [],
+     "white_body_hits": []
+    },
+    {
+     "d_mm": 0.0,
+     "pad_hits": [],
+     "white_body_hits": []
+    }
+   ],
+   "open_jaw_euclidean_clearance_mm": {
+    "q0.4_old_jaws_old_G": {
+     "moving_to_rim_mm_at_G": 26.47,
+     "rim_comp": "collider_0046_Sector_13",
+     "moving_to_pins_mm_at_G": 34.74,
+     "pin": "collider_0102_Pin_05",
+     "moving_to_rim_min_over_approach_mm": 26.47,
+     "moving_to_pins_min_over_approach_mm": 34.74
+    },
+    "q0.4_new_old_G": {
+     "moving_to_rim_mm_at_G": 24.08,
+     "rim_comp": "collider_0045_Sector_12",
+     "moving_to_pins_mm_at_G": 30.93,
+     "pin": "collider_0102_Pin_05",
+     "moving_to_rim_min_over_approach_mm": 24.08,
+     "moving_to_pins_min_over_approach_mm": 30.93
+    },
+    "q0.4_new_replaced_G": {
+     "moving_to_rim_mm_at_G": 21.98,
+     "rim_comp": "collider_0045_Sector_12",
+     "moving_to_pins_mm_at_G": 28.74,
+     "pin": "collider_0102_Pin_05",
+     "moving_to_rim_min_over_approach_mm": 21.98,
+     "moving_to_pins_min_over_approach_mm": 28.74
+    },
+    "q1.5_old_jaws_old_G": {
+     "moving_to_rim_mm_at_G": 73.21,
+     "rim_comp": "collider_0045_Sector_12",
+     "moving_to_pins_mm_at_G": 85.6,
+     "pin": "collider_0102_Pin_05",
+     "moving_to_rim_min_over_approach_mm": 73.21,
+     "moving_to_pins_min_over_approach_mm": 85.6
+    },
+    "q1.5_new_old_G": {
+     "moving_to_rim_mm_at_G": 73.21,
+     "rim_comp": "collider_0045_Sector_12",
+     "moving_to_pins_mm_at_G": 85.6,
+     "pin": "collider_0102_Pin_05",
+     "moving_to_rim_min_over_approach_mm": 73.21,
+     "moving_to_pins_min_over_approach_mm": 85.6
+    },
+    "q1.5_new_replaced_G": {
+     "moving_to_rim_mm_at_G": 72.38,
+     "rim_comp": "collider_0045_Sector_12",
+     "moving_to_pins_mm_at_G": 84.96,
+     "pin": "collider_0102_Pin_05",
+     "moving_to_rim_min_over_approach_mm": 72.38,
+     "moving_to_pins_min_over_approach_mm": 84.96
+    },
+    "fixed_old_jaws_old_G": {
+     "fixed_to_rim_mm_at_G": 0.1,
+     "comp": "collider_0048_Sector_15"
+    },
+    "fixed_new_old_G": {
+     "fixed_to_rim_mm_at_G": -2.73,
+     "comp": "collider_0048_Sector_15"
+    },
+    "fixed_new_replaced_G": {
+     "fixed_to_rim_mm_at_G": 0.1,
+     "comp": "collider_0048_Sector_15"
+    }
+   }
+  },
+  "overlaps": {
+   "l": {
+    "white_shells_are_volumes": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "fixed_pad_0_vs_fixed_white_mm3": 0.0,
+    "fixed_pad_1_vs_fixed_white_mm3": 0.003017174446375666,
+    "fixed_pad_2_vs_fixed_white_mm3": 0.0,
+    "fixed_pad_3_vs_fixed_white_mm3": 0.0,
+    "fixed_pad_4_vs_fixed_white_mm3": 0.0,
+    "fixed_pad_5_vs_fixed_white_mm3": 0.0,
+    "fixed_pad_6_vs_fixed_white_mm3": 0.0,
+    "fixed_pad_7_vs_fixed_white_mm3": 0.0,
+    "moving_pad_0_vs_moving_white_mm3": 0.00022345016131640754,
+    "fixed_pad_1_vs_fixed_pad_2_mm3": 0.0003410294160689159,
+    "fixed_pad_1_vs_fixed_pad_3_mm3": 0.00036476995790839744,
+    "fixed_pad_1_vs_fixed_pad_4_mm3": 5.411838279017299e-05,
+    "fixed_pad_1_vs_fixed_pad_5_mm3": 0.0002907624681218545,
+    "fixed_pad_1_vs_fixed_pad_6_mm3": 1.8694689009292886e-05,
+    "fixed_pad_1_vs_fixed_pad_7_mm3": 0.0007489160190689996,
+    "max_overlap_involving_pads_mm3_q_touch_to_limit": [
+     0.0,
+     null,
+     null
+    ],
+    "max_white_vs_white_overlap_mm3_q_touch_to_limit": [
+     1626.8529455509013,
+     0.020021493902966883,
+     "fixed_white_1|moving_white_1"
+    ],
+    "original_meshes_white_vs_white_overlap_mm3": {
+     "0.0000": 1463.5720682208184,
+     "0.0200": 1457.287290726263
+    }
+   },
+   "r": {
+    "white_shells_are_volumes": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "fixed_pad_0_vs_fixed_white_mm3": 0.0,
+    "fixed_pad_1_vs_fixed_white_mm3": 0.00022821846510902234,
+    "fixed_pad_2_vs_fixed_white_mm3": 0.0,
+    "fixed_pad_3_vs_fixed_white_mm3": 0.0,
+    "fixed_pad_4_vs_fixed_white_mm3": 0.0,
+    "fixed_pad_5_vs_fixed_white_mm3": 0.0,
+    "fixed_pad_6_vs_fixed_white_mm3": 0.0,
+    "fixed_pad_7_vs_fixed_white_mm3": 0.0,
+    "moving_pad_0_vs_moving_white_mm3": 0.0,
+    "fixed_pad_1_vs_fixed_pad_2_mm3": 0.0003264046234396311,
+    "fixed_pad_1_vs_fixed_pad_5_mm3": 0.0008940695900294685,
+    "max_overlap_involving_pads_mm3_q_touch_to_limit": [
+     0.0,
+     null,
+     null
+    ],
+    "max_white_vs_white_overlap_mm3_q_touch_to_limit": [
+     2576.910592842123,
+     0.020021493902966883,
+     "fixed_white_1|moving_white_1"
+    ],
+    "original_meshes_white_vs_white_overlap_mm3": {
+     "0.0000": 0.0,
+     "0.0200": 0.0
+    }
+   }
+  },
+  "root_clearance": {
+   "l": {
+    "fixed_pad_root_at_-86.5_min_distance_mm": -1.0445180802541447,
+    "at_q_rad_shell": [
+     0.043,
+     1
+    ],
+    "max_fixed_pad_root_z_mm_for_0.2mm_clearance": -88.30254155397415,
+    "min_distance_mm_there": 0.2000022697048473,
+    "worst_q": [
+     0.068,
+     1
+    ],
+    "moving_pad_vs_fixed_white_min_distance_mm": 0.32830463547631183,
+    "moving_pad_worst_q_shell": [
+     0.02,
+     1
+    ]
+   },
+   "r": {
+    "fixed_pad_root_at_-86.5_min_distance_mm": -1.0445180802541447,
+    "at_q_rad_shell": [
+     0.043,
+     1
+    ],
+    "max_fixed_pad_root_z_mm_for_0.2mm_clearance": -88.30254155397415,
+    "min_distance_mm_there": 0.2000022697048473,
+    "worst_q": [
+     0.068,
+     1
+    ],
+    "moving_pad_vs_fixed_white_min_distance_mm": 0.3238327971152865,
+    "moving_pad_worst_q_shell": [
+     0.02,
+     1
+    ]
+   }
+  }
+ },
+ "integration_notes": [
+  "Replace the jaw meshes (collision + visual) by white_bodies/{l,r}_{fixed,moving}_white_body.stl: the original components minus the old inserts (fixed tip insert, moving inner insert) and minus the old 3 mm back plate (enclosed by the new strip). Keeping the original meshes would leave the old V-channel walls up to 6.6 mm above the fixed pad face and the old ridge 2.9 mm inside the fixed pad.",
+  "Add every pad STL as its own collider on its link with physics:approximation convexHull (each piece is exactly convex, <= 40 vertices).",
+  "Bind the pad physics material (static 1.2 / dynamic 0.9) to the pad colliders only. PhysX picks the higher-priority combine mode of a pair: with average on both, pad vs CRS plastic (0.4/0.3) gives 0.80/0.60; max gives 1.2/0.9; multiply gives 0.48/0.27.",
+  "displayColor: pads beige, white bodies white (see colors).",
+  "URDF link masses are explicit (0.271 / 0.093 kg). Pads add fixed +73.3 g, moving +41.1 g at 1.2 g/cm3; the removed old parts are 35.48 cm3 (fixed) and 28.37 cm3 (moving).",
+  "Grasp G for the CRS top rim must move -2.83 mm along the ring normal (fixed pad otherwise 2.73 mm inside the ring)."
+ ],
+ "to_measure_on_the_real_gripper": [
+  "fixed inner pad thickness normal to the finger plate (sets fixed_face_mm = thickness - 2.0)",
+  "moving inner pad thickness at its tip end and at its root end (checks the interface plane and q_touch)",
+  "joint reading (or tip opening) when the pads just touch with nothing between them (q_touch)",
+  "pad lengths and the distances of both pad ends from the white jaw tips and from the root steps (tip setback, root setback)",
+  "pad widths at root and tip; whether the pad side faces are flush with the white side faces",
+  "gripping-face texture (the lower pad face shows fine ribs near the root in the photo) and any taper between the faces (tip-first contact)",
+  "back strip: thickness, length, width, groove positions/width/depth",
+  "finger length from the hinge axis to the tips (photo suggests the white tips are ~2.7 mm beyond the CAD)",
+  "pad material: mass of one pad (density), Shore hardness, and a friction test against the CRS plastic"
+ ],
+ "outputs": {
+  "pads": [
+   "l_fixed_pad_0.stl",
+   "l_fixed_pad_1.stl",
+   "l_fixed_pad_2.stl",
+   "l_fixed_pad_3.stl",
+   "l_fixed_pad_4.stl",
+   "l_fixed_pad_5.stl",
+   "l_fixed_pad_6.stl",
+   "l_fixed_pad_7.stl",
+   "l_moving_pad_0.stl",
+   "r_fixed_pad_0.stl",
+   "r_fixed_pad_1.stl",
+   "r_fixed_pad_2.stl",
+   "r_fixed_pad_3.stl",
+   "r_fixed_pad_4.stl",
+   "r_fixed_pad_5.stl",
+   "r_fixed_pad_6.stl",
+   "r_fixed_pad_7.stl",
+   "r_moving_pad_0.stl"
+  ],
+  "white_bodies": [
+   "white_bodies/l_fixed_white_body.stl",
+   "white_bodies/l_moving_white_body.stl",
+   "white_bodies/r_fixed_white_body.stl",
+   "white_bodies/r_moving_white_body.stl"
+  ],
+  "figures": [
+   "compare_photo.png",
+   "compare_photo_zoom.png",
+   "sections.png"
+  ],
+  "reports": [
+   "make_pads_report.json",
+   "eval_pads.json",
+   "analysis/*.json"
+  ]
+ }
+}
